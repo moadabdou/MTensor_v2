@@ -77,30 +77,60 @@ namespace ops{
         dnnl::engine engine(dnnl::engine::kind::cpu, 0);
         dnnl::stream engine_stream(engine);
 
-        for ( const auto& operand : m_operands ){
-            if (! operand->get_grad())
-                operand->set_grad(TensorImpl::zeros(operand->shape()));
-        }
+        dnnl::memory::desc diff_md({ diff_loss_out->shape(), dnnl::memory::data_type::f32, diff_loss_out->stride() });
 
         dnnl::memory diff_loss_out_mem(
-            { diff_loss_out->shape(), dnnl::memory::data_type::f32, diff_loss_out->stride() }, 
+            diff_md, 
             engine,
             diff_loss_out->data_ptr().get() + diff_loss_out->data_offset()
         );
 
-        accumulate(
-            diff_loss_out_mem,
-            m_operands[0]->get_grad(),
-            engine,
-            engine_stream
-        );
+        if (m_operands[0]->get_grad()){
+            accumulate(
+                diff_loss_out_mem,
+                m_operands[0]->get_grad(),
+                engine,
+                engine_stream
+            );
+        }else {
 
-        accumulate(
-            diff_loss_out_mem,
-            m_operands[1]->get_grad(),
-            engine,
-            engine_stream
-        );
+            std::shared_ptr<float> data_storage(new float[diff_loss_out->numel()], std::default_delete<float[]>());
+
+            dnnl::memory dst_m(diff_md, engine, data_storage.get());
+
+            dnnl::reorder reorder_prm(diff_loss_out_mem, dst_m);
+            reorder_prm.execute(engine_stream, diff_loss_out_mem, dst_m);
+
+            engine_stream.wait();
+
+            m_operands[0]->set_grad(std::make_shared<TensorImpl>(data_storage, 0 , diff_md.get_dims(), nullptr , false, true , diff_md.get_strides()));
+
+        }
+
+
+        if (m_operands[1]->get_grad()){
+
+            accumulate(
+                diff_loss_out_mem,
+                m_operands[1]->get_grad(),
+                engine,
+                engine_stream
+            );
+
+        }else {
+
+            std::shared_ptr<float> data_storage(new float[diff_loss_out->numel()], std::default_delete<float[]>());
+
+            dnnl::memory dst_m(diff_md, engine, data_storage.get());
+
+            dnnl::reorder reorder_prm(diff_loss_out_mem, dst_m);
+            reorder_prm.execute(engine_stream, diff_loss_out_mem, dst_m);
+
+            engine_stream.wait();
+
+            m_operands[1]->set_grad(std::make_shared<TensorImpl>(data_storage, 0 , diff_md.get_dims(), nullptr , false, true , diff_md.get_strides()));
+
+        }
 
     }
 

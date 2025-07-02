@@ -76,19 +76,17 @@ namespace ops{
         dnnl::engine engine(dnnl::engine::kind::cpu, 0);
         dnnl::stream engine_stream(engine);
 
-        for ( const auto& operand : m_operands ){
-            if (! operand->get_grad())
-                operand->set_grad(TensorImpl::zeros(operand->shape()));
-        }
-
         Div div;
         Mul mul;
         Pow pow(2);
         Linear linear(-1, 0);
 
         const auto& unity_scalar = TensorImpl::ones({1});
-        const auto& x = m_operands[0];
-        const auto& y = m_operands[1];
+        auto& x = m_operands[0];
+        auto& y = m_operands[1];
+
+        x->set_requires_grad(false);
+        y->set_requires_grad(false);
 
         auto diff_loss_x = mul.forward({
             div.forward({unity_scalar, y}), //diff_loss_out_x
@@ -100,31 +98,47 @@ namespace ops{
             diff_loss_out
         });
 
-        dnnl::memory diff_loss_x_mem(
-            { diff_loss_x->shape(), dnnl::memory::data_type::f32, diff_loss_x->stride() }, 
-            engine,
-            diff_loss_x->data_ptr().get() + diff_loss_x->data_offset()
-        );
+        x->set_requires_grad(true);
+        y->set_requires_grad(true);
 
-        dnnl::memory diff_loss_y_mem(
-            { diff_loss_y->shape(), dnnl::memory::data_type::f32, diff_loss_y->stride() }, 
-            engine,
-            diff_loss_y->data_ptr().get() + diff_loss_y->data_offset()
-        );
+        if (!x->get_grad()){
 
-        accumulate(
-            diff_loss_x_mem,
-            x->get_grad(),
-            engine,
-            engine_stream
-        );
+            x->set_grad(diff_loss_x);
 
-        accumulate(
-            diff_loss_y_mem,
-            y->get_grad(),
-            engine,
-            engine_stream
-        );
+        }else {
+
+            dnnl::memory diff_loss_x_mem(
+                { diff_loss_x->shape(), dnnl::memory::data_type::f32, diff_loss_x->stride() }, 
+                engine,
+                diff_loss_x->data_ptr().get() + diff_loss_x->data_offset()
+            );
+
+            accumulate(
+                diff_loss_x_mem,
+                x->get_grad(),
+                engine,
+                engine_stream
+            );
+        }
+
+        if (!y->get_grad()){
+
+            y->set_grad(diff_loss_y);
+
+        }else {
+            
+            dnnl::memory diff_loss_y_mem(
+                { diff_loss_y->shape(), dnnl::memory::data_type::f32, diff_loss_y->stride() }, 
+                engine,
+                diff_loss_y->data_ptr().get() + diff_loss_y->data_offset()
+            );
+            accumulate(
+                diff_loss_y_mem,
+                y->get_grad(),
+                engine,
+                engine_stream
+            );
+        }
     }
 
 }//ops

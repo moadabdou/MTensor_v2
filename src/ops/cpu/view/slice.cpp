@@ -87,8 +87,29 @@ namespace ops{
         return std::make_shared<TensorImpl>(in_tensor->data_ptr(),out_data_offset, out_shape , grad_fn , requires_grad,false, out_stride);
     }
 
-    void Slice::backward(const std::shared_ptr<TensorImpl>& diff_loss_out){
+    void Slice::backward(const std::shared_ptr<TensorImpl>& diff_out){
+          dnnl::engine engine(dnnl::engine::kind::cpu, 0);
+        dnnl::stream engine_stream(engine);
 
+        auto& x = m_operands[0];
+
+        if (!x->get_grad()){
+            x->set_grad(TensorImpl::zeros(x->shape()));
+        }
+
+        Slice slice(m_slice_list);
+
+        auto sliced_diff_src =  slice.forward({x->get_grad()});
+
+        auto diff_out_md = dnnl::memory::desc(diff_out->shape() , dnnl::memory::data_type::f32, diff_out->stride());
+        dnnl::memory diff_out_mem(diff_out_md, engine, diff_out->data_ptr().get() + diff_out->data_offset());
+
+        accumulate(
+            diff_out_mem,
+            sliced_diff_src,
+            engine,
+            engine_stream
+        );
     }
 
 }//ops

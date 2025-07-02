@@ -144,6 +144,7 @@ public:
     void backward(const std::shared_ptr<TensorImpl>& diff_loss_out) override;
 private:
     std::vector<int64_t> m_shape;
+    std::vector<int64_t> m_expanded_dims;
     static int64_t count;
 };
 

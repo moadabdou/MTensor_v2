@@ -27,11 +27,11 @@ TEST(eltwise_grad , all){
     mt::ops::Tanh tanh;
     
 
-    std::shared_ptr<mt::TensorImpl> t1 = mt::TensorImpl::rand({2,4,4}, -1,1,42,true);
+    std::shared_ptr<mt::TensorImpl> t1 = mt::TensorImpl::rand({2,4,4}, 0,1,42,true);
     std::shared_ptr<mt::TensorImpl> t2 = mt::TensorImpl::ones({2,4,4});
 
     std::cout << t1;
-    auto out = abs.forward({t1});
+    auto out = log.forward({t1});
     std::cout << out;
     out->grad_fn()->backward(t2);
     out->grad_fn()->backward(t2);

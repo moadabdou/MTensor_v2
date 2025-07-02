@@ -51,7 +51,7 @@ namespace ops{
 
         //check if the slice is withen the allowed range
         if (m_start + m_length > out_shape[m_dim]) {
-            throw std::invalid_argument(
+            throw std::out_of_range(
                 "error: Narrow() slice range is out of range the allowed range, slice_range[start, start+length] in [0, dim]"
             );
         }
@@ -68,11 +68,32 @@ namespace ops{
             grad_fn->set_operands({in_tensor});
         }
 
-        return std::make_shared<TensorImpl>(in_tensor->data_ptr(),in_tensor->data_offset(), out_shape , grad_fn , requires_grad,false, out_stride);
+        return std::make_shared<TensorImpl>(in_tensor->data_ptr(),out_data_offset, out_shape , grad_fn , requires_grad,false, out_stride);
     }
 
-    void Narrow::backward(const std::shared_ptr<TensorImpl>& diff_loss_out){
+    void Narrow::backward(const std::shared_ptr<TensorImpl>& diff_out){
+        dnnl::engine engine(dnnl::engine::kind::cpu, 0);
+        dnnl::stream engine_stream(engine);
 
+        auto& x = m_operands[0];
+
+        if (!x->get_grad()){
+            x->set_grad(TensorImpl::zeros(x->shape()));
+        }
+
+        Narrow narrow(m_dim, m_start, m_length);
+
+        auto sliced_diff_src =  narrow.forward({x->get_grad()});
+
+        auto diff_out_md = dnnl::memory::desc(diff_out->shape() , dnnl::memory::data_type::f32, diff_out->stride());
+        dnnl::memory diff_out_mem(diff_out_md, engine, diff_out->data_ptr().get() + diff_out->data_offset());
+
+        accumulate(
+            diff_out_mem,
+            sliced_diff_src,
+            engine,
+            engine_stream
+        );
     }
 
 }//ops

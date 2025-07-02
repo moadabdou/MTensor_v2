@@ -256,15 +256,28 @@ gtest_discover_tests(dnnl_tests)
 # gtest_discover_tests(binary_grad)
 
 
-add_executable(eltwise_grad)
+# add_executable(eltwise_grad)
 
-target_sources(eltwise_grad PRIVATE eltwise_grad.cpp)
+# target_sources(eltwise_grad PRIVATE eltwise_grad.cpp)
 
-set_target_properties(eltwise_grad PROPERTIES 
+# set_target_properties(eltwise_grad PROPERTIES 
+#     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+# )
+
+# target_link_libraries( eltwise_grad PRIVATE  GTest::gtest_main)
+# target_link_libraries( eltwise_grad PRIVATE MTensor )
+# include(GoogleTest)
+# gtest_discover_tests(eltwise_grad)
+
+add_executable(view_grad)
+
+target_sources(view_grad PRIVATE view_grad.cpp)
+
+set_target_properties(view_grad PROPERTIES 
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
 )
 
-target_link_libraries( eltwise_grad PRIVATE  GTest::gtest_main)
-target_link_libraries( eltwise_grad PRIVATE MTensor )
+target_link_libraries( view_grad PRIVATE  GTest::gtest_main)
+target_link_libraries( view_grad PRIVATE MTensor )
 include(GoogleTest)
-gtest_discover_tests(eltwise_grad)
+gtest_discover_tests(view_grad)

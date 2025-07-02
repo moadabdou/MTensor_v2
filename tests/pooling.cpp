@@ -28,7 +28,6 @@ TEST(pooling , max_1d){
     std::cout << t2;
     std::cout  << max1d.forward({t2});
 
-    max1d.forward({t2})->grad_fn()->backward();
     
 }
 
@@ -54,7 +53,6 @@ TEST(pooling , max_2d){
     std::cout << t2;
     std::cout  << max2d.forward({t2});
 
-    max2d.forward({t2})->grad_fn()->backward();
     
 }
 
@@ -81,7 +79,6 @@ TEST(pooling , max_3d){
     std::cout << t2;
     std::cout  << max3d.forward({t2});
 
-    max3d.forward({t2})->grad_fn()->backward();
     
 }
 

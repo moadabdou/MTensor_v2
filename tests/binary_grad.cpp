@@ -33,6 +33,7 @@ TEST(binary_ops , all){
     std::cout << t2;
     auto out = sub.forward({t1,t2});
     out->grad_fn()->backward(t3);
+    out->grad_fn()->backward(t3);
     std::cout  << t1->get_grad();
     std::cout  << t2->get_grad();
 

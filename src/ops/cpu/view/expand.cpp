@@ -41,6 +41,7 @@ namespace ops{
         std::vector<int64_t> out_stride(out_dim, 0); 
 
         // Align dimensions from the right
+        
         for (int64_t i = out_dim - 1; i > lower_bound  - 1 ; --i) {
             int64_t in_size  = in_shape[i - lower_bound ];
             int64_t out_size = m_shape[i];
@@ -59,15 +60,19 @@ namespace ops{
 
         }
 
-        
-
-        std::shared_ptr<Operation> grad_fn = nullptr;
+        std::vector<int64_t> expanded_dims; 
+        for(int64_t i = 0 ; i < out_stride.size() ;  i++){
+            if (!out_stride[i]) expanded_dims.push_back(i);
+        }
+    
+        std::shared_ptr<Expand> grad_fn = nullptr;
         bool requires_grad = false;
 
         if ( in_tensor->requires_grad() ){
             requires_grad = true; 
             grad_fn = std::make_shared<Expand>(m_shape, true);
             grad_fn->set_operands({in_tensor});
+            grad_fn->m_expanded_dims = expanded_dims;
         }
 
         return std::make_shared<TensorImpl>(in_tensor->data_ptr(), in_tensor->data_offset() , m_shape, grad_fn , requires_grad,false , out_stride);
@@ -75,7 +80,28 @@ namespace ops{
     }
 
     void Expand::backward(const std::shared_ptr<TensorImpl>& diff_loss_out){
+        dnnl::engine engine(dnnl::engine::kind::cpu, 0);
+        dnnl::stream engine_stream(engine);
+        Sum sum(m_expanded_dims);
 
+        auto& x = m_operands[0];
+
+        auto diff_src =  sum.forward({diff_loss_out});
+
+        if (x->get_grad()){
+
+            auto diff_src_md = dnnl::memory::desc(diff_src->shape() , dnnl::memory::data_type::f32, diff_src->stride());
+            dnnl::memory diff_src_mem(diff_src_md, engine, diff_src->data_ptr().get() + diff_src->data_offset());
+            accumulate(
+                diff_src_mem,
+                x->get_grad(),
+                engine,
+                engine_stream
+            );
+
+        }else {
+            x->set_grad(diff_src);
+        }
     }
 
 }//ops
