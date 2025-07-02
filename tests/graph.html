@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Gradient Graph</title>
+  <style>html, body, #cy { width: 100%; height: 100%; margin: 0; padding: 0; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.32.0/cytoscape.min.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dagre/0.8.5/dagre.min.js" integrity="sha512-psLUZfcgPmi012lcpVHkWoOqyztollwCGu4w/mXijFMK/YcdUdP06voJNVOJ7f/dUIlO2tGlDLuypRyXX2lcvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape-dagre@2.5.0/cytoscape-dagre.min.js"></script>
+  <style>
+
+#info-panel * {
+    box-sizing: border-box;
+}
+
+#info-panel ,  #general-info-panel{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #fff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    border: 1px solid #e6e6e6;
+    color: #333;
+    padding: 20px 25px;
+
+    /* Positioning & Hiding */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 320px;
+    z-index: 10;
+    
+    /* Initially hidden */
+    display: none;
+}
+
+#general-info-panel{
+  left:  20px;
+  right:  auto;
+  display: block;
+}
+
+#info-panel h3 , #general-info-panel h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+}
+
+#info-panel p , #general-info-panel p{
+    margin: 0 0 10px;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+#info-panel strong , #general-info-panel strong{
+    color: #555;
+    font-weight: 600;
+}
+
+#close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #f1f1f1;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    color: #555;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#close-button:hover {
+    background-color: #e6e6e6;
+    color: #000;
+}
+  </style>
+</head>
+<body>
+<div id="cy" style="width:95%; height : 95vh; margin : auto;"></div>
+<div id="info-panel">
+  <button id="close-button">X</button>
+  <div id="info-content"></div>
+</div>
+<div id="general-info-panel">
+  <h3> general information </h3>
+  <div id="general-info-content"></div>
+</div>
+<script>
+const general_info = {
+  "number of ops": 10,
+  "number of tensors": 17,
+  "number of tensors require grad": 16,
+  "total allocated memory": "397.04 MB",
+  "total memory saved by tensor view": "61.34 MB"
+};     
+const data = 
+{
+  "edges": [
+    {
+      "classes": "edge",
+      "data": {
+        "source": "1869667566512",
+        "target": "1869667362768"
+      }
+    },
+    {
+      "data": {
+        "source": "1869667362768",
+        "target": "1869667570384"
+      }
+    },
+    {
+      "classes": "edge",
+      "data": {
+        "source": "1869667570384",
+        "target": "1869668272144"
+      }
+    },
+    {
+      "data": {
+        "source": "1869668272144",
+        "target": "1869667570736"
+      }
+    },
+    {
+      "classes": "edge",
+      "data": {
+        "source": "1869667570736",
+        "target": "1869668269552"
+      }
+    },
+    {
+      "data": {
+        "source": "1869668269552",
+        "target": "1869667570208"
+      }
+    },
+    {
+      "classes": "edge",
+      "data": {
+        "source": "1869667570208",
+        "target": "1869668271952"
+      }
+    },
+    {
+      "data": {
+        "source": "1869668271952",
+        "target": "1869667572144"
+      }
+    },
+    {
+      "classes": "edge",
+      "data": {
+        "source": "1869667572144",
+        "target": "1869667363328"
+      }
+    },
+    {
+      "data": {
+        "source": "1869667363328",
+        "target": "1869667567392"
+      }
+    },
+    {
+      "classes": "edge",
+      "data": {
+        "source": "1869667567392",
+        "target": "1869668269264"
+      }
+    },
+    {
+      "data": {
+        "source": "1869668269264",
+        "target": "1869667573728"
+      }
+    },
+    {
+      "data": {
+        "source": "1869668269264",
+        "target": "1869667568624"
+      }
+    },
+    {
+      "data": {
+        "source": "1869668272144",
+        "target": "1869667573552"
+      }
+    },
+    {
+      "classes": "edge",
+      "data": {
+        "source": "1869667573552",
+        "target": "1869668272432"
+      }
+    },
+    {
+      "data": {
+        "source": "1869668272432",
+        "target": "1869667573376"
+      }
+    },
+    {
+      "classes": "edge",
+      "data": {
+        "source": "1869667573376",
+        "target": "1869668271856"
+      }
+    },
+    {
+      "data": {
+        "source": "1869668271856",
+        "target": "1869667012960"
+      }
+    },
+    {
+      "data": {
+        "source": "1869668271856",
+        "target": "1869667570912"
+      }
+    },
+    {
+      "classes": "edge",
+      "data": {
+        "source": "1869667570912",
+        "target": "1869667361200"
+      }
+    },
+    {
+      "data": {
+        "source": "1869667361200",
+        "target": "1869667571968"
+      }
+    },
+    {
+      "data": {
+        "source": "1869668272432",
+        "target": "1869667571088"
+      }
+    },
+    {
+      "classes": "edge",
+      "data": {
+        "source": "1869667571088",
+        "target": "1869667361984"
+      }
+    },
+    {
+      "data": {
+        "source": "1869667361984",
+        "target": "1869667573024"
+      }
+    },
+    {
+      "data": {
+        "source": "1869667362768",
+        "target": "1869667571264"
+      }
+    },
+    {
+      "data": {
+        "source": "1869667362768",
+        "target": "1869667573200"
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "30.52 MB",
+          "grad function": "LayerNormalization0",
+          "is contiguous": true,
+          "memory pointer": 1870057205824,
+          "number of elements": 8000000,
+          "requires grad": true,
+          "shape": "(200, 200, 200 )",
+          "stride": "(40000, 200, 1 )"
+        },
+        "id": "1869667566512",
+        "label": "Tensor#1869667566512\n(200, 200, 200 )"
+      }
+    },
+    {
+      "classes": "op",
+      "data": {
+        "id": "1869667362768",
+        "label": "LayerNormalization0"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "30.52 MB",
+          "grad function": "Sub0",
+          "is contiguous": true,
+          "memory pointer": 1870025158720,
+          "number of elements": 8000000,
+          "requires grad": true,
+          "shape": "(200, 200, 200 )",
+          "stride": "(40000, 200, 1 )"
+        },
+        "id": "1869667570384",
+        "label": "Tensor#1869667570384\n(200, 200, 200 )"
+      }
+    },
+    {
+      "classes": "op",
+      "data": {
+        "id": "1869668272144",
+        "label": "Sub0"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "30.52 MB",
+          "grad function": "Tanh0",
+          "is contiguous": true,
+          "memory pointer": 1869993119808,
+          "number of elements": 8000000,
+          "requires grad": true,
+          "shape": "(200, 200, 200 )",
+          "stride": "(40000, 200, 1 )"
+        },
+        "id": "1869667570736",
+        "label": "Tensor#1869667570736\n(200, 200, 200 )"
+      }
+    },
+    {
+      "classes": "op",
+      "data": {
+        "id": "1869668269552",
+        "label": "Tanh0"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "30.52 MB",
+          "grad function": "Contiguous0",
+          "is contiguous": true,
+          "memory pointer": 1869961056320,
+          "number of elements": 8000000,
+          "requires grad": true,
+          "shape": "(200, 200, 200 )",
+          "stride": "(40000, 200, 1 )"
+        },
+        "id": "1869667570208",
+        "label": "Tensor#1869667570208\n(200, 200, 200 )"
+      }
+    },
+    {
+      "classes": "op",
+      "data": {
+        "id": "1869668271952",
+        "label": "Contiguous0"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "61.04 MB",
+          "grad function": "Slice0",
+          "is contiguous": false,
+          "memory pointer": 1869832831040,
+          "number of elements": 8000000,
+          "requires grad": true,
+          "shape": "(200, 200, 200 )",
+          "stride": "(80000, 400, 1 )"
+        },
+        "id": "1869667572144",
+        "label": "Tensor#1869667572144\n(200, 200, 200 )"
+      }
+    },
+    {
+      "classes": "op",
+      "data": {
+        "id": "1869667363328",
+        "label": "Slice0"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "61.04 MB",
+          "grad function": "Add0",
+          "is contiguous": true,
+          "memory pointer": 1869832831040,
+          "number of elements": 16000000,
+          "requires grad": true,
+          "shape": "(200, 200, 400 )",
+          "stride": "(80000, 400, 1 )"
+        },
+        "id": "1869667567392",
+        "label": "Tensor#1869667567392\n(200, 200, 400 )"
+      }
+    },
+    {
+      "classes": "op",
+      "data": {
+        "id": "1869668269264",
+        "label": "Add0"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "61.04 MB",
+          "grad function": "Init",
+          "is contiguous": true,
+          "memory pointer": 1869704675392,
+          "number of elements": 16000000,
+          "requires grad": true,
+          "shape": "(200, 200, 400 )",
+          "stride": "(80000, 400, 1 )"
+        },
+        "id": "1869667573728",
+        "label": "Tensor#1869667573728\n(200, 200, 400 )"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "61.04 MB",
+          "grad function": "Init",
+          "is contiguous": true,
+          "memory pointer": 1869768724544,
+          "number of elements": 16000000,
+          "requires grad": true,
+          "shape": "(200, 200, 400 )",
+          "stride": "(80000, 400, 1 )"
+        },
+        "id": "1869667568624",
+        "label": "Tensor#1869667568624\n(200, 200, 400 )"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "30.52 MB",
+          "grad function": "Div0",
+          "is contiguous": true,
+          "memory pointer": 1869929001024,
+          "number of elements": 8000000,
+          "requires grad": true,
+          "shape": "(200, 200, 200 )",
+          "stride": "(40000, 200, 1 )"
+        },
+        "id": "1869667573552",
+        "label": "Tensor#1869667573552\n(200, 200, 200 )"
+      }
+    },
+    {
+      "classes": "op",
+      "data": {
+        "id": "1869668272432",
+        "label": "Div0"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "30.52 MB",
+          "grad function": "Mul0",
+          "is contiguous": true,
+          "memory pointer": 1869896933440,
+          "number of elements": 8000000,
+          "requires grad": true,
+          "shape": "(200, 200, 200 )",
+          "stride": "(40000, 200, 1 )"
+        },
+        "id": "1869667573376",
+        "label": "Tensor#1869667573376\n(200, 200, 200 )"
+      }
+    },
+    {
+      "classes": "op",
+      "data": {
+        "id": "1869668271856",
+        "label": "Mul0"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "30.52 MB",
+          "grad function": "Init",
+          "is contiguous": true,
+          "memory pointer": 1869672591424,
+          "number of elements": 8000000,
+          "requires grad": false,
+          "shape": "(200, 200, 200 )",
+          "stride": "(40000, 200, 1 )"
+        },
+        "id": "1869667012960",
+        "label": "Tensor#1869667012960\n(200, 200, 200 )"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "156.25 KB",
+          "grad function": "Expand0",
+          "is contiguous": false,
+          "memory pointer": 1869667573920,
+          "number of elements": 8000000,
+          "requires grad": true,
+          "shape": "(200, 200, 200 )",
+          "stride": "(200, 0, 1 )"
+        },
+        "id": "1869667570912",
+        "label": "Tensor#1869667570912\n(200, 200, 200 )"
+      }
+    },
+    {
+      "classes": "op",
+      "data": {
+        "id": "1869667361200",
+        "label": "Expand0"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "156.25 KB",
+          "grad function": "Init",
+          "is contiguous": true,
+          "memory pointer": 1869667573920,
+          "number of elements": 40000,
+          "requires grad": true,
+          "shape": "(200, 1, 200 )",
+          "stride": "(200, 200, 1 )"
+        },
+        "id": "1869667571968",
+        "label": "Tensor#1869667571968\n(200, 1, 200 )"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "156.25 KB",
+          "grad function": "Expand1",
+          "is contiguous": false,
+          "memory pointer": 1869667733936,
+          "number of elements": 8000000,
+          "requires grad": true,
+          "shape": "(200, 200, 200 )",
+          "stride": "(200, 1, 0 )"
+        },
+        "id": "1869667571088",
+        "label": "Tensor#1869667571088\n(200, 200, 200 )"
+      }
+    },
+    {
+      "classes": "op",
+      "data": {
+        "id": "1869667361984",
+        "label": "Expand1"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "156.25 KB",
+          "grad function": "Init",
+          "is contiguous": true,
+          "memory pointer": 1869667733936,
+          "number of elements": 40000,
+          "requires grad": true,
+          "shape": "(200, 200, 1 )",
+          "stride": "(200, 1, 1 )"
+        },
+        "id": "1869667573024",
+        "label": "Tensor#1869667573024\n(200, 200, 1 )"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "800.00 B",
+          "grad function": "Init",
+          "is contiguous": true,
+          "memory pointer": 1869667902160,
+          "number of elements": 200,
+          "requires grad": true,
+          "shape": "(200 )",
+          "stride": "(1 )"
+        },
+        "id": "1869667571264",
+        "label": "Tensor#1869667571264\n(200 )"
+      }
+    },
+    {
+      "classes": "tensor",
+      "data": {
+        "details": {
+          "allocated memory": "800.00 B",
+          "grad function": "Init",
+          "is contiguous": true,
+          "memory pointer": 1869667902976,
+          "number of elements": 200,
+          "requires grad": true,
+          "shape": "(200 )",
+          "stride": "(1 )"
+        },
+        "id": "1869667573200",
+        "label": "Tensor#1869667573200\n(200 )"
+      }
+    }
+  ]
+};
+
+const cyInstance = cytoscape({
+  container: document.getElementById('cy'),
+  elements: data,
+      style: [
+        {
+          selector: 'node.op',
+          style: {
+            'shape': 'roundrectangle',
+            'background-color': 'red',
+            'width': '120px',
+            'height': '40px',
+            'label': 'data(label)',
+            'color': '#fff',
+            'font-size': '12px',
+            'text-valign': 'center',
+            'text-halign': 'center',
+            'border-radius': '5px',
+          }
+        },
+        {
+          selector: 'node.tensor',
+          style: {
+            'shape': 'roundrectangle',
+            'background-color': '#3498db',
+            'width': '200px',              
+            'height': 'auto',              
+            'label': 'data(label)',
+            'color': 'white',
+            'font-size': '13px',
+            'text-wrap': 'wrap',
+            'text-max-width': '180px',     
+            'text-valign': 'center',
+            'text-halign': 'center',
+            'border-radius': '10px',
+            'padding': '10px',
+          }
+        },
+        {
+          selector: 'edge',
+          style: {
+            'width': 2,
+            'line-color': '#ccc',
+            'target-arrow-color': '#ccc',
+            'target-arrow-shape': 'triangle'
+          }
+        }
+      ],
+      layout: {
+        name: 'dagre', // Use dagre layout for DAGs
+        rankDir: 'TB',
+        nodeSep: 40,
+        edgeSep: 10,
+        rankSep: 50
+      }
+    });
+// Get the panel elements
+const infoPanel = document.getElementById('info-panel');
+const infoContent = document.getElementById('info-content');
+const generalContent = document.getElementById('general-info-content');
+const closeButton = document.getElementById('close-button');
+
+// --- Event Listeners ---
+
+// Show panel on tensor node click
+cyInstance.on('tap', 'node.tensor', function(evt){
+  const node = evt.target;
+  const nodeData = node.data();
+  details = "";
+
+  if (nodeData.details){
+      for (const el in nodeData.details){
+        details += `<p><strong>${el} : </strong> ${nodeData.details[el]}</p>`
+      } 
+  }
+
+  infoContent.innerHTML = `
+    <p><strong>ID:</strong> ${nodeData.id}</p>
+    <p><strong>Label:</strong> ${nodeData.label}</p>
+    <p><strong>Details:</strong> ${nodeData.details ? details : 'No additional details available.'}</p>
+  `;
+  
+  // Instantly show the panel
+  infoPanel.style.display = 'block';
+});
+
+// Hide panel when the close button is clicked
+closeButton.addEventListener('click', function() {
+  infoPanel.style.display = 'none';
+});
+
+// Hide the panel if you click on the graph background
+cyInstance.on('tap', function(event){
+  // Check if the tap was on the core canvas and not a node or edge
+  if (event.target === cyInstance) {
+    infoPanel.style.display = 'none';
+  }
+});
+
+
+
+for (const el in general_info){
+  generalContent.innerHTML += `<p><strong>${el} : </strong> ${general_info[el]}</p>`
+} 
+
+  </script>
+</body>
+</html>

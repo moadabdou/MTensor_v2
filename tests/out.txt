@@ -1,0 +1,1796 @@
+Note: Google Test filter = deconv.3d
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from deconv
+[ RUN      ] deconv.3d
+Tensor([
+  [
+    [
+      [
+        [-0.516964, 1.22192, 0.721333, 0.869636, 1.61822], 
+        [1.58856, -1.18831, -0.187125, -0.687744, -0.0634201], 
+        [0.849739, -0.385892, 0.297398, -1.05039, 1.32076], 
+        [0.957779, -1.17469, 0.435903, -1.55086, 0.884557], 
+        [0.0114265, -0.227518, -0.0544499, -0.381592, -1.84862]
+      ], 
+      [
+        [0.219374, 1.63442, -1.46325, -0.641899, -1.28357], 
+        [-0.0940366, -0.876347, 1.28242, 0.532373, -1.23327], 
+        [-0.482664, 0.0108072, 0.366883, 2.40091, -0.863495], 
+        [0.954369, 1.60008, -1.26013, -0.189323, 0.493696], 
+        [0.0671027, 1.21292, -0.450653, -0.299507, -0.200332]
+      ], 
+      [
+        [0.780412, -1.09702, -0.606103, 1.85599, -0.939128], 
+        [0.27331, -0.01844, 1.27388, 0.787191, -0.209509], 
+        [-0.574593, -0.756923, 0.760755, 1.19533, -1.76639], 
+        [-0.702134, 0.100309, -1.45984, 1.52588, 2.21157], 
+        [1.4996, -0.273863, 0.619165, -0.147712, 0.66358]
+      ], 
+      [
+        [1.54048, 0.560455, -0.230439, -0.83715, 0.143307], 
+        [-1.40409, 0.0962218, -0.459399, 0.906159, -0.64203], 
+        [1.42637, -1.7264, 0.29969, 1.20096, 0.316924], 
+        [-0.0962328, 0.312557, -1.52287, 0.744068, -1.02266], 
+        [-0.0083384, 0.233371, -0.849648, -0.524936, -0.663464]
+      ], 
+      [
+        [-0.566608, 1.01952, 0.122441, -0.335384, 0.824665], 
+        [2.24651, -0.391692, 0.0788633, 0.843509, -0.899953], 
+        [-0.31621, -1.06146, -1.66251, -0.215853, 1.08075], 
+        [0.164415, -1.19123, 0.639323, -1.79431, 1.52739], 
+        [-0.511735, -0.921379, -0.752286, -0.149504, 0.97621]
+      ]
+    ], 
+    [
+      [
+        [0.435183, 1.04108, 0.359734, 0.383777, -0.0783321], 
+        [-0.29086, 0.948444, 0.589491, 0.0714214, -1.59169], 
+        [-2.08606, 0.406469, -0.862891, -0.128816, -0.0832325], 
+        [0.0548126, -0.0418035, -0.641318, 0.947682, -1.20284], 
+        [-0.848487, 1.72833, -2.20744, -0.0981202, 1.3058]
+      ], 
+      [
+        [0.422576, -1.04532, 0.288402, -0.0623031, 0.123397], 
+        [1.44192, -2.48644, -0.764208, 0.999384, 0.298426], 
+        [0.866496, -1.18511, 0.206517, 0.676666, -0.149148], 
+        [0.287263, -0.568569, 0.590687, -0.176682, 0.770473], 
+        [0.207245, 0.0136186, 1.09357, -0.890917, -1.11435]
+      ], 
+      [
+        [2.12645, 0.324284, 1.47549, -1.23752, -1.77466], 
+        [1.66473, 0.478366, -0.125689, -0.560198, 1.88588], 
+        [-0.703395, 0.730192, 0.983973, 1.21028, -0.243826], 
+        [1.36622, 0.713993, -0.492485, -1.11412, -0.953354], 
+        [-1.37982, 0.650501, -1.44723, -0.949764, 1.60879]
+      ], 
+      [
+        [-0.669162, -1.6002, 0.020242, 0.852093, 0.670735], 
+        [-0.931605, 0.398951, 0.113936, -0.204308, 1.40648], 
+        [-2.47335, 1.11562, -0.517231, -0.591377, 0.602422], 
+        [-0.136095, 1.03707, 0.0327517, 0.117034, -0.366917], 
+        [-1.48255, -0.133674, -0.382009, 0.318783, -0.13]
+      ], 
+      [
+        [-1.13096, 0.698333, -0.383805, -0.441243, 0.647358], 
+        [0.592897, 1.07894, 1.00046, -0.312299, -0.223474], 
+        [0.215738, 0.904944, -1.98682, -0.620351, -0.514702], 
+        [-0.963428, -0.0390711, -1.11038, 0.591594, -0.231969], 
+        [-1.46984, 1.07156, 0.572037, -0.74782, -1.41862]
+      ]
+    ]
+  ], 
+  [
+    [
+      [
+        [2.90545, 2.12909, -0.631875, -0.131487, 1.54169], 
+        [-0.783122, 0.431998, -0.301335, 0.626292, 0.844002], 
+        [1.0889, 0.411229, 0.885492, 1.00876, 0.158174], 
+        [-0.352039, 0.209676, -0.169676, -0.0514377, 0.545956], 
+        [-0.16385, 2.45949, -0.474937, 0.720491, -1.00266]
+      ], 
+      [
+        [0.277528, -1.16767, 1.14657, -1.5175, -0.933608], 
+        [-0.500297, -1.56106, 0.563424, 1.95007, -1.64294], 
+        [-0.600347, -0.112102, 0.837057, -2.69334, -1.89441], 
+        [-1.05265, -0.420943, 0.57271, -1.2647, 0.837908], 
+        [-0.430761, 0.212775, 0.603403, -0.127745, 1.35226]
+      ], 
+      [
+        [0.430532, 1.16225, -0.802982, -0.957965, 0.389003], 
+        [0.0567948, 1.44404, 1.10938, -0.0134231, -0.111697], 
+        [-1.38074, 0.912554, 0.512877, 2.91479, -0.555727], 
+        [-0.642663, -0.0349858, -0.716337, -0.852762, -0.807225], 
+        [-0.0411759, -0.17756, 0.327586, 0.180025, -0.473449]
+      ], 
+      [
+        [-0.579264, 0.683415, 0.953973, -0.910408, -0.226089], 
+        [0.0631665, 0.29888, -0.487007, -1.41302, 1.21214], 
+        [0.217646, -0.245418, -1.54972, 0.168696, 1.07765], 
+        [-1.41041, -0.652929, -0.146751, 0.115298, 1.65441], 
+        [0.501884, -1.65767, -0.825307, 0.203816, -0.227729]
+      ], 
+      [
+        [-0.0380787, -0.37804, 0.680684, 0.815102, 0.672241], 
+        [-0.440431, -0.48342, 0.195515, -1.21527, 0.395618], 
+        [0.397159, 0.2058, 1.53273, -1.10358, -0.686421], 
+        [-0.806079, -1.64404, -0.228938, 0.237062, 0.556594], 
+        [-2.2522, 1.03752, -0.436526, 1.7181, -0.450076]
+      ]
+    ], 
+    [
+      [
+        [0.514503, 0.824048, -0.70246, 1.04592, 1.42899], 
+        [-0.167399, 0.278383, 0.649517, -0.742612, 0.267558], 
+        [0.1339, -1.16002, -2.0782, -0.254266, -1.52884], 
+        [0.0336459, -1.34662, -0.595901, -1.69836, -0.242858], 
+        [0.575486, 1.09261, 0.575721, -0.346358, -1.11722]
+      ], 
+      [
+        [2.31797, 0.248481, -0.515774, 0.0622256, -0.788661], 
+        [-1.02772, -0.511089, -1.20156, -1.6797, -0.302122], 
+        [-0.316767, 1.06388, -0.289162, -0.605724, -0.527166], 
+        [-0.607109, -0.233354, -2.78008, -0.686034, -0.0639906], 
+        [-0.918892, -1.01371, -1.33172, 0.615177, 0.406909]
+      ], 
+      [
+        [-0.104334, 1.99209, -1.14657, 1.08259, 0.205844], 
+        [-0.822957, -0.173725, 2.00064, 0.411792, 0.407158], 
+        [0.239234, 0.961821, 0.818067, -0.740474, 0.0331249], 
+        [-0.333931, -0.523291, -0.507972, 0.457922, -1.35327], 
+        [-0.266868, -0.960509, -0.10699, 0.0372803, 0.771482]
+      ], 
+      [
+        [0.630006, 0.627854, -0.753933, 0.305039, -0.191716], 
+        [-1.02154, -0.135375, -0.195122, 0.271089, 0.558307], 
+        [0.0943643, -1.67145, -0.449214, -1.52409, -0.036661], 
+        [0.0103457, -0.0547148, 1.91864, -1.66052, -1.10318], 
+        [0.557238, 0.787936, -1.46632, -1.263, 1.64635]
+      ], 
+      [
+        [-1.18114, -0.748972, -1.69712, 0.756976, -0.989778], 
+        [-1.31725, 0.69877, -1.68927, 0.096982, -0.324205], 
+        [-0.0683886, -0.747694, -0.271226, -0.780501, 1.02708], 
+        [0.149129, -0.474722, -0.884713, 1.16156, -0.657655], 
+        [0.564306, 0.459052, -0.233192, -1.07673, 0.925459]
+      ]
+    ]
+  ], 
+  [
+    [
+      [
+        [-1.77747, 0.0738024, 1.3299, -0.725712, -0.201635], 
+        [0.0054086, 0.57299, 0.416415, 0.390883, -0.740232], 
+        [2.06859, 1.87101, 1.98824, -2.91077, 0.0820638], 
+        [0.902645, -0.257527, -0.0250149, 0.810974, -0.323619], 
+        [0.492121, 1.02614, 1.27414, -0.775225, -0.154715]
+      ], 
+      [
+        [0.284348, -1.02064, -1.4058, 2.01025, 2.43292], 
+        [0.409564, -1.8065, -0.588854, -0.765913, -0.688296], 
+        [0.538462, -0.64016, -1.24947, -0.245956, -0.869769], 
+        [-0.054774, -0.820775, 0.462078, -0.0654275, -0.934235], 
+        [-0.402937, 0.248906, -2.29374, 0.13392, 1.43473]
+      ], 
+      [
+        [0.350459, 1.18417, -0.625226, -0.311076, 0.045635], 
+        [0.323669, -0.676468, 1.43463, -0.305277, 0.183317], 
+        [0.596093, 1.82243, 0.871849, -1.3162, -0.307149], 
+        [-0.0467978, 0.521817, -0.311204, -1.09839, 0.989329], 
+        [-0.32542, -0.634232, -1.63115, -0.963376, 1.11885]
+      ], 
+      [
+        [-0.0626811, -0.343493, 1.61674, 2.00101, -1.99303], 
+        [-1.28546, 1.36179, -0.663408, 0.432393, -0.621403], 
+        [-1.92732, 0.777747, 0.89018, -3.17746, -0.118413], 
+        [0.276645, 1.06601, -0.204408, 0.5386, -0.61766], 
+        [2.05421, -1.36615, 0.0655545, -2.22941, -1.16415]
+      ], 
+      [
+        [-0.844461, 0.380356, -0.689637, -0.21932, -0.975595], 
+        [-0.686231, 0.0299028, -0.320714, 0.0748739, 0.225947], 
+        [0.933338, -1.74332, 0.62677, 1.71103, -0.191209], 
+        [0.502827, -0.16201, -0.595089, -0.290764, -1.05585], 
+        [1.93996, 0.472283, 1.11893, 0.62859, -0.388826]
+      ]
+    ], 
+    [
+      [
+        [-0.107905, 2.06343, -1.08616, -0.915616, 0.896901], 
+        [0.253781, -0.364462, -0.346612, -0.627686, 0.0999118], 
+        [0.305031, 0.836664, -0.0557397, -1.40849, -1.19675], 
+        [-0.884139, 0.0599202, 0.595585, 0.954702, 0.564389], 
+        [-0.985863, 0.850148, 0.14577, -0.49859, 0.867738]
+      ], 
+      [
+        [-0.963193, 0.555834, -0.504522, 0.0620073, -2.31655], 
+        [-0.142859, 2.68959, -1.89407, -0.249924, -0.784344], 
+        [0.810684, 0.402282, 0.269791, 1.15916, -1.14448], 
+        [0.0725691, -0.503327, 0.325401, 1.66103, -0.527198], 
+        [-0.576783, 0.476453, 0.596458, 1.11169, 0.955192]
+      ], 
+      [
+        [-0.0156668, -2.11, -0.0320946, -0.27069, 1.01751], 
+        [-0.60644, 1.10474, -0.321379, -0.596434, -0.6732], 
+        [0.365498, -0.108641, -1.5077, 0.821122, -0.244604], 
+        [0.54329, 1.90383, -0.0412237, 1.26836, 0.982989], 
+        [0.695276, -0.00972272, 0.126824, 0.537547, -0.68441]
+      ], 
+      [
+        [1.24861, -0.477794, -1.52261, -1.18881, -0.801027], 
+        [-0.0818397, -0.188448, -0.655533, -0.778766, 0.257865], 
+        [-0.255535, 0.535765, 1.17231, 0.618329, 0.145949], 
+        [0.851952, 0.432206, 0.0965555, 0.268556, -0.600678], 
+        [1.42408, 0.144892, 0.744119, -0.255394, 0.825646]
+      ], 
+      [
+        [-0.112375, 1.55427, -0.342305, -0.912158, -1.19006], 
+        [-0.293987, 0.0247494, 0.280611, 0.723531, 1.85076], 
+        [2.12018, 0.824188, 0.596618, -0.680421, -0.35468], 
+        [0.749372, -0.296006, 0.0774152, -0.965204, 0.867055], 
+        [0.122378, -0.476106, 0.587524, 0.491362, 1.97302]
+      ]
+    ]
+  ]
+], requires_grad = True)
+Tensor([
+  [
+    [
+      [
+        [-0.516964, 1.22192, 0.721333], 
+        [0.869636, 1.61822, 1.58856], 
+        [-1.18831, -0.187125, -0.687744]
+      ], 
+      [
+        [-0.0634201, 0.849739, -0.385892], 
+        [0.297398, -1.05039, 1.32076], 
+        [0.957779, -1.17469, 0.435903]
+      ], 
+      [
+        [-1.55086, 0.884557, 0.0114265], 
+        [-1.02266, -0.0083384, 0.233371], 
+        [-0.849648, -0.524936, -0.663464]
+      ]
+    ], 
+    [
+      [
+        [-0.566608, 1.01952, 0.122441], 
+        [-0.335384, 0.824665, 2.24651], 
+        [-0.391692, 0.0788633, 0.843509]
+      ], 
+      [
+        [-0.899953, -0.31621, -1.06146], 
+        [-1.66251, -0.215853, 1.08075], 
+        [1.21028, -0.243826, 1.36622]
+      ], 
+      [
+        [0.713993, -0.492485, -1.11412], 
+        [-0.953354, -1.37982, 0.650501], 
+        [-1.44723, -0.949764, 1.60879]
+      ]
+    ]
+  ], 
+  [
+    [
+      [
+        [-0.669162, -1.6002, 0.020242], 
+        [0.852093, 0.670735, -0.931605], 
+        [0.398951, 0.113936, 0.563424]
+      ], 
+      [
+        [1.95007, -1.64294, -0.600347], 
+        [-0.112102, 0.837057, -2.69334], 
+        [-1.89441, -1.05265, -0.420943]
+      ], 
+      [
+        [0.57271, -1.2647, 0.837908], 
+        [-0.430761, 0.212775, 0.603403], 
+        [-0.127745, 1.35226, 0.430532]
+      ]
+    ], 
+    [
+      [
+        [1.16225, 0.824048, -0.70246], 
+        [1.04592, 1.42899, -0.167399], 
+        [0.278383, 0.649517, -0.742612]
+      ], 
+      [
+        [0.267558, 0.1339, -1.16002], 
+        [-2.0782, -0.254266, -1.52884], 
+        [0.0336459, -1.34662, -0.595901]
+      ], 
+      [
+        [-1.69836, -0.242858, 0.575486], 
+        [0.557238, 0.787936, -1.46632], 
+        [-1.263, 1.64635, -1.18114]
+      ]
+    ]
+  ], 
+  [
+    [
+      [
+        [-0.748972, -1.69712, 0.756976], 
+        [-0.989778, -1.31725, 0.69877], 
+        [-1.68927, 0.096982, -0.324205]
+      ], 
+      [
+        [-0.0683886, -0.747694, -0.271226], 
+        [-0.780501, 1.02708, -0.307149], 
+        [-0.0467978, 0.521817, -0.311204]
+      ], 
+      [
+        [-1.09839, 0.989329, -0.32542], 
+        [-0.634232, -1.63115, -0.963376], 
+        [1.11885, -0.0626811, -0.343493]
+      ]
+    ], 
+    [
+      [
+        [1.61674, 2.00101, -1.99303], 
+        [-1.28546, 1.36179, -0.663408], 
+        [0.432393, -1.89407, -0.249924]
+      ], 
+      [
+        [-0.784344, 0.810684, 0.402282], 
+        [0.269791, 1.15916, -1.14448], 
+        [0.0725691, -0.503327, 0.325401]
+      ], 
+      [
+        [1.66103, -0.527198, -0.576783], 
+        [0.476453, 0.596458, 1.11169], 
+        [0.955192, -0.0156668, -2.11]
+      ]
+    ]
+  ]
+], requires_grad = True)
+Tensor([-0.516964, -1.02266, 1.21028], requires_grad = True)
+onednn_verbose,v1,info,oneDNN v3.8.1 (commit N/A)
+onednn_verbose,v1,info,cpu,runtime:OpenMP,nthr:8
+onednn_verbose,v1,info,cpu,isa:Intel AVX-512 with Intel DL Boost
+onednn_verbose,v1,info,gpu,runtime:none
+onednn_verbose,v1,info,graph,backend,0:dnnl_backend
+onednn_verbose,v1,primitive,info,template:operation,engine,primitive,implementation,prop_kind,memory_descriptors,attributes,auxiliary,problem_desc,exec_time
+onednn_verbose,v1,graph,info,template:operation,engine,partition_id,partition_kind,op_names,data_formats,logical_tensors,fpmath_mode,implementation,backend,exec_time
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,bad param ,src\cpu\x64\jit_avx2_1x1_conv_kernel_f32.cpp:817
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported format tag,src\cpu\x64\jit_avx2_conv_kernel_f32.cpp:1233
+onednn_verbose,v1,primitive,create:dispatch,convolution,cpu,convolution,,backward_data,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:convolution_direct,mb3_ic3oc2_id11od5kd3sd2dd0pd0_ih11oh5kh3sh2dh0ph0_iw11ow5kw3sw2dw0pw0,unsupported format tag,src\cpu\x64\jit_uni_ncsp_convolution.cpp:547
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,brgemm implementation not found for strided convolution,src\cpu\x64\jit_brgemm_deconv.cpp:208
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,bad param ,src\cpu\x64\jit_avx2_1x1_conv_kernel_f32.cpp:817
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported format tag,src\cpu\x64\jit_avx2_conv_kernel_f32.cpp:1233
+onednn_verbose,v1,primitive,create:dispatch,convolution,cpu,convolution,,backward_data,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:convolution_direct,mb3_ic3oc2_id11od5kd3sd2dd0pd0_ih11oh5kh3sh2dh0ph0_iw11ow5kw3sw2dw0pw0,unsupported format tag,src\cpu\x64\jit_uni_ncsp_convolution.cpp:547
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,brgemm implementation not found for strided convolution,src\cpu\x64\jit_brgemm_deconv.cpp:208
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,cpu,deconvolution,jit_deconvolution:undef,forward_training,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:deconvolution_direct,mb3_ic2oc3_id5od11kd3sd2dd0pd0_ih5oh11kh3sh2dh0ph0_iw5ow11kw3sw2dw0pw0,unsupported datatype combination,src\cpu/x64/jit_avx512_core_amx_deconvolution.hpp:72
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,bad param ,src\cpu\x64\jit_avx2_1x1_conv_kernel_f32.cpp:817
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported format tag,src\cpu\x64\jit_avx2_conv_kernel_f32.cpp:1233
+onednn_verbose,v1,primitive,create:dispatch,convolution,cpu,convolution,,backward_data,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:convolution_direct,mb3_ic3oc2_id11od5kd3sd2dd0pd0_ih11oh5kh3sh2dh0ph0_iw11ow5kw3sw2dw0pw0,unsupported format tag,src\cpu\x64\jit_uni_ncsp_convolution.cpp:547
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,brgemm implementation not found for strided convolution,src\cpu\x64\jit_brgemm_deconv.cpp:208
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,bad param ,src\cpu\x64\jit_avx2_1x1_conv_kernel_f32.cpp:817
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported format tag,src\cpu\x64\jit_avx2_conv_kernel_f32.cpp:1233
+onednn_verbose,v1,primitive,create:dispatch,convolution,cpu,convolution,,backward_data,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:convolution_direct,mb3_ic3oc2_id11od5kd3sd2dd0pd0_ih11oh5kh3sh2dh0ph0_iw11ow5kw3sw2dw0pw0,unsupported format tag,src\cpu\x64\jit_uni_ncsp_convolution.cpp:547
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,brgemm implementation not found for strided convolution,src\cpu\x64\jit_brgemm_deconv.cpp:208
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,bad param ,src\cpu\x64\jit_avx2_1x1_conv_kernel_f32.cpp:817
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported format tag,src\cpu\x64\jit_avx2_conv_kernel_f32.cpp:1233
+onednn_verbose,v1,primitive,create:dispatch,convolution,cpu,convolution,,backward_data,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:convolution_direct,mb3_ic3oc2_id11od5kd3sd2dd0pd0_ih11oh5kh3sh2dh0ph0_iw11ow5kw3sw2dw0pw0,unsupported format tag,src\cpu\x64\jit_uni_ncsp_convolution.cpp:547
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,brgemm implementation not found for strided convolution,src\cpu\x64\jit_brgemm_deconv.cpp:208
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,bad param ,src\cpu\x64\jit_avx2_1x1_conv_kernel_f32.cpp:817
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported format tag,src\cpu\x64\jit_avx2_conv_kernel_f32.cpp:1233
+onednn_verbose,v1,primitive,create:dispatch,convolution,cpu,convolution,,backward_data,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:convolution_direct,mb3_ic3oc2_id11od5kd3sd2dd0pd0_ih11oh5kh3sh2dh0ph0_iw11ow5kw3sw2dw0pw0,unsupported format tag,src\cpu\x64\jit_uni_ncsp_convolution.cpp:547
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,brgemm implementation not found for strided convolution,src\cpu\x64\jit_brgemm_deconv.cpp:208
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,cpu,deconvolution,,forward_training,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:deconvolution_direct,mb3_ic2oc3_id5od11kd3sd2dd0pd0_ih5oh11kh3sh2dh0ph0_iw5ow11kw3sw2dw0pw0,unsupported datatype,src\cpu/x64/jit_avx512_core_x8s8s32x_1x1_deconvolution.hpp:85
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,cpu,deconvolution,jit_deconvolution:avx512_core,forward_training,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:deconvolution_direct,mb3_ic2oc3_id5od11kd3sd2dd0pd0_ih5oh11kh3sh2dh0ph0_iw5ow11kw3sw2dw0pw0,unsupported datatype,src\cpu/x64/jit_avx512_core_x8s8s32x_deconvolution.hpp:264
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,bad param ,src\cpu\x64\jit_avx2_1x1_conv_kernel_f32.cpp:817
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported format tag,src\cpu\x64\jit_avx2_conv_kernel_f32.cpp:1233
+onednn_verbose,v1,primitive,create:dispatch,convolution,cpu,convolution,,backward_data,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:convolution_direct,mb3_ic3oc2_id11od5kd3sd2dd0pd0_ih11oh5kh3sh2dh0ph0_iw11ow5kw3sw2dw0pw0,unsupported format tag,src\cpu\x64\jit_uni_ncsp_convolution.cpp:547
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,brgemm implementation not found for strided convolution,src\cpu\x64\jit_brgemm_deconv.cpp:208
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,bad param ,src\cpu\x64\jit_avx2_1x1_conv_kernel_f32.cpp:817
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported format tag,src\cpu\x64\jit_avx2_conv_kernel_f32.cpp:1233
+onednn_verbose,v1,primitive,create:dispatch,convolution,cpu,convolution,,backward_data,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:convolution_direct,mb3_ic3oc2_id11od5kd3sd2dd0pd0_ih11oh5kh3sh2dh0ph0_iw11ow5kw3sw2dw0pw0,unsupported format tag,src\cpu\x64\jit_uni_ncsp_convolution.cpp:547
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,brgemm implementation not found for strided convolution,src\cpu\x64\jit_brgemm_deconv.cpp:208
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,bad param ,src\cpu\x64\jit_avx2_1x1_conv_kernel_f32.cpp:817
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported format tag,src\cpu\x64\jit_avx2_conv_kernel_f32.cpp:1233
+onednn_verbose,v1,primitive,create:dispatch,convolution,cpu,convolution,,backward_data,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:convolution_direct,mb3_ic3oc2_id11od5kd3sd2dd0pd0_ih11oh5kh3sh2dh0ph0_iw11ow5kw3sw2dw0pw0,unsupported format tag,src\cpu\x64\jit_uni_ncsp_convolution.cpp:547
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,brgemm implementation not found for strided convolution,src\cpu\x64\jit_brgemm_deconv.cpp:208
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,cpu,deconvolution,,forward_training,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:deconvolution_direct,mb3_ic2oc3_id5od11kd3sd2dd0pd0_ih5oh11kh3sh2dh0ph0_iw5ow11kw3sw2dw0pw0,unsupported datatype,src\cpu/x64/jit_uni_x8s8s32x_1x1_deconvolution.hpp:86
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,cpu,deconvolution,jit_uni_int8:avx2,forward_training,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:deconvolution_direct,mb3_ic2oc3_id5od11kd3sd2dd0pd0_ih5oh11kh3sh2dh0ph0_iw5ow11kw3sw2dw0pw0,unsupported datatype,src\cpu\x64\jit_uni_x8s8s32x_deconvolution.cpp:1404
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,cpu,deconvolution,,forward_training,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:deconvolution_direct,mb3_ic2oc3_id5od11kd3sd2dd0pd0_ih5oh11kh3sh2dh0ph0_iw5ow11kw3sw2dw0pw0,unsupported datatype,src\cpu/x64/jit_uni_x8s8s32x_1x1_deconvolution.hpp:86
+onednn_verbose,v1,primitive,create:dispatch,deconvolution,cpu,deconvolution,jit_uni_int8:sse41,forward_training,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:deconvolution_direct,mb3_ic2oc3_id5od11kd3sd2dd0pd0_ih5oh11kh3sh2dh0ph0_iw5ow11kw3sw2dw0pw0,unsupported datatype,src\cpu\x64\jit_uni_x8s8s32x_deconvolution.cpp:1404
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,bad param ,src\cpu\x64\jit_avx2_1x1_conv_kernel_f32.cpp:817
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: non-grouped convolution in depthwise implementation,src\cpu\x64\jit_uni_dw_conv_kernel_utils.cpp:310
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported format tag,src\cpu\x64\jit_avx2_conv_kernel_f32.cpp:1233
+onednn_verbose,v1,primitive,create:dispatch,convolution,cpu,convolution,,backward_data,src:f32:a:any:any::f0 wei:f32:a:any:any::f0 bia:f32::blocked:a::f0 dst:f32:a:any:any::f0,,alg:convolution_direct,mb3_ic3oc2_id11od5kd3sd2dd0pd0_ih11oh5kh3sh2dh0ph0_iw11ow5kw3sw2dw0pw0,unsupported format tag,src\cpu\x64\jit_uni_ncsp_convolution.cpp:547
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,convolution,unsupported feature for implementation: only unit strides are allowed for bwd-to-fwd conversion,src\cpu\x64\jit_brgemm_conv_bwd.cpp:65
+onednn_verbose,v1,primitive,create:dispatch,reorder,unsupported src tensor layout,src\cpu\x64\matmul\brgemm_matmul_reorders.cpp:84
+onednn_verbose,v1,primitive,create:dispatch,reorder,cpu,reorder,jit_direct_copy:uni,undef,src:f32::blocked:abcde::f0 dst:f32::blocked:acdeb::f0,,,3x2x5x5x5,memory formats for src and dst tensors do not match,src\cpu\x64\jit_uni_reorder_direct_copy.cpp:312
+onednn_verbose,v1,primitive,create:cache_miss,cpu,reorder,jit:uni,undef,src:f32::blocked:abcde::f0 dst:f32::blocked:acdeb::f0,,,3x2x5x5x5,1.3587
+onednn_verbose,v1,primitive,exec,cpu,reorder,jit:uni,undef,src:f32::blocked:abcde::f0 dst:f32::blocked:acdeb::f0,,,3x2x5x5x5,0.0105
+onednn_verbose,v1,primitive,create:dispatch,reorder,src has a bad number of dimensions 5,src\cpu\x64\matmul\brgemm_matmul_reorders.cpp:301
+onednn_verbose,v1,primitive,create:dispatch,reorder,cpu,reorder,jit_direct_copy:uni,undef,src:f32::blocked:abcde::f0 dst:f32:p:blocked:Acdeb16a::f0,,,3x2x3x3x3,memory formats for src and dst tensors do not match,src\cpu\x64\jit_uni_reorder_direct_copy.cpp:312
+onednn_verbose,v1,primitive,create:dispatch,reorder,tail processing is not supported,src\cpu\x64\jit_uni_reorder.cpp:2783
+onednn_verbose,v1,primitive,create:cache_miss,cpu,reorder,jit:uni,undef,src:f32::blocked:abcde::f0 dst:f32:p:blocked:Acdeb16a::f0,,,3x2x3x3x3,0.0534
+onednn_verbose,v1,primitive,exec,cpu,reorder,jit:uni,undef,src:f32::blocked:abcde::f0 dst:f32:p:blocked:Acdeb16a::f0,,,3x2x3x3x3,0.00160003
+onednn_verbose,v1,primitive,create_nested:cache_miss,cpu,convolution,brgconv_strided:avx512_core,backward_data,src:f32:a:blocked:acdeb::f0 wei:f32:ap:blocked:Bcdea16b::f0 bia:undef::undef::: dst:f32:a:blocked:acdeb::f0,,alg:convolution_direct,mb3_ic3oc2_id11od5kd3sd2dd0pd0_ih11oh5kh3sh2dh0ph0_iw11ow5kw3sw2dw0pw0,4.5017
+onednn_verbose,v1,primitive,create:cache_miss,cpu,deconvolution,conv:any+brgconv_strided:avx512_core,forward_training,src:f32:a:blocked:acdeb::f0 wei:f32:ap:blocked:Acdeb16a::f0 bia:f32::blocked:a::f0 dst:f32:a:blocked:acdeb::f0,,alg:deconvolution_direct,mb3_ic2oc3_id5od11kd3sd2dd0pd0_ih5oh11kh3sh2dh0ph0_iw5ow11kw3sw2dw0pw0,5.4299
+onednn_verbose,v1,primitive,exec,cpu,deconvolution,conv:any+brgconv_strided:avx512_core,forward_training,src:f32:a:blocked:acdeb::f0 wei:f32:ap:blocked:Acdeb16a::f0 bia:f32::blocked:a::f0 dst:f32:a:blocked:acdeb::f0,,alg:deconvolution_direct,mb3_ic2oc3_id5od11kd3sd2dd0pd0_ih5oh11kh3sh2dh0ph0_iw5ow11kw3sw2dw0pw0,3.2949
+onednn_verbose,v1,primitive,create:dispatch,reorder,unsupported src tensor layout,src\cpu\x64\matmul\brgemm_matmul_reorders.cpp:84
+onednn_verbose,v1,primitive,create:dispatch,reorder,cpu,reorder,jit_direct_copy:uni,undef,src:f32::blocked:acdeb::f0 dst:f32::blocked:abcde::f0,,,3x3x11x11x11,memory formats for src and dst tensors do not match,src\cpu\x64\jit_uni_reorder_direct_copy.cpp:312
+onednn_verbose,v1,primitive,create:cache_miss,cpu,reorder,jit:uni,undef,src:f32::blocked:acdeb::f0 dst:f32::blocked:abcde::f0,,,3x3x11x11x11,0.0940001
+onednn_verbose,v1,primitive,exec,cpu,reorder,jit:uni,undef,src:f32::blocked:acdeb::f0 dst:f32::blocked:abcde::f0,,,3x3x11x11x11,0.0339
+Tensor([
+  [
+    [
+      [
+        [-0.49629, -0.704975, -2.05816, 2.03753, -0.0848128, 0.731204, -0.619619, 0.936932, -0.634854, 1.38051, 0.640717], 
+        [-1.11249, -0.994644, 0.352917, 2.31891, 4.26958, 0.946968, 2.06461, 1.20678, 3.16019, 2.03706, 1.87769], 
+        [-0.729532, 1.25865, -0.466965, -1.14857, -2.45555, -0.251227, -1.64107, -1.41698, -2.23629, -2.5262, -1.93659], 
+        [0.962052, 1.8138, 0.00163764, -1.65776, -0.634403, -0.333641, -0.111965, -1.57098, -0.970362, -1.9322, -4.19346], 
+        [-1.54804, -1.92563, -0.487539, -0.27693, 1.19836, -0.951799, 1.62312, -1.79747, -0.693997, 0.898386, -0.873434], 
+        [0.92163, -0.862198, -4.32537, -0.80622, 0.33119, -0.747306, -2.85328, -2.32296, -1.29847, 1.55167, 1.39416], 
+        [-1.23582, 0.385728, -1.23308, -1.8907, -0.638557, -0.761865, 0.34998, -1.25942, -2.21849, -0.916141, -1.00473], 
+        [0.297571, 1.07813, 0.120123, -2.45235, -1.88278, -0.340452, -2.93176, -2.24508, 0.321036, -0.0775012, -1.814], 
+        [-1.20172, -1.54295, -0.674476, 1.18361, 1.31528, -2.96618, 0.057302, -0.718332, 0.697556, -1.70492, -3.31351], 
+        [-0.222458, -1.19819, -3.18246, 0.540154, 3.69731, -2.42547, -5.86144, -1.21538, -3.38914, -2.43159, -0.520111], 
+        [-0.198197, -0.586017, -1.64714, -0.338088, 2.02671, -0.680861, -1.84963, -0.453297, 1.34797, -0.0680627, 1.85586]
+      ], 
+      [
+        [-0.875823, -1.09386, -1.79382, 0.192149, -2.46305, -0.0177711, -1.5777, 0.100645, -1.29204, 0.882867, -1.05827], 
+        [-1.3942, -0.0678836, -2.09684, -2.02519, 1.83852, -1.3523, 0.445121, -1.51326, 1.65787, -2.19982, 1.53566], 
+        [-0.324395, 1.42603, 1.20011, -3.51585, 1.49746, -1.79743, 1.01217, -2.23908, 3.46758, -1.94936, 1.79538], 
+        [0.439027, -2.12279, -0.663406, 0.526504, -2.09709, -0.447653, -0.450291, 0.190022, 1.27921, -0.106777, -2.32095], 
+        [2.47596, -0.930425, 1.33288, 0.191242, 1.27022, 0.084682, 0.618274, -0.578318, -2.17309, 1.09425, -3.14052], 
+        [3.20383, -0.959244, -2.43969, -0.199363, 0.935665, -0.643092, -1.15497, 0.61417, -1.51234, -1.88632, 1.13749], 
+        [-2.33788, -0.209983, -3.18989, -1.14773, 0.157842, -0.0827254, -2.97017, -0.86916, 0.632384, -0.916167, 0.880465], 
+        [-0.323249, -1.53484, 0.527419, 0.725952, -0.917801, -0.836403, -2.6711, 0.907494, 0.721724, -1.18646, -0.64865], 
+        [1.22959, -1.37742, -1.84504, 0.13329, -1.20151, -0.2209, 0.935055, 0.78053, -1.31333, -3.24651, -2.44741], 
+        [0.89705, -0.345818, -4.3599, -0.651046, 4.70413, 0.0167128, -2.92493, -0.0949631, -3.84767, 1.14295, -1.54731], 
+        [-1.53293, -0.323503, 0.202645, -0.671113, -0.978634, 0.0852298, -4.04078, -0.0447866, -1.00755, 1.33621, 0.46122]
+      ], 
+      [
+        [0.242652, -0.489687, -2.20209, 0.982578, -0.880728, -1.55002, -2.63722, -0.784596, -3.37717, -0.489597, -1.32197], 
+        [-0.354122, -0.409651, 0.473097, -0.180859, -1.75639, -3.14937, -3.58372, -2.14387, -3.96185, -2.3977, -1.95208], 
+        [-4.57344, 2.23694, 1.48696, -7.65949, -2.69195, -0.608678, 0.774378, -0.196874, -0.0228966, -1.51704, 0.189789], 
+        [-2.42959, 0.908054, 3.1373, -5.28434, -6.15436, 0.116216, 0.906246, 1.07587, 2.86954, -0.0697943, -2.85587], 
+        [-4.94748, 1.12933, 4.54076, -2.56264, -3.59464, 0.0680237, -0.346986, 2.51333, 4.6065, 1.28446, -2.46898], 
+        [-0.107555, 2.28785, -0.0817952, -2.03443, -2.2195, 1.43519, 3.09586, 4.11276, 2.516, -1.93345, -1.96965], 
+        [-0.0881783, 3.45614, -1.22255, -0.438928, 0.165713, -0.142047, -1.05715, -2.48915, -5.17913, 1.78219, 0.741588], 
+        [-0.815088, 1.18069, 4.72695, 1.6709, -0.682124, -1.18774, -0.930085, -2.26373, -0.547022, 2.56966, 1.42216], 
+        [-3.43232, -0.506468, -0.127048, 0.238669, -2.49095, 1.74893, 3.21627, -2.14494, 6.43262, -3.52969, -4.48548], 
+        [0.269107, 0.933195, -0.858874, -0.925861, 3.91308, 2.70194, 0.297337, -1.59777, -2.30195, -3.54646, -2.9206], 
+        [0.540367, 0.286687, -5.51555, -2.26493, 4.93992, 1.77874, -1.62868, -0.237678, -0.611732, -0.83715, 2.00809]
+      ], 
+      [
+        [-0.911176, -0.464177, -0.213079, 1.20241, -0.204859, -1.85154, -0.161653, -1.04271, -0.232777, -1.64668, -0.152627], 
+        [-1.15426, -0.838608, 2.4534, -2.00811, -0.40266, 0.957777, -2.2252, 0.170731, -2.01897, 0.804654, -2.07889], 
+        [-1.08711, -1.41355, 1.25529, -2.14046, 1.29876, 2.46296, -2.06785, 0.388625, -3.41852, -0.181577, -0.748744], 
+        [-2.94213, -0.729432, 4.7903, 0.940253, -2.70975, -1.69905, -1.15228, -1.29189, 0.40335, 0.714043, -1.8233], 
+        [0.388898, -1.44221, -2.10425, 1.50266, -2.94798, -1.59062, -0.40462, 0.440165, -1.1953, 0.172407, -0.155307], 
+        [-2.10106, -0.197013, 1.75548, -0.272507, -2.01772, -0.946913, -0.220142, -3.18493, 3.37653, 0.42224, -1.81863], 
+        [-0.249598, 0.558872, -1.23048, 1.29873, -1.99565, -2.25586, 3.0739, -3.6073, -0.0175762, 0.709627, -2.10547], 
+        [-0.710715, -1.58143, 2.4751, -2.07495, -0.374913, 0.67917, -1.30548, -0.279963, -2.09206, -1.20185, 0.96778], 
+        [0.554012, -1.71661, 0.800848, -1.23158, -2.5264, 0.0905454, -0.820512, -0.224273, 2.64127, -1.10263, 2.01101], 
+        [-0.841555, -0.632183, 0.13372, -1.79394, -0.852369, -0.279652, 1.46179, -0.0100563, -0.0823639, -0.0660003, -1.98589], 
+        [-0.20187, -0.646321, 0.973615, -1.94509, 0.922254, -0.254226, -0.584468, 0.0520941, -3.40525, -0.00992727, -2.12673]
+      ], 
+      [
+        [-2.16377, 2.59053, -3.05969, 0.433722, 1.86725, -1.18964, -0.418818, -0.0478832, 4.30215, -4.66997, -1.56382], 
+        [-1.17867, 1.91461, 4.08828, -0.596023, -1.63018, -0.666727, 4.42596, 1.55721, 0.434443, -3.65974, -6.21489], 
+        [-2.98438, 0.226085, 0.690701, 0.763262, -1.60324, 3.14618, 3.06201, -0.196249, 0.768809, 0.504235, -0.584693], 
+        [-2.1161, -0.690651, 7.66326, 3.28584, -0.726496, 2.48457, 0.401709, -1.0885, 0.411397, 0.297736, 3.2932], 
+        [-1.43788, -4.02985, 4.90216, 2.75853, -5.47612, 1.44297, -10.2947, 2.54791, 2.41789, -3.06241, 1.36851], 
+        [-1.11322, -3.21843, -2.34327, 0.495479, -1.08789, 1.23753, 0.655189, 1.46171, 4.67217, -3.36344, -4.16927], 
+        [-2.0887, 0.203142, -0.673684, 3.34803, 1.02704, -4.66193, -6.81097, -1.90001, 2.66184, 2.17693, 1.45093], 
+        [-2.83563, -0.930828, 0.599963, 1.00534, 0.871122, -4.08997, -1.78954, 1.27884, 0.248568, 1.2084, 1.47092], 
+        [-1.39388, -0.668722, -1.40392, 0.615389, 2.04388, -1.83826, 0.386485, -1.59814, -7.42713, 0.825718, -0.0152663], 
+        [0.983711, 0.485304, -2.79378, -0.452594, 1.24339, -2.21367, -0.832673, -0.307428, -2.22996, 3.42284, 3.37969], 
+        [-2.11543, -1.13845, -3.40293, -1.06405, -1.93137, -1.54903, 1.98615, 0.439157, -2.08685, 0.649268, -1.27615]
+      ], 
+      [
+        [-2.48016, -0.526221, -3.29751, -1.55168, -1.72728, -1.49856, -0.853237, 1.45146, 1.73707, -0.753814, 1.72916], 
+        [-3.8201, -1.79571, 1.94656, 0.565339, -4.24866, -0.198807, 2.88652, -2.19936, 3.26799, 0.852556, -3.67529], 
+        [1.28858, -2.24636, -0.231663, 0.525694, 0.184805, 0.957465, 1.61062, -1.5494, -5.83903, 0.244569, -5.27183], 
+        [-3.20331, -1.16339, 0.842404, -0.600852, 0.563483, -1.82791, 2.19513, -1.2229, -3.28031, -0.703972, 1.2445], 
+        [2.42906, -1.50976, 2.79707, -1.48602, -0.220229, -1.64743, -2.56045, -0.672067, -0.271864, -2.15455, 2.90869], 
+        [0.481553, 0.238415, -3.47512, 0.120489, -2.13714, -1.52845, -0.105368, -2.03377, 2.24983, 1.39107, -3.11346], 
+        [-3.1036, -0.69913, -3.3978, 0.0536129, 1.80943, -2.73529, 5.76058, -0.567309, 0.982158, 3.79817, -1.46154], 
+        [-2.99713, -0.0743494, -1.12496, -0.776446, 0.771776, 1.12275, -0.671288, -1.87926, 2.53695, -2.6342, 1.37365], 
+        [1.61072, 1.68529, 2.32161, -1.24729, -0.813644, 2.30174, 0.448256, -1.86295, -0.834378, -2.82727, -2.81915], 
+        [2.22298, -1.7943, -1.1905, -0.369713, 2.41453, -0.854943, 0.27177, -0.156799, -4.21579, -1.56125, 2.09817], 
+        [-0.750646, -1.9421, -1.22343, -0.353868, -0.906142, -0.891422, -3.51525, -0.11187, 0.703707, -1.68873, 1.97025]
+      ], 
+      [
+        [-0.626231, 0.326233, 0.701916, -2.59366, 1.41869, -2.04069, -6.14351, 1.58002, 0.118701, 0.385255, 1.63498], 
+        [-1.77823, -1.51659, 3.82907, -1.36796, -4.26061, -2.90403, -1.75123, 0.523121, 2.24749, 2.72461, -0.156078], 
+        [-3.8075, -6.53086, -1.6982, -0.20775, -4.66449, -0.811923, 1.17321, 1.77913, 2.95665, 1.22293, -4.67612], 
+        [-3.29215, -5.85666, -4.18093, -0.692161, -0.78162, -1.00361, -0.18967, 1.54732, -2.33087, -2.99647, 2.80068], 
+        [-0.072103, -2.99284, 4.67125, -2.94943, -2.13399, -0.944135, -4.21732, 0.742041, -3.55598, -2.40802, 4.83779], 
+        [2.81117, 0.72687, -6.19673, -3.39186, -1.73681, -1.82259, -1.51874, -0.741169, 3.24097, 0.843849, 0.769003], 
+        [2.45429, -1.55951, -5.14496, 0.774235, 3.30358, -4.82394, -8.21909, 0.361648, -1.01081, 1.43214, 0.857715], 
+        [-1.13946, -2.6642, -1.10998, -0.141959, 3.42431, -2.26258, -3.41409, 2.30818, -1.55976, -1.17741, -3.06984], 
+        [-4.19649, -0.954357, 2.41321, -1.63818, 3.06112, 0.837409, 0.721676, -0.369147, -1.62208, -1.75857, -5.40347], 
+        [-0.245107, 0.138338, -4.5007, -1.14485, 0.0484636, -0.215154, -3.02869, 0.2082, -4.03273, -3.92317, -0.661582], 
+        [0.796431, -0.109013, -5.91024, -1.04524, 3.16567, 0.661403, -0.99498, 0.585995, -3.36979, -2.27937, 1.97761]
+      ], 
+      [
+        [-0.0124475, 1.00364, 1.00343, 0.465277, 0.961703, -0.719178, -1.16328, -1.49776, -1.71109, -0.607284, -1.28422], 
+        [1.05366, -1.99064, 3.62147, -0.760254, -1.60835, -0.279282, -2.46502, 0.178446, -1.77422, -0.812274, 0.397209], 
+        [1.07605, -3.06193, -0.994042, -0.829544, -3.1891, -0.677602, -0.177553, 1.09327, -0.126563, -1.83915, -0.783284], 
+        [0.614264, 1.15897, -4.01291, -0.70415, -0.284755, -0.0590074, -0.39143, -1.42469, -2.07017, -0.146172, 0.15512], 
+        [-0.853835, 3.3537, -0.646376, -2.54703, -0.303577, 0.413121, 0.94849, -0.324104, 0.288237, -0.0269005, 0.362985], 
+        [4.0192, -1.48133, -3.67431, 1.05562, -0.642386, -0.720111, 0.660189, -1.6508, -0.47719, -0.979895, 0.552685], 
+        [-2.01568, -1.62818, -4.34918, 1.17667, -1.2386, -2.0473, -0.258068, -1.18828, 0.214938, -1.78911, 1.22832], 
+        [-0.319324, -0.386505, -2.42234, -1.06913, 0.50932, 1.07559, -2.46621, -1.32379, 0.898123, 0.636427, -2.26419], 
+        [0.560907, 0.0909752, 2.49204, -0.896416, 0.0667197, 0.662778, 0.198013, -1.96641, -1.43301, 0.251143, -1.07002], 
+        [1.94531, -0.188192, -1.83861, -0.733242, 0.0292041, 0.45796, -2.7381, -0.0343848, -0.84694, 0.207995, -1.53374], 
+        [-2.31925, -0.145685, -2.48435, -0.758511, -1.87398, 0.574257, -1.52619, 0.0219473, -1.10305, 0.2941, -0.983778]
+      ], 
+      [
+        [-2.45009, -0.670159, -3.23548, 2.72461, 2.61918, -0.972454, 1.82926, -2.53678, -2.30828, 0.947143, -0.588487], 
+        [-1.56783, -1.45604, -2.42875, 3.91206, 2.21284, -0.661348, -1.3252, -2.59232, -1.96804, 0.424685, 2.71712], 
+        [0.273976, 1.8931, -0.383487, 1.08297, -3.81162, 0.185475, -2.4531, 0.755634, 2.34174, -3.92058, -1.80493], 
+        [3.56188, 4.90448, 2.26878, -0.812324, 1.66087, 0.282317, 1.92914, 0.864828, -1.19199, -4.09291, -1.68354], 
+        [-4.81434, 3.04463, 3.33481, -3.23893, 0.213958, -3.85712, -3.27796, -0.52372, -2.51097, -0.585483, 2.65117], 
+        [0.034991, 2.55014, -2.33532, -3.01332, -0.440159, -4.13453, -8.53192, -0.571863, -2.14385, -0.0264072, 0.509424], 
+        [2.65484, 0.360134, -3.23895, -2.12999, 7.83217, -1.74267, -1.95216, -1.58308, -5.54165, -0.592352, 0.534961], 
+        [0.177296, -0.85682, -4.86229, -3.91044, 0.70502, -0.430581, -4.96123, -3.10037, 1.01317, 2.2782, 0.910928], 
+        [-0.00447768, -1.84501, -1.41906, -1.20729, 3.38002, -0.855318, 1.7547, -2.20273, 1.26114, -0.712067, -1.00715], 
+        [0.952895, -0.511463, -6.87011, -0.941775, 0.781182, -0.728398, -0.519996, -1.81108, -0.222424, 0.0777802, -2.39254], 
+        [2.81953, 0.875327, -3.11409, -0.255591, 2.59534, 0.477749, 0.887305, -0.575175, -0.0363334, -0.339769, -2.15392]
+      ], 
+      [
+        [0.536782, -0.640812, 0.209024, 0.128544, -1.314, -0.291559, 0.261546, -0.662428, -0.554075, -0.0209157, -1.52234], 
+        [1.19476, 0.322319, -3.34539, -1.7386, 2.2588, -0.56273, -0.13622, -0.0694348, -2.26778, -1.52292, 1.27185], 
+        [-3.10448, 2.14585, -2.92984, -2.55887, -1.36518, -0.816555, -2.70802, 0.800111, 0.571516, -2.3376, 1.31143], 
+        [-0.834552, -3.00467, 1.18068, -0.338427, -1.50804, -0.815754, 1.4385, -1.33557, 0.363476, 0.476579, -1.94711], 
+        [2.17817, -3.63741, 1.34893, -1.50803, 3.41526, -1.63799, 4.63663, -1.41894, -0.57193, 1.67581, -1.08529], 
+        [-0.969671, -0.231387, -2.5216, 0.402647, 1.8678, 1.65819, -3.89285, -0.156328, -0.295392, -1.54108, 0.354185], 
+        [0.297892, 0.246239, 0.788438, -0.490607, -2.28033, 2.81478, -4.40033, -1.82391, -0.87005, -0.289782, -1.09224], 
+        [1.13364, -0.481706, -1.63035, 0.742729, -0.0963772, -0.948828, -2.38976, 1.24007, -1.40755, -2.07126, 1.24966], 
+        [-0.170268, -0.445257, -2.09805, -0.229879, -3.0701, -1.81737, -2.39226, 1.55598, 2.75754, -0.97652, 0.960998], 
+        [1.77446, 0.337829, -4.83687, 0.219546, -1.75054, 0.149756, 0.306471, -0.198506, 1.12616, -1.23616, -0.760798], 
+        [-2.78601, 0.442553, -2.33374, 0.304099, 0.517195, 0.227264, -1.11162, -0.159004, -2.38575, -1.31782, -2.02957]
+      ], 
+      [
+        [-0.445731, -0.46118, -0.345946, 0.0409421, -1.74727, -0.219641, 0.117131, -0.596325, -0.845932, -0.106316, -1.22878], 
+        [1.14069, 1.04828, -3.09326, -1.48904, 0.415916, 0.0115966, 0.0255872, 0.094668, -2.34277, -1.41708, 0.0965956], 
+        [-1.4595, 2.54979, -3.09447, -2.59324, -0.233022, -0.639666, -2.937, 0.978101, -1.04814, -2.2507, 0.216056], 
+        [-3.37961, -1.35379, -0.235062, -2.00245, -0.940963, -1.89808, -0.412647, -0.0930811, 0.610127, -0.201106, -0.872357], 
+        [-2.63933, -2.6453, -0.23395, -2.72068, 0.1032, -2.00067, 2.86192, -0.548563, -1.84587, 1.37717, 0.306389], 
+        [-0.399265, -0.812007, -0.227651, -1.75677, 3.4183, 2.23835, -1.38522, 0.340809, -1.58542, 0.18422, -0.599562], 
+        [-1.50339, 0.0640344, 2.5269, -1.85372, 4.17668, 3.35511, 2.92039, -1.69299, -4.75915, 0.869863, -1.78615], 
+        [0.233384, 0.811023, 0.150159, -0.45312, -0.415604, 1.00982, 0.180894, -1.3183, -1.89172, -0.209624, -0.311411], 
+        [0.48182, 0.582971, 2.71842, -1.19728, 1.64503, -0.745133, -3.00712, 0.099103, -1.03219, 0.463728, -0.311857], 
+        [1.40764, 1.51542, -1.67185, -1.98785, 0.189041, -1.3, 0.545413, 0.51614, -0.684193, 1.43233, -1.21196], 
+        [2.04502, 1.14766, -3.31005, -1.05103, 1.62957, -0.665363, 2.11173, 0.271768, -0.397228, 0.317939, -3.4469]
+      ]
+    ], 
+    [
+      [
+        [-0.17093, 0.163205, -0.946481, -2.12008, -1.79383, -1.8805, -1.39663, -2.098, -2.44853, -3.67668, -0.934874], 
+        [-1.00799, -0.747527, 1.51618, 1.28463, -1.34438, -0.0247746, -0.61246, 0.109056, -0.600114, -0.0491963, -2.51708], 
+        [-2.50881, -3.58059, 1.27418, 2.47587, -0.599342, 0.0783898, -0.304262, 0.485083, -2.06549, -2.0993, 1.06407], 
+        [0.0267261, -0.372792, -2.47442, -0.464374, 0.382723, -0.305787, -1.45833, -1.38189, -2.11272, -3.3397, -0.697126], 
+        [-3.463, -4.10935, 2.09154, 0.41044, -3.80229, -1.84805, -0.655009, 0.520071, -2.8429, -4.24578, 0.208821], 
+        [-2.48045, -3.43367, -1.36875, -0.700645, -1.3803, -2.05625, -2.18503, -1.91127, 1.01582, -0.255713, -2.23915], 
+        [-1.84158, -3.76824, 1.6828, 1.04269, -2.69497, -2.77524, 1.92933, 2.03663, -3.70208, -3.3329, 0.646156], 
+        [-0.149209, -0.301912, -2.96877, -1.8703, -0.220644, -1.64672, -1.65167, -0.708642, -0.240855, -2.14821, -1.64536], 
+        [-1.61909, -1.59541, 1.75325, 0.604653, -5.40594, -3.12144, 1.03514, -0.0540502, 0.233725, 2.33107, -0.58572], 
+        [-1.90037, -2.22747, 0.722563, 1.29451, -3.45522, -4.21359, -1.03018, -1.41882, -0.860173, -0.396613, 0.480938], 
+        [-1.2543, -1.57246, 0.00424933, 0.0740008, -3.07056, -2.46263, 0.406387, -1.12986, -1.53878, -0.385142, -3.03391]
+      ], 
+      [
+        [-1.91434, -0.115044, 1.44427, -2.89079, -1.46101, -2.15959, -0.0744686, -2.40002, 1.14475, -3.69177, -1.90328], 
+        [-1.8691, -1.56604, -2.59619, -0.26455, -6.73382, -0.510327, -4.41048, -0.392302, -3.97023, 0.351801, -5.2613], 
+        [2.99131, -3.71335, -6.02396, -1.63155, -4.10579, -1.88003, -5.06872, -1.3154, -4.90512, -2.72952, 0.227309], 
+        [-0.596269, 0.381013, -6.69434, -2.25849, -0.476268, -1.32918, -1.49123, -1.6165, 4.03544, -0.67103, 1.5816], 
+        [-2.94291, -3.97856, 2.031, -0.360557, -0.604069, -2.22365, -1.25027, 1.31361, 2.62421, -0.993564, -0.743834], 
+        [3.21733, 0.219037, -0.923501, -1.44902, 1.15518, -0.554313, -0.118964, -1.86914, 2.02826, 0.10406, -4.45266], 
+        [-0.820194, -0.674233, -2.33306, 0.760545, -0.262689, -0.975755, -0.936587, 2.93138, -1.77375, -3.9152, -0.664742], 
+        [-1.24394, -0.234877, -3.46751, -1.99531, 3.48903, -0.494715, -3.01183, -2.56178, 4.10607, 0.0236101, -1.56611], 
+        [-3.03997, -2.23706, 1.76161, 0.875403, -3.91573, -0.824013, 3.96885, -0.0525152, -5.56339, 2.878, -1.08317], 
+        [0.739392, -0.797349, -3.32254, -1.65255, 1.5414, -0.506957, 2.74552, -1.31712, -2.35137, -2.90207, 1.95994], 
+        [-1.07285, 0.10791, -0.0326874, -3.11057, -1.92792, 2.00725, 1.03527, -0.488841, 2.74242, -0.835122, -1.02262]
+      ], 
+      [
+        [-1.71348, -0.477358, -4.87473, -6.29765, 2.48422, 0.556874, -0.240054, -1.23986, 2.01979, -0.894531, 0.17552], 
+        [0.0714413, -0.0387552, -1.89469, -0.33985, -4.215, -1.15506, -0.57286, -1.0548, -2.1576, -1.42466, 1.24376], 
+        [1.84147, -1.30551, -7.50531, 2.47686, -2.65475, -2.02275, -2.00948, 1.49563, 0.610179, 3.65671, -2.252], 
+        [-0.441016, 1.08359, -2.09836, -4.6691, -1.19524, -0.829877, -1.23177, 0.672481, -3.80399, -2.69105, 2.37197], 
+        [4.86526, 2.49081, -6.60974, -3.38747, 0.650085, -1.23891, -1.60916, -3.04994, -0.314604, -4.06687, 1.05965], 
+        [-2.05611, -1.57105, 2.01592, -2.47075, -1.74352, -1.09809, 3.17994, 1.22968, -5.32464, -1.59952, 0.725745], 
+        [1.70283, -5.31524, -1.57966, -3.17699, 2.76501, 0.242504, -1.3996, -0.0534985, 1.55864, -0.550615, -1.21375], 
+        [-0.291019, 0.274952, -0.210832, -1.0448, -4.06671, -1.43635, 2.10583, -0.985391, -2.96688, -0.350064, 0.685935], 
+        [0.890033, 0.913085, -4.15211, -4.92865, 6.37012, 0.978297, -5.32989, -1.44439, -5.1615, 0.172995, 0.466129], 
+        [-1.22645, -1.34762, 2.24005, 1.12375, -5.27329, -1.51312, 1.34074, -2.65517, -0.493143, -2.11388, -3.67966], 
+        [0.131988, -2.26186, -1.79778, 1.66216, 0.430852, -4.07157, 0.300368, -2.313, -2.3814, -2.11928, -2.64622]
+      ], 
+      [
+        [-0.481797, -1.32649, 1.263, -3.84787, -3.56756, 1.42, -1.74717, 0.0236027, -3.03505, 1.10269, -0.395212], 
+        [-1.92545, -0.946474, -0.270386, 0.611235, -4.26188, -2.32081, 2.67889, -1.54412, 0.688893, -2.12845, 2.24577], 
+        [-1.2216, -1.47506, -8.48865, -0.228624, 7.40073, -2.07998, 2.05752, -1.0039, -2.08361, 2.22848, -0.161667], 
+        [-4.00872, -1.468, 2.29172, -1.12399, 6.58344, 0.245111, -5.44488, -0.831138, -4.46635, -2.13085, 1.84272], 
+        [-1.50539, -1.95638, -1.27721, 3.0717, 0.511741, -1.9186, 2.32118, -6.7828, -3.44603, 1.27238, 0.0100613], 
+        [-2.7693, -1.64699, 1.41426, -0.712277, 0.289767, -0.768063, -4.00192, 0.814993, -8.11688, -1.70753, 1.53105], 
+        [1.85881, -3.21093, 0.665776, -2.14309, -3.60943, 0.462457, -6.17086, -4.1738, 0.681771, -0.620796, -1.76045], 
+        [-1.72663, -0.296836, -3.03004, 0.461266, -5.54924, -2.22765, 1.85664, -1.13621, -1.89917, -0.805308, -3.53028], 
+        [-2.63465, -2.4966, -2.55768, -3.93225, -0.280482, 0.395215, -2.31194, -0.212662, -1.22254, -2.39996, -0.276662], 
+        [-1.46088, -1.01918, -1.6845, -0.0108391, -6.53241, -1.67793, 0.404287, -1.04683, 3.48439, -0.907004, 1.22057], 
+        [-1.1428, -1.37237, -3.4717, -2.31777, -0.650823, -2.0209, -0.947203, 0.492351, -0.0236632, 0.688835, -0.274284]
+      ], 
+      [
+        [0.334536, -0.899249, 1.74877, -0.813161, 0.287907, 2.94364, -6.07358, -4.18546, -3.06834, 0.611101, -0.799539], 
+        [2.0074, 2.91911, -4.47504, -1.77095, 4.28185, 0.595176, -1.48191, -1.73186, -4.87521, -4.36442, -0.806133], 
+        [-1.43189, 2.143, 2.07377, 1.68805, -1.41937, -5.21556, -4.69529, -5.22287, 2.42829, -0.438329, -3.1229], 
+        [1.79541, 2.65569, -4.25043, -2.49707, 2.00732, -0.677111, 0.11843, -0.394452, -0.314909, 1.50447, -2.32492], 
+        [-4.44039, 3.07633, 3.48043, -3.90558, 1.73859, -1.40382, 0.654089, -3.04778, 1.34028, 2.75594, -4.09847], 
+        [-1.5572, -1.83316, -2.4777, -1.4184, 2.93896, 1.13449, -0.350305, 2.5526, -3.35362, -2.85711, 0.361402], 
+        [-0.364001, 0.201518, 1.9772, -4.0288, -1.12363, 3.9197, -4.28209, 1.18286, -4.54795, -7.93156, -0.460881], 
+        [-0.443014, 0.888128, -0.616424, -0.0426219, -0.323481, -2.50828, -1.08871, -1.77076, -1.00884, -0.189488, -3.75523], 
+        [-4.32789, -2.12368, 1.17719, 0.117178, -5.09056, -4.11943, -0.556285, -2.07047, 3.47646, 1.33402, -1.69195], 
+        [-1.10146, -1.811, -2.51998, -0.00797331, -0.347105, -1.90967, -4.71934, -3.24465, 2.11302, 0.800718, -0.397045], 
+        [-1.07883, -1.31607, 0.530717, 1.03125, -2.63339, -0.701104, -0.244599, -3.52815, 2.66839, -2.00763, -0.613525]
+      ], 
+      [
+        [1.06815, -2.02009, -6.01039, 0.823098, -1.5274, 0.170703, 0.917824, -4.23764, -3.00753, 0.282647, 1.59978], 
+        [-5.52933, -0.910088, -6.92652, -2.02338, -1.56222, -1.90516, 0.717752, 0.845575, -0.336112, -1.35752, 4.2199], 
+        [-1.45114, -4.9338, -2.53238, -0.210218, 2.35041, -4.4813, -4.43819, -2.6782, 0.926184, 2.95244, -1.6317], 
+        [-4.51294, -1.21716, -5.29596, -1.15972, -1.58593, 0.0756106, -3.18551, -0.221292, -6.18213, -1.67754, -3.3416], 
+        [-2.7931, -2.70229, -2.19847, -0.306073, -2.36325, -3.31247, -1.93745, -2.89871, -6.19123, -0.472272, -0.714974], 
+        [0.503555, -1.32477, 0.167663, -1.8419, -2.23054, -0.63605, -7.22517, -0.32983, -5.38766, -2.43923, 4.1076], 
+        [-0.961475, 1.8659, 0.320188, -1.27837, -6.41426, -0.816023, -0.0277696, -6.56682, 5.52501, -2.59604, -0.355606], 
+        [-3.78322, -1.95776, -2.71537, -1.12023, -1.19727, -2.1194, 5.80643, 0.537878, -1.69571, 1.07096, -5.52162], 
+        [2.90859, -4.77184, -1.3669, -1.55268, 1.48863, -0.0337949, -2.27787, -1.01307, -2.30785, -2.94165, -3.6501], 
+        [1.67678, 0.583436, -4.27322, -1.41729, 1.65866, -0.136398, 1.51267, -0.904806, -2.59055, -0.876261, -5.26948], 
+        [-3.90994, -0.74311, -0.290969, -1.61035, -2.51665, 0.274453, -0.173011, 0.411809, -1.59747, -3.8876, -2.26066]
+      ], 
+      [
+        [-5.99575, -5.54257, -2.05766, -1.9295, -3.29513, -0.229023, 4.01497, -1.02761, 2.36464, 0.919445, -3.29911], 
+        [0.438854, 0.895927, -5.53578, -2.91132, -1.50625, -0.114664, -4.65183, -0.946705, 2.7884, -1.5662, 0.767101], 
+        [-6.19375, 4.00363, -0.935412, -2.8658, -0.881889, -0.177716, -0.477959, -2.57011, 1.97938, -2.76899, 0.160553], 
+        [-2.38353, -1.92583, -1.061, -0.0150193, -2.7827, -0.995962, 0.2464, -0.980723, 1.52892, 1.99794, -3.55171], 
+        [-6.94321, -2.10052, -1.76463, 4.47192, -5.063, -1.59219, -1.04637, -5.12467, 0.448869, 4.9217, -6.78371], 
+        [-2.53863, -4.27683, -0.823995, -0.172106, -1.19353, -0.623586, -1.63473, 0.145757, -1.57072, -0.51719, -2.12707], 
+        [-2.99659, -3.80362, 1.13003, -0.261957, -4.5463, 5.75401, -1.82744, -0.414416, 3.71986, -4.61664, -0.222461], 
+        [-0.183238, -0.354586, -1.63153, 1.25289, -3.38282, -2.69596, -0.289849, -0.909527, -1.9201, -2.51352, 2.72387], 
+        [-1.25001, -2.592, -3.46242, 0.702464, 0.973814, -3.34655, 1.77714, 0.887457, -1.27032, -0.231819, 2.31158], 
+        [-3.99525, -3.91493, 2.70091, -0.602862, -4.53347, -3.14701, 1.74905, -1.69899, 0.625874, -0.244618, -2.3414], 
+        [0.112448, -2.23037, 1.61829, -0.382268, -0.374702, -2.91296, 1.85602, -2.6388, -2.91448, 2.36328, -2.91445]
+      ], 
+      [
+        [1.80235, -3.64317, -0.506458, -2.15771, 0.0531906, -0.641349, -2.31231, 0.466825, -1.0496, -1.16829, -1.88676], 
+        [0.195307, 0.43696, -0.885924, -0.146646, -0.101921, -1.22069, -2.10993, -1.94005, -1.48064, -1.07324, -2.43408], 
+        [-6.9508, 0.438954, -0.169924, 0.437588, -1.25372, -0.0373222, 2.5329, -2.805, -2.60964, -0.833593, -2.72877], 
+        [1.07081, -1.96108, 3.34342, -1.04355, -2.07703, -1.43617, 0.363482, -0.2122, -6.00186, -1.91769, -1.44374], 
+        [3.72567, -0.964729, -1.10062, 1.32457, -0.238448, -1.25413, -0.0168644, -3.75369, 0.725464, -2.68084, -2.4796], 
+        [3.95757, 0.800181, -3.20793, -2.75141, 2.96282, -0.640283, 0.0553159, 0.132985, -4.64061, -0.910547, -2.79725], 
+        [-4.03207, 0.946432, 4.26147, -1.08233, -5.8975, 1.86476, -0.777041, -2.69727, -4.43079, -0.536473, -0.475467], 
+        [-0.729034, -1.0686, -2.74569, -1.02472, -3.34735, -2.30571, 2.70225, -0.429586, -2.32844, -1.78538, 2.29266], 
+        [-1.25786, -0.922901, 0.685852, -3.14953, -0.630292, 1.88106, -1.79191, -1.05838, -0.863859, 1.62056, 0.175582], 
+        [2.05932, -0.652673, 1.51803, -0.793322, -0.557696, -1.63673, 1.24612, -1.54311, 0.248347, -1.54496, 0.963026], 
+        [-1.05674, 0.982559, -0.58229, -1.0883, 0.555495, 0.38615, 0.567808, -0.899362, 0.260848, -0.149198, -0.665907]
+      ], 
+      [
+        [0.0607668, -2.83367, 3.83414, -2.39882, -2.63822, -1.24834, -3.14702, 0.00222862, -1.7871, -2.15297, -0.954628], 
+        [-3.72481, -3.21832, 2.07127, -0.482519, 0.408691, -1.52207, -1.15305, -1.38487, -0.699122, 1.01454, -2.79632], 
+        [-0.9513, -1.94464, 2.31219, -1.03223, 1.3082, -0.28472, -3.09967, -3.7802, -4.14281, 2.51619, -1.35908], 
+        [1.59741, 0.298605, -1.72038, 0.591247, 0.00968313, 0.451917, -1.81995, -0.87133, -0.850109, -0.974023, -2.59659], 
+        [6.87451, -4.33352, -1.58099, 4.77714, -3.85794, -0.0277883, 0.769404, -1.78142, -2.86532, -2.52365, -2.30575], 
+        [-3.05912, -2.57181, 5.13058, 0.0702524, -6.77484, -5.32069, 0.118368, -2.26435, 1.45583, -0.491159, -2.63544], 
+        [0.799138, -3.964, 0.504948, 0.173209, -6.73917, -2.96886, 2.2421, 1.58954, -0.996784, -1.0663, -1.48079], 
+        [-1.92461, -2.41682, -1.4857, -0.993833, -1.1808, -2.47878, -3.56476, -1.13024, 2.12218, -0.836364, -2.48581], 
+        [0.106165, -2.00562, 0.453508, 3.04103, -1.97838, -0.833904, -4.2862, 0.565479, -3.34731, -4.84676, 0.388821], 
+        [-3.81857, -4.63621, 2.02965, -0.165069, 0.103566, -1.19158, -0.875905, -2.05208, -1.98096, -2.63867, -1.90434], 
+        [0.237535, -4.48772, 1.59779, -0.33613, -1.62904, -2.51469, -2.3893, -1.71043, -0.910595, -2.94405, 0.448754]
+      ], 
+      [
+        [-2.43018, -0.24319, 2.80443, -2.60416, -2.30872, -1.27521, -1.42302, -0.530722, 1.4719, -2.29085, -2.26869], 
+        [1.39123, -1.20937, 0.666903, -0.346819, -4.05231, -0.822577, 0.188937, -1.1912, -0.88255, -0.496965, -4.23346], 
+        [4.55217, -2.51473, -4.52971, -2.24825, -2.70779, -0.630307, 0.12847, -1.50307, -4.1179, -1.31384, -0.956035], 
+        [-2.50665, 0.70705, -10.1781, -1.62486, -3.70523, -1.21102, -2.21014, -0.237183, -2.25174, -1.71914, 1.74288], 
+        [-5.81743, -3.63746, -3.4315, -0.198193, -5.80257, 0.0124482, -0.544565, -1.21846, 3.32477, -1.61891, -0.562419], 
+        [-1.43555, -1.3422, -2.26249, -2.14125, 4.76807, -1.90909, 7.80599, -1.0456, 1.45563, 0.0128661, -3.14658], 
+        [-0.353516, -1.37944, -0.291372, 0.827949, 3.67763, 2.20384, -1.18734, 3.06709, 0.680578, -4.00767, -1.81876], 
+        [0.961113, -0.640063, 0.222187, -2.00985, 4.48137, -0.205175, -2.07528, -2.67501, 3.21642, 0.314842, -4.78179], 
+        [-2.75773, 0.745586, 2.23981, 1.94116, -3.75028, 1.11217, 2.08539, 0.214962, -1.03984, -4.1119, -0.46781], 
+        [2.08933, -1.07728, 0.479133, -2.06636, -1.2838, -1.79781, 1.69983, -0.957654, 3.36205, 0.155194, -1.48307], 
+        [-0.102673, 1.49534, 1.85016, -1.49576, 0.171031, -1.00108, -0.788802, 0.141753, -2.41117, -0.139919, -0.588228]
+      ], 
+      [
+        [0.573626, -0.0314043, -2.75041, -2.48164, 0.955456, -1.0843, -0.583623, -0.491336, -2.18476, -2.22282, 0.0408841], 
+        [-1.4088, -2.03434, 0.243772, -0.255484, -1.69807, -1.29902, -0.4874, -1.44169, -0.572524, -0.33711, -1.47428], 
+        [0.757776, -6.63597, -0.77619, 1.73905, -2.30071, -1.83167, 1.73884, -3.19357, -1.17765, 2.35073, -2.31492], 
+        [-1.65998, -0.0774877, 0.233474, -0.25586, -2.31756, -0.217577, -2.97944, -1.08925, 0.207388, -1.39023, -1.238], 
+        [-2.60596, 3.33885, -4.35406, 1.34665, -1.68574, 3.31619, -3.49017, 0.0274817, 1.06182, -3.84937, -0.536791], 
+        [-0.766227, -0.919949, -0.568295, -0.535468, -3.38107, -2.94188, 0.634795, -1.55738, -0.995624, -1.19825, 0.384192], 
+        [0.475677, -1.06903, -3.45351, 0.547874, 1.40456, -7.0807, -0.716292, -0.210278, 0.234856, -2.28394, 1.1969], 
+        [-1.63034, -1.74679, 0.980611, -1.3069, -2.57829, -1.76153, 2.09386, -0.938301, -3.76002, -0.88044, 0.23912], 
+        [2.37639, -1.38231, -3.23465, -1.7928, -1.72637, -1.1737, 0.92944, -2.10436, 0.0167236, -0.229213, -0.0894945], 
+        [-1.62127, -2.28968, 1.81783, -0.374378, -2.50706, -0.731994, -2.66769, -1.6437, -1.22734, -1.93272, 1.64654], 
+        [0.899121, -4.13453, -0.742566, -0.504426, -3.31139, -1.09817, -1.0586, -2.456, 1.46327, -2.03811, 1.07323]
+      ]
+    ], 
+    [
+      [
+        [2.30105, 2.95844, 0.719593, 1.21974, 0.101671, 0.705918, 1.00849, 0.502341, -0.234949, -1.69278, 2.59135], 
+        [1.16255, 2.48388, -1.98737, 1.01844, 0.197075, 0.749987, 0.121596, 0.587378, 0.0623702, -1.02798, 2.39301], 
+        [0.611713, -2.94212, 3.8607, 3.27144, -2.20564, 2.09602, -1.10255, 1.87782, -5.12386, -1.56176, 3.82949], 
+        [0.0118488, -1.27833, 2.47025, 4.06715, -0.821837, 2.25953, 1.27735, 2.21347, 2.79115, -0.873725, 2.2219], 
+        [-5.60804, -3.70107, 8.93241, 0.766863, -0.790537, -2.15578, 4.83963, 2.53319, -0.827868, 1.81086, 2.79431], 
+        [3.05077, -2.74981, 3.0474, 2.27212, 1.48583, -0.356544, 3.19579, 2.41849, -0.638517, -0.642833, 2.1884], 
+        [-1.75589, 3.72804, 3.71178, 2.31292, -1.81092, 0.850436, 7.35007, 5.88072, -6.35402, -2.41208, 3.86977], 
+        [0.19183, 0.0232912, 3.05961, 2.70071, 0.810112, -0.237253, 2.25713, 4.54369, 0.168573, -1.59292, 2.62635], 
+        [-1.76431, -0.517875, 7.51674, 5.02006, -6.55701, -1.85744, 8.74429, -0.283838, 2.86427, 9.32457, -2.77773], 
+        [2.28967, 0.0397658, -0.215353, 3.8636, 2.79618, -1.72407, 3.14048, 1.57931, 1.1599, 5.42358, -0.947757], 
+        [0.824096, 2.81848, 2.55029, -2.08537, -0.0104105, 5.38605, 2.38181, 1.35912, 5.04596, -1.44228, 1.48326]
+      ], 
+      [
+        [0.904299, 1.94961, 0.625426, 1.14064, 0.966185, 0.962572, 0.798862, 0.871178, 1.07957, -0.0631561, 0.739864], 
+        [1.73118, 1.18376, 0.198169, 3.67207, -0.822479, 2.36813, 0.00180233, 2.54832, -0.780207, 2.78152, 0.802895], 
+        [1.38555, -0.702073, 0.32063, 2.98127, 1.4154, 2.02342, 1.36892, 2.04303, 2.45115, 0.851181, 0.0580871], 
+        [-0.108064, 2.5047, 2.2386, 1.08918, 0.794882, 1.7014, 1.14915, 0.586697, 0.959854, -0.699874, 3.05141], 
+        [2.6929, -0.140866, -0.61637, 0.730868, 2.86489, -0.105968, 1.24278, 1.4964, 1.54304, 0.923323, 0.320371], 
+        [-0.0157439, -0.335035, 3.74758, 1.2851, 0.39869, 0.515505, 2.89157, -0.0178814, 0.627022, 2.47033, 0.899866], 
+        [0.910636, 2.03196, 0.189987, 1.64875, 2.16109, 0.953953, -0.136717, 2.65484, 3.11222, 0.304864, 0.0483717], 
+        [0.477518, 2.25753, 1.75894, -0.0446861, 1.10568, 0.914598, 3.27649, 0.715925, -0.412891, 0.724509, 2.31521], 
+        [1.83416, 0.986076, -0.702486, 2.18959, 3.98741, 0.0117074, 0.237099, 0.129787, 1.03886, 4.71807, 1.57029], 
+        [0.972445, 0.238485, 2.82171, 2.98, -1.25092, -1.40441, 4.02473, 0.704616, 3.23492, 0.825218, 0.283623], 
+        [1.14817, 1.64331, 1.06669, 0.221641, 1.68584, 2.29293, 0.519658, 1.06054, 1.47837, -0.411605, 2.21048]
+      ], 
+      [
+        [3.01985, 0.942677, -2.07567, -2.9952, 4.90016, 4.79468, -0.852088, 2.83302, -0.402497, 5.27782, -0.488706], 
+        [0.985161, 2.59958, 1.5121, -3.73834, 3.8175, 2.56845, 0.0481977, 0.781374, 0.440106, 0.382819, -1.41454], 
+        [1.03335, 5.22658, -4.33562, -1.90797, 5.19297, -3.73024, 7.30855, 1.58372, 1.70864, 4.21843, 0.615377], 
+        [-1.69627, 0.533079, 3.60344, 1.48265, 4.5592, -0.862834, 2.10759, 3.03438, 1.78015, 2.39527, -1.55784], 
+        [0.856194, 2.86848, -1.06059, 2.90861, -1.05988, 3.32434, -0.859895, -4.28091, 1.19607, 3.0719, 4.17758], 
+        [-0.95868, 0.395755, -0.888381, 0.454066, 1.59932, 0.00845695, -2.55751, 0.60568, 3.47685, -0.0593975, -0.659078], 
+        [0.147105, -0.624522, 3.59552, -1.51953, 2.86144, 4.9395, -1.07259, -1.83684, 1.76104, 3.54066, 0.493519], 
+        [-0.68494, -1.18526, 0.69709, 0.219483, 3.69668, 2.58103, 0.654623, 4.314, 1.12961, -0.551108, -1.14523], 
+        [-0.290842, 1.45729, -1.56091, -0.650822, 2.05149, 4.01494, -0.10152, 0.00870693, 3.46639, -4.64491, 5.00952], 
+        [0.465944, 0.879387, -0.0848402, 1.03311, 2.21244, 2.06528, -0.594691, 0.95547, 5.27591, 3.75088, 5.04212], 
+        [0.388851, 0.836825, 2.27638, 1.2893, -3.6903, -0.866734, 5.35953, 2.89415, 0.90369, 3.39693, -0.56651]
+      ], 
+      [
+        [0.86383, 1.38883, 2.02889, -0.859193, 0.220331, 2.53815, 1.81594, 1.63971, 1.35031, 2.27003, 1.60806], 
+        [1.15306, 1.92542, -0.898416, 1.67727, 3.1245, 0.0416993, 1.81384, 0.478776, 2.51386, 0.0349845, 1.4633], 
+        [0.106148, 2.35131, 3.74289, 1.2288, 0.200034, -1.27682, 0.309493, 1.31882, 1.5667, 1.64242, 2.10443], 
+        [1.67269, 2.78511, -0.397916, -2.57198, 3.11802, 1.64159, 1.54511, 2.91551, 0.946072, 0.289528, 1.24753], 
+        [0.672695, 1.49879, 2.9776, 1.03565, -0.10831, 2.15721, -0.101243, -0.261525, 1.24623, 0.941248, 1.86539], 
+        [1.82077, 1.71895, 0.0386752, -0.152345, 2.33265, 1.82648, -0.830121, 4.46057, 0.332133, 0.150512, 1.6462], 
+        [1.00517, 0.0415893, 1.74917, 0.155116, -0.220733, 2.71883, 1.83098, 2.12085, 0.0550716, 1.09024, 1.60651], 
+        [0.542894, 2.52348, -0.813877, 2.19463, 2.51243, 0.600718, 1.0214, 0.811026, 1.29317, 2.61044, 0.17685], 
+        [1.01932, 1.68153, 0.86215, 1.43555, -0.52126, 1.4789, 3.07211, 0.702102, 1.85508, 0.326499, 0.913403], 
+        [1.21382, 1.51943, 0.00947225, 2.47183, 1.46892, 2.01504, 0.0905316, -0.130052, 2.17762, -0.287185, 2.54716], 
+        [1.22218, 1.14098, 1.20106, 1.83634, 0.937694, 0.424696, 1.65574, 1.50241, 0.942089, 1.66662, 0.910012]
+      ], 
+      [
+        [4.52463, 4.13511, -4.93778, 5.88902, 4.73032, 3.59169, -4.66867, -5.01806, 4.77551, -2.08193, 4.38285], 
+        [-2.23342, 2.97227, -0.262356, -0.192545, -2.73938, 6.57678, 1.66937, -1.90989, 7.96096, 2.19793, 3.1051], 
+        [6.44559, -0.747962, -4.00992, 1.83596, 0.345982, -2.2978, -2.69774, 1.31834, 6.78956, 7.31084, -1.54921], 
+        [-0.453539, 4.13071, 0.76489, 1.8324, -3.31661, -3.18652, 0.178278, -0.861809, 1.43762, 6.24408, 1.33263], 
+        [4.00307, -3.29971, -5.03077, 3.7775, 4.75556, 2.43541, -0.0965576, 4.71037, -2.17131, -0.575185, 0.116678], 
+        [3.40215, 2.31341, 1.94272, 2.47721, -3.28307, 1.07288, -2.97398, -2.22877, 2.22025, 4.52454, 0.803798], 
+        [4.328, 7.22167, -4.96907, 2.91294, 4.64072, -0.671924, -1.09113, -6.04038, 1.11654, -4.02147, 5.4243], 
+        [-0.319409, 2.61029, -3.08959, -0.898635, 1.7918, 4.87037, 2.34531, -2.11345, 2.09213, -3.3469, 3.76903], 
+        [1.24587, -6.85876, 5.23993, 2.73549, 0.658402, -2.89785, -2.1536, 2.0067, 1.4375, 5.66978, -3.05985], 
+        [1.5559, -2.62993, 2.01137, 0.486545, 1.48839, -0.188785, 5.38546, 0.0686203, -2.09346, 2.18912, -0.439132], 
+        [-1.64655, 3.96174, 2.72259, -0.124619, -0.440227, 4.0226, -2.12864, 3.02761, 1.76435, -1.74251, 3.01316]
+      ], 
+      [
+        [-0.510958, 2.35064, 1.67471, 2.2934, 0.522429, 2.85962, 2.81195, -1.18068, 1.66522, 0.473774, 0.751082], 
+        [1.17486, 4.47671, -0.519382, 0.459447, 2.04723, 2.29809, -2.0747, 1.68205, 2.31074, -1.81139, 3.52979], 
+        [0.00365686, 1.69243, 1.95585, 0.876206, 2.00154, -0.903016, 1.69185, 1.75892, -1.75856, 3.29896, 1.74055], 
+        [1.44609, 3.42068, -0.635467, 1.74584, -0.35971, 2.37296, 0.197317, 1.36943, 2.28195, 3.18113, -0.883725], 
+        [1.9093, 0.374381, 1.05443, 2.11778, 0.978181, 2.16715, -0.146073, 1.99042, 1.40439, 1.27479, 2.27015], 
+        [1.46898, -0.19522, 2.97956, 1.27926, 0.278774, 3.13221, -0.755955, 3.84088, 0.770885, -0.886583, 2.03188], 
+        [0.162556, 2.89704, 1.42179, 0.951601, 2.46538, 1.80426, 2.29293, -0.81924, 1.03154, -2.01517, 0.697294], 
+        [2.12689, 2.07279, -0.0233313, 2.14093, 1.36886, -0.859965, 0.730771, 1.48604, 0.0333567, 2.37665, 1.62209], 
+        [2.32198, -2.0836, 0.467178, 1.63537, 2.87272, -0.939803, 1.35699, 1.90776, -1.44903, 3.65222, 0.679013], 
+        [-0.332425, 1.15106, 2.7181, 1.68303, -0.323799, 0.168647, 2.53548, -0.0423588, 2.25874, 3.75667, -0.834762], 
+        [1.03997, 2.6873, 0.354624, 0.739957, 1.37318, 2.2618, 0.484651, 1.61124, 1.03289, 0.746799, 1.52727]
+      ], 
+      [
+        [1.64952, -3.09208, 0.966307, -4.19918, 8.31562, 0.264353, -1.74786, 6.82467, -1.95101, 2.3157, 1.31117], 
+        [1.06392, -1.73481, 6.69531, 0.275702, 5.37031, 3.4101, 1.22653, -0.29215, -4.35771, 2.40826, -0.20269], 
+        [3.23339, 2.4564, -5.3006, 4.72378, 0.178445, 3.49865, -2.66908, -1.45434, 7.82191, 2.74289, 0.754568], 
+        [4.41738, 2.33829, 2.06608, 1.94222, 1.00283, -0.182277, -1.95371, -1.87974, 0.456795, 5.43791, 2.12694], 
+        [-0.529016, -4.77212, 10.481, 4.4861, -1.76015, -0.437663, -0.830678, -1.03244, 8.41133, -2.48378, -3.08562], 
+        [3.00718, -3.51907, 4.72204, 6.67379, 1.15934, -0.542855, 1.51384, -2.4049, 2.55176, 4.349, 2.46272], 
+        [-0.690872, 4.55643, 8.4541, 0.233355, 0.975811, 3.62133, -5.23974, 3.42135, -7.84361, 3.90646, 1.86553], 
+        [2.57673, 3.11188, 2.06263, 2.47309, 3.59422, 5.34835, -1.4022, -2.76394, -1.429, -2.11833, -2.45131], 
+        [-4.49631, 0.739922, 3.59533, -2.0186, -3.11649, 3.15286, 2.91776, 2.86592, 7.6924, 2.35658, 1.49845], 
+        [1.51578, -4.06674, -0.366154, 1.55554, 2.69881, -0.0639048, -1.58441, 2.01031, 0.887885, 1.78437, 1.98211], 
+        [0.943152, 3.94515, 3.84274, 1.49307, 0.470023, 1.83529, 4.37431, 0.579709, 6.69924, 1.32537, -2.16461]
+      ], 
+      [
+        [1.62978, -0.48401, 1.74005, -0.506031, 0.414418, 1.39899, 0.66984, 2.52699, 1.24423, 1.64688, 1.44123], 
+        [-0.172603, 2.01682, 0.633806, -0.0689753, 3.05485, 0.997063, 2.14117, 1.33817, 0.561313, 2.13495, 0.39862], 
+        [1.91635, 2.64553, 0.0573369, 2.55964, 0.603853, 1.5157, 1.6583, -0.498602, 0.402825, 2.56771, 2.12387], 
+        [2.05483, -1.31171, 2.74028, 1.77155, 1.11343, 0.870507, 0.458606, 1.90415, 2.04634, 2.18119, -0.202206], 
+        [3.05079, -2.12509, -0.770275, 3.25492, 2.64215, 0.269821, 1.42544, 0.408588, -0.0639046, 0.41875, 2.02413], 
+        [-0.570289, -0.191726, 5.25131, 0.730304, 0.0902823, 0.918532, 0.613288, 1.75827, 1.43339, 2.23409, 0.423477], 
+        [1.07737, 3.16111, -0.740138, 0.354935, 2.46989, 2.79219, 1.13313, 1.67316, 0.875982, 1.53962, 1.43745], 
+        [1.24867, 0.953684, 1.43144, 2.73343, 1.12481, -0.315874, 1.09137, 2.11016, 1.54699, -0.265386, 1.94431], 
+        [2.3683, 0.0329176, 0.751319, 0.568531, 1.76478, 0.72472, 1.53117, 2.19056, 1.45599, 1.252, 1.53679], 
+        [0.816808, -0.516793, 2.69138, 1.29502, 1.85167, -0.105188, 2.40417, 1.04065, 1.48943, 0.378156, 1.56284], 
+        [1.10308, 1.95213, 0.709828, 1.39934, 1.10619, 0.959193, 1.39809, 0.775906, 1.49899, 0.929504, 1.37445]
+      ], 
+      [
+        [-2.99737, 1.78564, 0.0119147, 2.27549, 0.905338, -0.00416601, 4.0039, -0.380902, 3.00242, 0.894258, 0.110822], 
+        [1.92905, -2.49537, -3.68799, -1.05034, -0.331478, 0.914286, 3.63104, 2.92494, 1.60269, 1.17187, 1.96466], 
+        [2.03361, -0.312807, 4.34554, 2.68499, 2.82183, 3.31676, -2.76584, 1.00037, 4.04481, -0.251893, -1.5215], 
+        [-1.32877, 0.793087, 1.83355, 3.27653, -0.446849, 3.28612, 0.0654111, -1.92606, 3.16212, 3.97756, 2.91176], 
+        [-9.87854, 4.0912, 10.6992, 0.432504, -5.75708, -1.23499, -0.129772, 2.45492, 3.21765, -1.30366, 0.204087], 
+        [-0.837148, -1.88127, -1.76372, 7.32226, 6.5346, -0.102766, 0.470554, -1.66186, -0.665468, -1.07188, 2.67132], 
+        [-0.730021, -1.50999, 11.6689, 1.19, -0.712761, -0.0292259, 8.96056, 7.20169, -2.69978, -1.61398, 1.77151], 
+        [2.28218, -0.242489, 3.43089, 2.83496, 3.03162, 1.35961, 4.4965, 3.23557, -1.76252, 0.331686, 3.00877], 
+        [-4.16818, 1.75986, 10.3977, 5.14217, -4.967, 5.25254, 4.76199, -2.0628, -4.1812, -3.21564, 5.75573], 
+        [2.90512, -0.987927, -0.489505, 3.42281, -0.151736, 4.13827, 2.29305, 1.43523, 3.67822, -1.00282, 3.32819], 
+        [0.0137438, 3.96838, 7.02779, -0.921233, 1.64572, 0.113081, 2.05547, 2.64011, -2.17565, 4.03554, 1.75053]
+      ], 
+      [
+        [2.13609, 0.717075, 0.291535, 1.01411, 1.50735, 0.807586, 1.39169, 1.10333, 0.55959, 1.11848, 1.24703], 
+        [1.34739, -0.682635, 2.07134, 3.06689, -0.101206, 0.891145, 1.75465, 0.354342, 1.34928, 2.80767, 0.216097], 
+        [0.536051, 0.284802, -0.168717, 2.55834, 0.836832, 2.21944, 1.5993, 0.373495, 1.06187, 1.80649, 1.31848], 
+        [-0.38317, 4.20489, 0.438512, 2.05864, 0.304122, 2.45097, -0.701564, 1.71463, 1.95074, 0.0269113, 1.74246], 
+        [1.00058, 2.49545, 0.336066, 1.99009, 4.07616, 0.380238, 1.60213, 1.46611, 1.01083, -0.372185, 0.917446], 
+        [1.51528, 1.13558, 2.13311, 1.16905, 1.26218, -2.80029, 3.99589, 0.269495, 1.00417, 1.72368, 1.46739], 
+        [1.98515, 0.032719, 1.17418, 1.05991, 2.90327, -0.0354098, 0.0848407, 3.23107, 1.7898, 0.703218, 0.198873], 
+        [0.822027, 0.262383, 3.18162, -0.0585006, 0.822316, 0.579817, 3.84478, 0.0531269, -0.170385, 2.51015, 1.00663], 
+        [2.32052, 0.97204, -0.331433, 2.16595, 1.74153, 3.12899, 1.80783, -0.51825, 2.65851, 0.244097, -0.175994], 
+        [1.21314, -1.01909, 4.05789, 1.50606, 1.00839, 1.1007, 0.70159, 0.189885, 0.967398, 0.568526, 2.53401], 
+        [1.12756, 1.68305, 1.01213, 0.19014, 1.92242, 0.529801, 1.58326, 1.50866, 0.864831, 2.43371, 0.444858]
+      ], 
+      [
+        [-0.04592, 1.24596, 2.0871, 1.85076, -0.296279, 1.53375, 1.02727, 1.1111, 1.74339, 1.68486, 0.568531], 
+        [1.03079, 1.45993, 0.184964, -0.0361891, 0.743906, 0.781636, 0.668129, 1.49416, 0.828261, 0.251248, 1.13548], 
+        [-1.98669, 3.17348, 6.74831, 0.179104, 0.2373, 0.759198, -0.866622, 2.23737, 4.32047, 0.375911, -0.0171533], 
+        [0.0679556, -2.10048, 0.46765, 2.49273, 3.21373, 1.67837, 1.56273, -0.351885, 0.514786, 2.54494, 1.82884], 
+        [4.99579, 0.633603, 2.42746, -0.309288, -1.53849, 0.592341, 0.611324, 1.2758, -1.25486, 2.61076, 1.93611], 
+        [1.51362, 1.85474, 2.85911, 3.48143, 3.34667, 2.73703, 0.444501, 1.19235, -0.202092, -0.859588, -0.403081], 
+        [-0.718315, 1.8973, 2.2862, 0.104715, -6.22885, 2.5635, 8.52537, -0.853521, 1.49062, 2.78399, 1.56182], 
+        [0.646972, 0.367448, 0.717749, 3.13005, 1.37992, -0.494846, 0.77985, 4.48992, 2.5173, -1.41949, -0.519053], 
+        [-1.40538, 1.48369, 5.62275, -0.190916, 2.81483, 0.141766, 0.728024, 1.55982, -0.882948, 2.83186, 1.67564], 
+        [0.834528, 1.1683, 1.16418, 3.35233, 4.03883, 2.77856, 2.30946, 1.0081, -0.772087, -1.22821, -1.30724], 
+        [-0.766253, 1.26538, 4.48007, 1.25124, -1.02952, 1.24847, -0.619899, 1.23137, 2.57671, 1.17131, 3.86824]
+      ]
+    ]
+  ], 
+  [
+    [
+      [
+        [-2.3105, 3.55781, 0.0742512, 2.92475, 1.84439, -2.00524, -1.58342, 0.388707, -2.09043, 2.82376, 0.770077], 
+        [1.83716, 4.60897, 6.8295, 3.60792, 4.40254, -2.11877, -3.56395, 0.132794, 2.48528, 3.15627, 5.14236], 
+        [-3.67136, -2.14765, -5.90041, -0.0386965, -0.126672, -0.160134, -0.969194, -0.401706, -2.16311, 0.611328, 0.269681], 
+        [-1.14185, -1.92227, -1.85475, 0.411675, 0.314792, -0.468955, 1.2572, -0.115895, -0.546113, 1.06946, 1.42485], 
+        [-0.159596, 1.08344, 0.504573, -1.25602, 0.398776, -1.44613, -0.208351, 0.280677, -1.20082, -2.01921, -0.94483], 
+        [0.385074, 1.35553, 2.2603, -0.808133, -1.00265, -0.797867, -2.81649, 0.905751, 1.16461, -1.52179, -3.70026], 
+        [-1.70043, -1.10603, -0.782406, -1.8021, -1.60477, -1.66142, -3.18453, -2.52015, -1.40402, -0.247616, -1.55126], 
+        [-0.834395, -1.05889, -0.366634, -1.28818, -3.15679, -1.28296, -1.60033, -2.00078, -3.85784, 0.166234, -0.195266], 
+        [-0.353182, -0.0619262, -1.90645, 3.45684, 0.465186, -0.525584, -0.624875, -0.114014, -0.83914, -3.00249, -1.95734], 
+        [-0.852463, -0.307526, 2.288, 4.36406, 5.23853, -0.810739, 0.764662, 0.363317, -0.647775, -3.06082, -4.6196], 
+        [-0.547673, -0.440919, -3.26945, -0.891028, -0.947968, -0.382689, -0.425203, -0.679101, 0.324446, -0.417449, -0.769774]
+      ], 
+      [
+        [-1.16426, 1.78922, -3.0609, 1.03163, -1.541, -0.831768, -0.460439, -0.959425, -2.96022, 0.341211, -2.6287], 
+        [-0.508257, -3.67989, 3.13968, -2.93122, 4.16557, 0.298382, -3.88866, -0.604616, -1.47747, -2.4448, 3.06363], 
+        [3.08882, -4.66794, 4.69093, -2.93986, -0.94605, -0.0648658, -0.556749, 0.149476, 4.31301, -2.04383, 1.49769], 
+        [-0.471561, 0.341756, -2.06654, -1.03082, -0.814978, -0.340645, 1.20787, -1.01452, -0.686176, -1.46125, 0.886925], 
+        [-1.65918, 1.32672, 0.119204, -0.376059, 3.43591, 1.08823, 1.96921, -0.134009, 1.12013, -0.955804, 1.77824], 
+        [-0.415738, -1.68964, 3.11677, -0.698523, 2.49085, -0.998493, -0.87074, -1.52168, 3.12933, -0.353104, -1.96035], 
+        [0.680064, -2.13852, 0.429283, -0.113203, -1.69413, -1.00618, -0.0821038, -1.14663, -0.11693, 0.210715, -2.48965], 
+        [-0.677597, -0.154447, 1.35557, -0.446534, -0.755168, -0.21011, 1.42316, -0.0963369, -1.85429, -1.03801, -0.0583565], 
+        [-1.32094, -0.432834, -3.74032, 1.3095, -5.74592, -0.757971, -3.67163, 0.679316, -1.4721, -1.59781, 0.962022], 
+        [-1.52244, -0.469078, -1.19644, -3.33624, 2.81389, -0.142364, 0.268063, -1.199, 1.6195, 0.777384, -3.04868], 
+        [0.0226024, -0.46481, 3.87586, -3.67252, 2.28978, -0.0994341, 0.333451, -1.27887, -2.98858, 0.933267, -2.4804]
+      ], 
+      [
+        [-6.11241, 4.50202, -2.82369, -0.212971, -2.04467, 0.145229, 2.72228, -2.9392, -3.21192, -1.80186, -2.86143], 
+        [-4.5148, 1.10953, 2.08226, -3.35639, 1.70521, 1.88763, -2.66189, -4.36339, -5.62448, -4.66274, -2.48244], 
+        [-3.03195, -4.66931, -1.24764, -4.36269, 0.628666, -0.896313, -4.10022, 0.437613, 2.32756, -4.27172, -0.774579], 
+        [0.353095, -1.93657, -5.80549, -3.8523, -3.28116, -1.48981, 0.357612, 2.27294, -3.97517, -3.80096, -3.43457], 
+        [0.284446, -0.0935958, -2.12367, 1.12639, -2.37555, 1.3589, 1.09356, -3.52886, -5.69985, -2.88995, 0.502672], 
+        [-2.17403, -1.94352, -1.60998, 1.77617, 2.93698, 3.45928, -3.91037, -5.03246, -6.2611, -1.90905, -5.66823], 
+        [0.659705, -3.36157, -1.64437, 0.570183, 1.97964, -1.17859, -1.67442, -1.80266, 3.76023, 2.72611, -1.34991], 
+        [-0.900834, -2.76453, -2.83173, 0.465771, -0.364865, -1.05918, -5.47791, -0.785402, -4.76065, 1.11673, 0.639776], 
+        [2.63047, -2.10656, -1.29118, 1.57627, -0.88448, -1.5124, -1.85064, 2.58462, -3.80209, 0.995773, 0.358379], 
+        [-0.964468, -2.76451, -5.96127, -2.53673, -0.263338, -1.42918, -3.01051, 0.255535, 3.73493, 3.55678, 1.58456], 
+        [-0.338812, -0.969391, -3.488, -2.96552, -2.01745, -1.03239, -1.01402, -0.493799, -0.242936, 0.849514, -2.23588]
+      ], 
+      [
+        [-2.62063, -1.0141, -3.23405, -1.58775, 0.0613366, 0.620411, -0.371704, -1.82612, 0.771546, -1.0609, 0.680436], 
+        [-4.28807, -1.30882, 1.59437, 0.655918, -0.592171, -1.60998, -0.1148, 1.06358, -1.42047, 0.633927, -2.60238], 
+        [3.51086, -1.5083, 3.79612, -0.370775, 1.97797, -0.87936, 0.346004, 3.43866, -1.53563, -0.528498, -1.04673], 
+        [1.04285, 0.230383, -1.90302, 1.23309, -0.965941, -0.84942, 2.30104, -2.20274, 0.256953, 1.27398, -3.01341], 
+        [-1.91682, -0.0886554, -4.63528, 1.00975, -3.68914, -0.0831257, -1.37827, -4.49524, -1.62412, 0.0435915, -0.355289], 
+        [-0.168879, 0.182012, -3.45428, -0.628855, 1.21444, -1.33379, 0.482104, 2.44285, -4.41583, 1.5867, -3.58876], 
+        [-0.862211, -0.437008, 1.25613, -0.928584, 4.21517, -0.063999, -0.432326, 1.93684, -3.75031, 2.56916, -2.31839], 
+        [0.179304, 0.719781, -2.30063, -0.0244377, 3.46711, -0.518446, -2.00071, 0.959551, -2.57318, -1.38329, 0.520554], 
+        [-1.40566, 0.792137, -0.45047, 0.535761, -1.68129, 0.421974, -5.47193, 0.832868, -2.33608, -0.465247, -1.19288], 
+        [0.882594, 0.13385, -0.330413, -0.52165, 1.06195, -0.863319, -2.22, -0.51557, -0.295161, -2.0252, 1.70882], 
+        [-2.04165, 0.213098, -2.98322, -0.519742, -2.84299, -0.901069, -1.45118, -0.516899, 2.05546, -2.20467, 0.628416]
+      ], 
+      [
+        [0.544187, -0.993334, -2.53977, 1.77895, -0.806518, -1.39889, 1.63087, -1.95676, -0.595022, -0.269196, 0.656837], 
+        [-2.60123, -3.107, 2.80504, 2.6735, 4.69915, -2.05979, -4.13988, -1.24759, 2.05553, 1.37828, -0.167481], 
+        [-4.09909, -3.65899, 3.60252, 0.257847, 0.84722, 3.91626, -2.66839, 3.44076, 7.6474, -0.360256, -0.973132], 
+        [1.29985, 0.318524, 0.33691, 2.39476, 1.55303, 4.58135, 4.54699, 2.10232, 1.48375, 0.0686273, -0.359661], 
+        [2.93345, -1.17207, -2.85745, 1.97655, -4.92868, 2.62223, 2.18851, 0.812287, 3.13599, -1.37595, 0.676149], 
+        [-0.882002, -2.11193, -2.94767, 0.285893, 3.35062, 1.37963, 8.25778, 4.4474, 3.3728, -0.645742, -2.11037], 
+        [3.71908, -1.3816, -1.42174, -2.39715, -1.81908, -0.230637, 2.9691, -0.487648, 0.715897, -0.508595, -0.365157], 
+        [0.691436, -0.985834, -2.13061, -0.679622, -0.386021, 1.73619, -3.41865, -0.562136, -2.62832, -2.85791, -4.6855], 
+        [2.33499, 0.455261, 0.845664, -0.617863, 2.44735, 3.39761, -0.166994, 0.836199, -1.49028, 0.352072, -2.44711], 
+        [0.85328, 0.467826, -0.963609, -0.199431, -2.59329, 1.75742, -1.27419, -1.04267, -2.21817, -1.21963, 1.04435], 
+        [1.33234, 0.568546, -0.032756, 0.291602, -1.9098, 0.361373, -4.38559, -1.06493, -1.0123, -1.46385, 0.216853]
+      ], 
+      [
+        [-0.450373, -0.118133, -2.43886, -0.159274, -1.9972, -0.836731, 0.0964095, -1.67331, -1.50634, -0.251503, -0.885572], 
+        [-0.215469, -0.946672, -3.02731, -2.16779, 4.83843, 0.573976, -4.90139, 0.255595, -0.838722, -0.970003, 0.219282], 
+        [0.506138, -0.68878, 3.96871, -1.08599, -1.68913, 1.01592, -4.96217, 0.202768, 0.374964, -1.24778, -0.455245], 
+        [0.868099, -0.398983, -0.613092, -1.99627, -1.79364, -2.1141, 2.42185, -0.591751, -0.79977, -0.487524, -0.224453], 
+        [-1.58631, -1.63194, -1.08832, -1.69961, 1.21719, -2.13083, 2.60073, 2.10935, 0.0921962, -0.967727, 0.169903], 
+        [-1.32532, 0.881719, -3.40968, -1.68312, 0.520276, -1.23227, 3.14245, -3.41881, 2.31216, 0.0596181, -1.21515], 
+        [-1.20859, 0.606148, 2.32172, -1.68771, 3.74772, -1.76698, 3.17739, -4.62983, 0.361858, -0.130246, 1.03398], 
+        [-0.152928, 0.230166, -0.867094, -0.367261, -0.49725, 0.345119, -3.02697, 0.279928, 0.861393, 0.623048, -3.04566], 
+        [-1.29386, 0.368788, -0.745331, -0.195432, -1.38446, 0.760564, -1.84358, 0.514302, -3.44735, 0.114983, -3.35389], 
+        [-0.0855403, -0.416109, 0.684282, -0.123127, -1.51426, -0.837965, -0.20837, -0.714108, -1.6623, -0.186183, -0.308497], 
+        [-0.879386, -0.403526, -2.23206, -0.0741881, -1.72236, -0.875691, -0.302796, -0.737528, 0.0926901, -0.148914, 0.33067]
+      ], 
+      [
+        [-1.31666, -0.15026, -1.82571, 1.00523, -1.79259, -0.265549, 3.90355, -2.69895, -2.58422, -0.745966, -0.928414], 
+        [-1.57283, -0.794422, -2.69324, -1.6517, 6.54299, 1.99379, -2.57494, -3.22444, -1.52363, -1.3282, -1.08213], 
+        [-0.419705, -0.994557, -6.57255, -1.50738, 3.959, -0.0424338, -4.61106, -2.51278, 0.534995, 0.861548, 0.0377026], 
+        [0.607063, -0.122113, -4.23941, 0.0827186, -3.52222, -4.23573, -1.86722, -3.14807, -1.29495, 1.34409, 2.90163], 
+        [3.09702, -0.834554, -3.82972, -2.84704, -5.85555, -5.22455, -3.2269, 0.980028, 0.343989, -0.256283, 0.579067], 
+        [0.824607, -0.405533, -1.62886, -3.62724, -6.32457, -4.52826, -4.95314, -0.50342, -1.98811, 1.1556, 1.00444], 
+        [1.49589, -2.16954, -1.10934, -2.62224, -0.576408, 0.0847105, 3.3549, -4.02741, -6.47027, 0.388017, 1.68974], 
+        [-0.771396, -2.32465, -3.11623, -0.896326, -1.57992, 1.53468, 4.15526, -2.3245, -0.0409295, 3.12447, -1.43584], 
+        [1.48242, 1.67867, 2.66247, -0.789984, 0.475821, -1.64066, 1.1414, -1.55449, 0.838937, 1.39697, -5.0545], 
+        [0.0291309, 1.1233, 0.740398, -1.22284, -2.50536, -2.91682, -4.73408, -1.28164, -3.9658, -0.588348, 3.21119], 
+        [-0.910419, -0.291858, 2.40803, 0.86083, 1.29184, -0.548515, -1.53009, -0.784616, -2.87045, -0.828708, 2.58364]
+      ], 
+      [
+        [-1.0472, -1.2084, -1.57054, -0.134774, -0.829124, 0.532065, -0.301611, -1.38703, -0.302557, -0.648458, -0.226221], 
+        [-1.73663, -0.044498, -1.44172, -1.37034, 2.60135, -1.35627, -0.849693, 0.37348, -1.13823, -0.238099, -1.02277], 
+        [0.606042, 0.386577, 2.66851, -1.17608, 0.874795, -1.80589, -1.39326, -0.808309, -1.26744, 0.64883, -1.93782], 
+        [1.20013, -0.362812, -1.22362, -0.801686, -0.0889639, 0.0367028, -2.24198, 0.908749, -2.65795, -1.91071, 1.68738], 
+        [-1.79154, -0.186985, -0.427011, -0.515061, 1.0972, -1.07212, 0.414653, 1.70208, 2.59144, -1.14968, 0.39724], 
+        [-0.609118, -0.765947, 2.57829, 0.10161, -2.36159, 1.20782, -0.465291, -0.365182, -1.55987, -1.64101, 0.866734], 
+        [-0.114163, -1.99739, -1.92722, -0.358647, -6.34282, 0.681621, -3.98206, 0.279528, 1.06808, -0.019283, 0.435254], 
+        [-0.953616, 0.962285, -2.47181, 0.180679, -4.67186, -0.776963, 4.1577, -0.279645, 0.166776, -2.01662, 0.47585], 
+        [-2.38862, 1.38757, -3.19834, -1.39437, 2.48049, -1.05002, 3.13972, 0.325037, -2.69116, -2.90551, -2.96264], 
+        [-1.29412, -1.16442, -1.0548, 1.05417, 0.337537, 0.666444, -1.03136, -0.458428, -4.41757, -0.63313, 0.96156], 
+        [0.638143, -1.24239, -0.170945, 1.23817, -2.72817, 0.810047, -4.2134, -0.448433, -0.379221, -0.650877, 1.63305]
+      ], 
+      [
+        [1.52015, -2.59036, -1.38937, -1.44718, -2.98113, -0.200332, 1.39654, 0.295244, 0.240467, -0.810211, 0.057767], 
+        [-0.162174, -2.4171, -4.3313, -2.61839, -1.32785, 0.217312, -2.42088, 1.01299, 3.79494, 0.0210503, -1.8501], 
+        [-0.281949, -2.21944, -0.882274, -1.00759, 1.16753, -2.38093, -2.09123, -3.1911, -1.97083, 0.530085, -2.3351], 
+        [0.451094, -0.906951, -5.65694, -0.53869, 1.68722, -1.32037, -4.14472, -2.76583, -3.70213, -0.9246, 0.0292265], 
+        [1.51036, 0.960249, -3.08786, -0.304457, 4.47463, 0.200964, 1.36534, -1.04205, -1.52301, -0.603441, -1.28476], 
+        [-0.461184, -0.0626938, 2.34668, 1.50782, 0.422674, 2.37241, 1.23721, -0.844888, -6.98404, -0.739144, 0.927615], 
+        [1.24334, -2.88615, 3.33702, -1.94162, -2.53706, -1.84146, -2.37276, 3.38063, -4.53336, 1.17794, 1.61646], 
+        [0.16452, -1.70091, -2.33549, -3.48793, -5.9645, -4.26319, -0.372595, 3.11481, 1.48026, 1.34978, -1.44174], 
+        [2.02995, -1.63099, 4.05548, 0.0293843, -0.976389, -3.06815, 3.4316, 2.85079, 1.09287, -1.11235, -6.3751], 
+        [-3.70931, -4.46922, -0.655023, 0.467148, 4.22868, 0.61448, -0.0298324, 3.11637, -3.01902, -2.75187, 1.86493], 
+        [0.705429, -0.843721, 0.926875, -0.553089, 4.95752, 1.37222, -2.19009, 0.169183, -6.79076, -1.80386, 3.37293]
+      ], 
+      [
+        [0.548425, -0.175831, 1.44948, -0.601367, 1.90808, 0.598087, 0.288848, -0.063704, -0.786881, 0.367243, 0.274229], 
+        [1.43537, -0.222013, -0.711038, 0.0417947, 1.1982, -0.865622, -2.46818, -1.53654, 3.22313, -1.00944, -0.6988], 
+        [-0.769558, -0.141964, -2.44585, -0.522003, -2.15435, -0.202455, 0.865383, -2.72236, 0.951186, -0.626619, -1.38472], 
+        [1.54198, 0.229994, -3.82776, -0.160015, 2.46633, -0.357696, -2.60707, 0.738617, -1.36059, -0.862539, -0.344832], 
+        [-2.49668, 0.680693, -1.54673, 0.291832, -0.769135, 1.05344, -3.31741, 0.196011, -0.554133, -1.8107, -1.61277], 
+        [-0.285154, -0.919376, 1.23793, -0.571743, -0.146477, -2.06839, 2.18366, 0.810703, -4.72973, -0.0176509, -0.313541], 
+        [-0.302431, -1.69894, -0.460825, -1.82331, 1.64003, -2.1661, -2.25396, 0.803854, -2.2466, 0.719857, 1.07033], 
+        [-1.00462, 0.297547, -1.12014, 1.3124, -1.79865, -0.0855205, -3.63609, -1.0167, 2.31038, -0.959651, -0.492598], 
+        [-1.47354, -1.69865, -3.02258, 2.2665, -3.82229, -0.329511, 1.08341, 0.721751, 0.586036, -1.68553, -1.9815], 
+        [-2.12493, 1.72692, -3.33632, -1.70586, 1.60734, -0.00810462, 0.955493, -2.08923, -1.08387, -0.243971, -0.111215], 
+        [-1.9911, 1.99108, 0.82156, -1.84767, -0.137863, 0.0526786, -0.683416, -2.27267, -0.550093, -0.213914, 0.551226]
+      ], 
+      [
+        [-1.30124, 0.0310488, 0.850067, -0.482505, -1.95422, 0.920946, 0.657978, -0.16876, -3.10026, 0.565122, 0.59345], 
+        [0.648026, 1.11312, -0.193547, 0.519635, -0.170541, 1.81908, -3.01733, -1.56825, 0.421809, 0.843147, -1.00393], 
+        [0.96732, 0.88397, 1.7244, -0.378917, -1.88669, 1.74247, -1.64869, -2.78653, 0.0543611, 0.57982, -2.18959], 
+        [1.18925, 1.30427, -1.64842, -1.47711, 1.2353, 1.8123, -0.419866, -0.640649, -0.832986, -0.0729188, -0.635534], 
+        [1.09884, 1.3503, -3.71675, -0.376596, 1.47125, 2.47418, -0.998246, -0.562927, 3.23325, -1.52972, -2.45316], 
+        [-0.857922, -0.425912, 0.0335892, 0.513004, -2.26419, -0.155501, 1.53697, 0.56919, -1.55943, -1.92843, -0.00903684], 
+        [0.601161, -1.44696, 2.05212, -1.13532, -2.53266, -0.83075, 1.54176, 0.441279, -4.56782, -0.315899, 2.32988], 
+        [0.165204, -0.716015, 1.5258, 0.151775, -0.131874, 0.705691, -2.49571, -2.12169, 0.35173, 0.38584, -0.814877], 
+        [3.84786, -2.50557, 0.405911, 1.4886, 1.29588, 0.172193, -6.84935, 0.305414, 4.25134, -1.03842, -2.98049], 
+        [1.24827, -1.27683, -2.17415, -1.15902, 0.692507, -0.191562, -1.50105, 0.9544, -1.23844, -1.79018, -0.0199865], 
+        [0.57993, 0.129337, 0.339252, -1.49759, 0.241569, -0.0663393, -0.504012, -0.396221, -4.34603, -1.15967, 1.27051]
+      ]
+    ], 
+    [
+      [
+        [-2.36889, -5.24799, -1.79221, -3.75057, -1.95203, -0.590387, 0.761613, 0.0496395, -1.13083, -2.31212, -1.99526], 
+        [1.99118, 1.66135, -1.13944, 1.58296, -4.4172, -2.45029, 0.665503, 0.383765, 1.73303, 2.05344, -2.69812], 
+        [0.60918, 0.757768, 1.44728, -0.706727, -0.112931, -0.533478, -2.36285, -1.97244, -0.580054, -1.04894, -1.38608], 
+        [-1.86503, -1.78713, 0.394197, -0.335091, -1.04913, -0.296615, -1.09371, -1.66377, -0.482786, -0.0742137, -1.85372], 
+        [-1.95471, -2.85273, -2.78516, -2.40658, -3.11013, -3.76462, -1.12441, -3.25739, -1.39083, -2.26566, 0.331337], 
+        [0.0452373, -0.100949, -2.92238, -2.40449, -2.63069, -3.39846, -0.906076, -0.709386, -3.38413, -3.10127, -0.914084], 
+        [-0.276286, -0.22056, -2.40363, -3.17446, 0.216365, -2.49113, -0.173128, -2.39009, -0.0835757, -3.07141, 0.383451], 
+        [-1.28743, -1.2107, -1.93012, -2.80633, -1.76041, -1.988, -2.58501, -3.48411, -0.479236, -1.00351, -1.49062], 
+        [-0.375233, -0.30449, -2.32069, -4.90874, 0.13113, -0.194617, -2.46776, -3.56998, -0.0098685, -0.434368, 0.229806], 
+        [-0.560358, -0.310188, 2.27215, 2.18835, -3.29936, -0.518511, -0.424914, -1.03434, -3.65877, -3.29168, 0.0984529], 
+        [-0.927817, -0.667535, -0.256955, -0.0327617, -0.477514, -0.702827, -1.52676, -1.16553, -1.07053, -1.86255, -0.757917]
+      ], 
+      [
+        [4.78083, -5.72723, 1.00859, -4.41027, -4.67691, -0.0785841, 0.194992, -0.666581, 1.23175, -3.36422, -3.60587], 
+        [-2.4176, 1.27855, -11.5858, 0.549984, -6.48615, -1.37296, -0.405747, -1.39866, -5.41013, -0.0955139, -7.35966], 
+        [-8.08138, -3.50971, -4.97667, -5.04599, -2.23265, 1.17048, 0.396281, -3.4211, -2.26019, -5.92065, -3.34023], 
+        [-0.586976, -1.63561, 0.715517, -0.731832, -3.92782, -1.44004, 0.269021, -0.309593, -2.22479, -0.384208, -3.70489], 
+        [2.61452, -1.74394, -1.71976, -2.68323, 1.49181, -3.31319, 1.28399, -2.37328, -2.84491, -2.73598, 0.141159], 
+        [-1.423, -0.145231, -1.79548, -0.38348, 3.86292, 0.246967, 0.184995, -0.113611, -0.191348, -0.501522, 0.88869], 
+        [-3.75847, -1.76632, -2.15798, -0.418224, -1.306, 1.04277, -1.83816, -1.88503, 1.35383, -0.0598704, -0.224241], 
+        [-1.05311, -1.32589, 2.64912, -0.504744, 1.72882, -1.01317, 3.88069, -0.633876, 2.15592, -0.503909, -2.12181], 
+        [-0.520159, -0.351136, 3.18227, -3.32446, -3.5232, 0.815791, 0.373785, 0.08845, -3.31633, 0.2274, 0.790192], 
+        [-2.20026, -1.30613, -4.00756, 0.758262, -10.4605, -1.56659, 0.0153564, -0.331497, 0.000560641, -1.57787, 3.38591], 
+        [-0.692894, -1.62514, -5.91913, -5.08297, -1.78995, -1.29799, -2.54236, -1.31467, 0.74232, 1.53728, 0.0651625]
+      ], 
+      [
+        [2.27586, -3.35611, 0.975246, -1.84216, 0.501824, -2.31269, -2.33472, 1.36922, -2.44124, -2.47541, 1.62662], 
+        [0.673383, 3.49946, -1.86351, -0.348463, 0.418211, -1.67859, -1.94421, -1.15544, -2.72056, -1.32186, -1.18598], 
+        [-2.31152, 6.27525, -3.46939, 4.70435, -2.83962, -4.90636, -1.98873, -4.72737, -3.71562, 4.04381, -0.946957], 
+        [-2.27981, -3.12536, -2.5073, -2.48879, 0.0847502, -1.91411, -3.25941, -2.56682, -3.02176, -2.16596, 0.675436], 
+        [-0.767106, -3.79177, 2.86436, 0.327731, -0.489175, -3.26996, 2.33237, 0.329553, 5.69689, 2.94401, -2.09195], 
+        [-2.25996, -1.54079, 0.244028, -0.404086, -0.275894, -2.3235, -1.67717, -3.68045, -0.516258, -4.21759, 3.16765], 
+        [-1.91854, 2.01734, 3.39615, -1.15497, -0.706955, -6.18721, 5.83204, 1.15852, -0.821612, -5.90907, 0.554966], 
+        [-2.38421, -2.64465, -1.64559, -2.6549, -1.16905, -5.11688, -3.03883, -4.20042, 3.00624, -0.627273, -1.107], 
+        [-3.4601, -1.95802, -0.852083, -7.70735, 1.0278, -5.57576, 6.13382, -4.59374, 2.17248, -0.919494, -1.72269], 
+        [-1.95953, -2.20609, -2.73981, -0.944296, -1.52256, -2.16838, -2.46142, -0.348858, 1.32319, -0.627816, -1.31735], 
+        [-2.15622, -0.942683, -3.22472, 3.46786, -1.17809, -1.51328, -0.112513, -0.233578, 1.35972, -3.79949, 0.324986]
+      ], 
+      [
+        [0.138736, -1.16824, -6.08872, 0.92903, 1.488, -2.97545, -4.05528, 1.47884, -2.21542, 0.405602, 0.452696], 
+        [-5.87097, -1.37973, -5.69943, -2.06324, 2.68574, 0.0682294, -3.28141, -2.30871, 4.71302, -1.60361, 2.6976], 
+        [-2.72101, -3.75188, -1.98874, 2.36818, -0.561342, -2.6216, 6.08787, -2.9378, -1.18577, 3.68093, 1.1771], 
+        [1.16925, -1.18012, 3.13319, -2.1994, 6.39712, -0.245521, 2.569, 1.03675, -2.89481, -2.32107, 3.86422], 
+        [-1.36494, 1.83186, 3.53437, 1.63547, -0.780634, -1.41164, -9.87591, 3.53039, 0.743947, 4.15544, 1.59779], 
+        [-0.297049, -1.44464, -1.11983, -1.387, -1.84013, -0.248467, -1.2743, -3.12311, 8.46539, -2.47434, 4.88558], 
+        [-2.11119, 1.68401, 0.119892, -1.67696, -2.30849, -2.82757, 4.11053, 4.61413, 7.21502, 0.296192, -0.339883], 
+        [0.357046, -1.74942, 3.27281, -1.31567, 6.18123, 0.163616, 3.25265, -1.90684, 3.4715, -0.305008, -3.18159], 
+        [-0.134801, 1.48764, 2.04006, -0.750621, -0.0163449, 0.948538, 3.86376, 1.52471, 0.437976, -3.9857, -2.62108], 
+        [0.935278, -1.14958, 3.62521, -0.586799, 2.65402, -0.178961, -1.87597, -1.286, -2.61633, 0.00580132, -5.28685], 
+        [-0.237535, 0.668187, -0.730951, 0.11845, -1.69605, 0.135502, -0.220378, -1.7166, -3.88351, -2.99407, -1.83436]
+      ], 
+      [
+        [-5.20982, -2.7115, 1.07268, 0.175494, -2.49656, -2.00735, 1.35492, 3.30647, -2.25456, -0.103248, -2.39552], 
+        [0.407185, 1.00249, -0.922334, 2.55093, -6.17256, -3.36213, 2.36986, -0.392035, -0.808892, -1.28765, -0.826421], 
+        [-3.37855, 3.2634, -4.09302, -1.12176, -0.28259, -1.70492, 3.36853, -4.07577, -1.26738, -0.740083, -2.26554], 
+        [-2.19219, -3.07679, 1.70368, -1.0372, -0.405832, 1.75347, -1.64595, -1.35178, 3.4306, -1.10338, -1.5351], 
+        [1.52898, -0.676444, -0.253525, -4.70764, 3.73592, -1.9481, -1.59404, -2.60616, 0.342296, -0.0495483, -3.66367], 
+        [-1.86686, -1.98423, 2.75053, 1.77828, -2.89049, 0.440627, 1.82353, -1.17609, -4.26772, -2.16652, -0.880579], 
+        [-0.559973, -0.125976, -3.99951, 1.51978, 2.98144, 0.901535, 2.19253, -2.30282, -0.816857, -5.36169, 0.0462338], 
+        [-1.80439, -2.63324, -0.638842, -2.06734, -3.75184, -4.29769, 4.06661, -1.74991, -2.56189, -3.37003, 0.555323], 
+        [0.560541, -3.12183, -0.541164, -2.85022, 4.98133, -6.28883, 1.92241, -3.90724, -0.781069, -1.38155, 0.77954], 
+        [-1.66335, -2.24731, -1.6646, -3.26778, 0.0835823, -1.87674, 1.59712, -0.391094, -2.12801, 0.370575, -0.491433], 
+        [0.102214, -3.296, 0.967118, -3.04795, 2.58532, -2.43135, 0.395658, -0.137874, -2.39131, 1.92302, -1.76075]
+      ], 
+      [
+        [-0.211002, -1.74396, 1.63938, -2.66542, -5.90392, 0.143068, -0.78898, 0.69618, -0.889714, -1.6342, -1.49498], 
+        [-0.854091, -0.635747, -6.29297, -0.556305, -4.72575, -1.40326, 0.750522, -2.09979, -0.569043, -0.749377, -2.38507], 
+        [-1.9512, -1.53886, 0.413576, -7.32442, 0.816872, -0.188147, -1.05299, -1.39491, -2.57304, -1.4713, -1.71432], 
+        [0.68125, -0.765865, 0.281706, 0.230257, -8.92842, -0.602734, -7.92353, -1.1386, -2.4497, -1.21968, -1.3443], 
+        [-3.78647, 2.32628, -0.709306, -3.67926, -4.00585, -5.61763, 1.5865, -6.45102, -3.00285, -0.535905, -0.923059], 
+        [-1.36505, -2.23924, 0.229233, -0.503354, -6.70855, -0.801354, -2.4426, 1.60546, -7.74763, -1.49625, 0.423461], 
+        [0.258497, 1.11977, -1.71544, -3.29106, -3.8288, -1.55529, -7.79387, -1.63142, -2.70995, 0.662742, 1.24597], 
+        [-0.256635, -1.47569, 2.31021, -0.918885, 1.00758, -1.49311, 0.82723, -1.8529, 3.47688, -1.35426, 3.22041], 
+        [0.0318789, 0.13544, -0.773425, -0.118043, 2.47484, -0.137086, 1.50095, -1.03242, -0.321049, 2.53056, -0.487146], 
+        [-0.463434, -0.989266, 1.51228, -0.927059, 1.10966, -0.721243, -1.83904, -0.881443, -3.11474, -1.61512, -0.926973], 
+        [-0.95363, -0.619941, -0.542241, 0.457698, -0.999727, -1.22341, -1.43658, -1.26236, -0.197787, -1.56317, -1.28309]
+      ], 
+      [
+        [0.520959, -0.095715, -3.62149, -3.55257, 0.643221, -1.8765, -3.22993, 1.63417, -1.63338, -1.36081, -0.448149], 
+        [-1.1009, -0.501514, 1.67274, 2.14987, -4.25287, -2.53444, -0.0292385, -0.548216, -2.83708, -1.2033, -0.847045], 
+        [-0.800937, -1.08387, -2.66775, 1.94046, -2.68722, -5.64755, 2.32171, 1.96014, -4.8175, -1.74524, -1.31025], 
+        [-2.52033, -3.07641, -0.275265, -0.845264, -0.134463, 0.184286, -3.4857, -1.26142, 1.52823, 0.885239, -2.90978], 
+        [-1.48273, -1.53944, -3.08593, -1.78216, -0.937381, 4.85144, -1.81681, -5.38013, -0.421269, -1.06253, -1.68233], 
+        [-0.0104244, -0.847113, -4.2396, -2.62374, -2.92934, -1.95032, -3.51233, -3.05067, 3.05764, -0.444369, -2.40436], 
+        [0.119565, 0.749512, -3.26615, 1.85232, -0.0295398, 3.39458, -7.61826, 0.143549, 2.94716, -3.82755, -1.31338], 
+        [-2.12288, -2.35374, -0.498692, -1.95855, 2.24819, 1.06798, -1.91053, -3.13882, -2.18862, -2.72747, -0.881997], 
+        [-0.33714, -2.82249, 1.66768, 1.71832, -1.60947, -1.87413, -3.46252, -4.09095, 3.08072, -2.73773, 0.865744], 
+        [-0.143149, -0.108769, -2.26414, -1.80316, -0.746608, -3.68618, -0.857887, -2.62309, 1.21461, 1.68437, -2.50302], 
+        [-0.324988, -1.09858, -0.0623888, -2.52119, -2.12788, -1.80225, -0.471706, -1.51496, -0.482864, 0.650639, -3.48863]
+      ], 
+      [
+        [-1.9837, 0.0133967, 0.0949788, -2.06139, -0.502671, -2.69092, -2.41454, 0.513933, -1.32213, -0.676876, -0.664529], 
+        [-2.267, -1.66772, -1.80711, -0.61024, -2.36333, -0.0324264, -2.97125, -1.86228, 1.38679, -1.16316, -0.120619], 
+        [-0.0542369, -1.50184, -0.734084, -3.0967, -4.54135, -0.237596, -1.40424, 1.88272, 2.64764, -2.44321, -2.1886], 
+        [1.09323, -0.710039, 0.616817, -0.738054, -1.16058, -1.38069, 0.182354, -2.27436, 1.07247, -0.14998, -5.14093], 
+        [-0.727016, -0.0584644, -2.17719, -0.975574, -1.20778, 2.23869, 3.35724, -0.381525, 0.891471, -4.82587, -2.47003], 
+        [-1.24316, -0.864467, 1.74801, -0.803091, 3.30101, -2.20564, 6.98649, -0.493925, 0.80846, -0.111278, -3.86908], 
+        [-4.17941, 0.93976, -1.21498, 2.55189, 3.67999, 1.71159, -2.83049, 0.440366, 2.55985, -4.97348, -1.16795], 
+        [-0.886046, -2.20588, 2.94713, -1.55528, -3.15133, -1.63334, -0.122744, -0.503932, 3.31265, 0.64268, -3.79194], 
+        [2.77738, -0.301871, -3.16952, 2.56729, -2.29322, -2.29228, -0.122533, 0.588095, -1.91378, -0.684008, -2.83477], 
+        [-2.23697, -0.744236, -4.67799, -2.61057, 5.37721, -1.34065, 6.04387, -0.530912, -3.0366, -1.63189, -2.92632], 
+        [-1.95468, -2.30135, 1.60084, -0.338759, 0.719732, 1.82069, -0.23007, 0.463584, 0.130979, -2.99996, -1.90786]
+      ], 
+      [
+        [-3.77169, -1.35545, -1.60898, -2.0517, -0.17139, -4.53379, -0.156359, -0.625889, -3.52928, -2.58151, -0.613539], 
+        [-1.6899, -2.36289, -3.11279, -1.70637, -3.07946, -3.38234, 2.35688, 0.652415, -3.37721, -2.18531, -1.33854], 
+        [-1.55349, -1.75276, -0.481936, 1.4099, -2.86718, -3.04023, 2.51585, 2.57879, -3.63037, -4.77912, 1.79294], 
+        [-3.37213, -3.99187, 1.25893, -0.391435, -1.80962, -3.56285, -1.10412, -1.78625, -1.36988, -0.522762, -1.42419], 
+        [-0.663798, -4.51487, 3.05985, -0.671734, -3.71261, -3.68455, 0.923969, -1.28302, -1.37765, 1.96093, -0.550075], 
+        [-0.796938, -0.733331, -2.82059, -3.32228, 2.65317, -1.06587, -5.36021, -4.04318, 2.4774, 0.185044, 0.148901], 
+        [-1.14283, 2.62185, 0.220959, -1.48986, -1.67763, -4.50244, 6.82715, -3.10112, 0.742821, -2.29386, -0.440238], 
+        [-0.94022, -1.64216, -2.80952, -2.98579, 0.286602, -0.95992, -3.12124, -0.487634, -0.474498, -2.10633, 1.1848], 
+        [0.368369, 0.391087, -4.99162, -1.86819, -3.75325, 3.24319, -1.84334, -6.4067, 0.165552, 0.405584, 1.89205], 
+        [-2.25719, -1.18104, 2.98411, 0.597361, -5.29911, -2.97965, 0.621379, -2.3607, 1.1319, 1.24671, -3.30978], 
+        [-2.53198, 0.683355, -3.39445, -1.55067, -0.705012, -4.75397, 2.23601, -3.32999, 0.352308, 1.9297, -4.00612]
+      ], 
+      [
+        [-1.41294, -1.11825, -0.567241, -0.501847, 0.946425, -2.36822, 2.32943, -2.26046, -1.34401, -2.25964, -0.27807], 
+        [1.43627, -0.754205, 2.48458, -1.14866, 4.59125, -0.021364, -1.92586, -0.532842, -2.39369, -0.208285, -1.32001], 
+        [-2.20157, 1.15521, 1.42488, 1.27167, -2.35488, -0.00120544, -2.31824, -0.890432, -1.82183, -1.09082, -0.577244], 
+        [1.76422, -1.05639, 0.779442, -1.60498, 2.69978, -0.429474, 0.968081, -2.06457, 2.73162, -0.609066, -1.59253], 
+        [0.523572, 0.553135, 0.929167, -1.893, 1.99737, -1.50814, -0.759258, 1.83461, -0.825094, 0.262752, -1.77534], 
+        [-0.925052, -0.672822, -0.456991, -0.660276, -0.0419964, 0.32929, -2.9904, -1.74796, 1.08538, -1.85838, -0.744141], 
+        [-3.30935, -0.00432444, -4.58619, 2.40507, -2.72195, -2.01318, 2.49495, 0.956126, 0.661594, -2.6857, -0.917007], 
+        [-1.24221, -1.73531, 2.09126, -2.27811, 5.99536, -0.989337, -1.49399, -1.11957, -2.13264, -0.389535, -1.5163], 
+        [-3.73155, 3.40082, 5.16987, -0.295897, -1.71281, 1.09567, 2.78581, -5.80329, -3.30366, 0.140425, -1.6684], 
+        [-1.94292, -3.05135, 3.11022, -0.270911, -3.98532, -1.32876, 2.55462, 0.689267, -5.87677, -1.63471, -1.22533], 
+        [3.26291, 0.588213, -2.36093, -2.73297, -0.913829, -0.249124, -3.99096, -1.38127, -0.220489, -1.79513, -1.38468]
+      ], 
+      [
+        [0.961551, -0.687647, -0.678775, -0.362655, 1.50173, -1.47136, -2.24778, -2.23735, 2.16196, -1.63246, -1.02898], 
+        [-1.66443, -1.96142, 0.431794, -1.69323, -1.39145, -2.21505, 1.9473, -0.252773, -2.48191, -1.6595, 0.83431], 
+        [2.45892, -2.14181, -1.24043, -2.32526, 4.73379, -2.73327, -1.45428, 2.83923, -0.586894, -2.16474, 0.580754], 
+        [-1.56695, -2.15427, 1.24071, -0.574929, -3.36452, -2.31209, 2.14987, -1.20482, -2.24924, -1.19393, -0.30855], 
+        [1.04089, -4.27256, 1.20394, -0.604633, 1.13305, -5.41199, 2.9113, -0.921108, -4.81283, -0.402751, -0.453482], 
+        [-1.23184, -0.992035, -1.18802, -1.568, -0.613491, -0.910236, 0.340356, -1.87245, 0.32392, -0.359434, -2.94288], 
+        [-1.70194, 0.385046, -0.57775, 0.219181, -0.183461, 1.10786, -1.45361, -4.38187, 0.517389, -0.804141, -2.44341], 
+        [-0.592327, -1.07666, -1.28406, -1.74652, -1.71296, -1.76846, 0.681626, -0.0569788, -3.18906, -1.42242, 0.277529], 
+        [-3.35629, 0.844139, -2.48407, -5.45103, 1.25645, -2.18008, 0.7391, -0.701134, -2.54261, -1.00827, 0.149229], 
+        [0.261955, -1.05723, -3.40021, -0.440192, -1.01163, -1.29928, -2.28421, -1.50548, 2.30246, -0.389217, -2.65125], 
+        [-1.44767, -3.13916, -3.37115, 1.13611, -0.767889, -1.99687, 0.205266, -0.472008, -0.122548, -0.107641, -2.30953]
+      ]
+    ], 
+    [
+      [
+        [-0.134001, -2.69109, 2.12186, -0.754116, 0.517154, 0.877018, 3.92145, 3.52632, 0.181823, 1.45326, -0.470724], 
+        [-2.32684, -1.91626, -0.267413, -0.472072, 3.67974, 1.08601, 0.0204138, 2.8078, -2.93832, 1.12548, 1.33956], 
+        [-3.15945, 1.51164, -3.23322, -0.320151, 2.12572, 4.2906, -0.927232, -3.33239, 0.759623, -2.24381, 0.458951], 
+        [2.20058, 2.01388, -0.0113238, 1.02033, 0.79079, 2.49171, 0.90353, -0.625983, 0.961255, 0.462878, 1.62254], 
+        [1.86173, -0.128664, -0.729432, -2.29422, 0.390652, -5.71047, 3.41216, 0.456796, -1.43708, -2.54231, 4.03654], 
+        [-0.0396144, -0.0417258, 2.96647, -0.911115, 4.06221, -2.78621, 2.53612, -0.464768, 3.89257, -1.08004, 2.33505], 
+        [-0.25321, 1.72704, -3.0402, 0.396872, 0.978681, 4.32798, -2.01951, -1.52144, 2.56293, 2.70885, 2.43839], 
+        [1.51547, 1.71982, 2.46546, -0.899736, 3.1841, 0.622292, 3.72113, -1.03478, 2.07285, 0.160399, 1.75289], 
+        [2.87265, 2.54204, -0.967078, 1.79349, 2.47849, 4.28055, -1.83979, 2.50629, 0.804544, 1.18929, 2.56164], 
+        [0.632688, 2.2098, -3.12486, -0.541564, 1.93406, 2.6199, 0.228572, -0.210451, 4.37207, 1.00961, 1.25082], 
+        [1.7359, 0.104374, -2.56274, -0.620683, 1.19107, 0.0737606, -0.146501, 1.93618, 2.27395, 3.22914, 1.81457]
+      ], 
+      [
+        [0.608032, -0.545008, -0.162721, 0.286415, 1.5585, 1.11325, 0.287703, 2.1565, 0.440438, 1.21603, 1.36699], 
+        [-0.918617, 4.7908, -1.7104, 4.35222, -0.0831108, -0.25297, 2.59311, 2.28761, -0.764132, 4.45015, -0.898704], 
+        [1.2965, 2.91725, 0.330844, 1.80919, 0.300419, 1.98598, 2.14304, -0.455073, 0.88691, 0.881359, 1.07421], 
+        [1.77634, 0.211906, 1.38033, 1.97667, 1.16941, 1.65367, -0.129697, 0.992727, 1.28126, 2.38728, 0.644829], 
+        [1.05529, 0.180275, 2.03976, 0.0477005, 2.21894, -1.62073, 0.48646, 0.950488, 1.56608, 0.158348, 0.376758], 
+        [0.396516, 2.48388, 0.0886501, 0.288, 1.15978, -0.289211, 2.46082, 1.95163, 0.655515, -0.399432, 2.91142], 
+        [1.16672, 2.00158, 1.96245, 0.760273, 0.392982, 2.36214, 1.33472, 0.52627, 0.179136, 1.45724, 0.417792], 
+        [1.49412, 0.887706, 0.75294, -0.135314, 2.65872, 0.345264, 1.52633, -0.811222, 2.67818, 1.48951, 1.32053], 
+        [0.789021, 1.59869, 0.474011, 1.0443, 0.0249078, 2.24351, 1.53114, 1.21878, 1.24057, 1.46138, 0.783859], 
+        [1.49342, 1.70907, -1.02288, 5.00288, -0.269607, 1.38983, 0.0414665, 1.5488, 1.86654, -1.11457, 2.79688], 
+        [1.25971, 0.835121, 1.41272, 1.94374, 0.864417, 0.672672, 1.48657, 1.76057, 0.8392, 1.2494, 1.15877]
+      ], 
+      [
+        [2.41325, 7.98075, -4.13519, 5.3611, -3.50237, -2.02245, 6.83584, 3.22869, -0.518537, 1.98849, 0.749468], 
+        [-3.64166, -0.431049, -2.48201, 0.105419, -1.3113, -0.390712, 4.18518, 4.13227, 3.03894, -0.296322, 1.18447], 
+        [4.7812, -5.23731, 6.05835, 2.38728, -5.90014, -1.65208, 2.55611, -4.72238, 9.15877, 5.37215, -2.90518], 
+        [3.44348, 1.64729, 4.17157, 2.03198, 1.8393, -0.289236, 2.89148, -5.11035, 3.86504, 1.7459, -0.252977], 
+        [-0.46117, 4.55175, 4.58762, 5.33297, -7.26867, 3.52195, -2.34013, 9.04415, 3.03445, 4.68876, 1.41095], 
+        [1.58486, -0.126579, -1.96938, 1.44405, -3.26816, -2.97004, 1.50714, 2.13609, 0.19957, 1.81789, -1.61574], 
+        [3.68311, 1.88731, -1.1918, 0.341558, -4.11843, -4.57243, 13.7125, 3.65519, 3.78589, 1.15717, 5.85195], 
+        [3.27189, 2.36442, 1.19605, 0.301767, 2.20245, -3.40868, 4.31288, 1.01286, -2.2659, -1.01598, 1.04229], 
+        [2.33713, 0.706485, -0.146487, 1.08707, 0.869649, 2.08925, 5.852, 4.76003, 1.8619, -0.501366, 2.46284], 
+        [3.19595, 1.13688, 2.36966, -3.81055, 2.56687, -0.279992, 2.32663, 0.834476, -2.12413, 0.952262, 1.60919], 
+        [1.90701, 2.9102, 3.41929, 2.97967, -3.33218, 3.81193, 1.25293, -0.00703621, -2.71611, 0.65106, 3.37191]
+      ], 
+      [
+        [-0.626786, 2.88191, 1.95244, 2.28478, 1.95307, -0.0651326, 0.746787, 2.39535, 2.32933, 1.26898, 1.14623], 
+        [1.61903, 4.18221, -0.549419, 0.29901, 0.250499, 1.79003, 2.64961, -0.276194, 2.12107, -0.662795, 2.39964], 
+        [2.20581, -0.270687, 2.18074, 1.22877, 2.68514, 0.672821, 1.30907, -2.43266, 0.833943, 2.10355, 1.56826], 
+        [1.32349, -0.49486, 3.62067, -0.985492, 1.51076, 0.396159, 0.437188, 1.26613, 3.7345, -0.827359, 2.06068], 
+        [1.44862, 1.65857, 0.276133, 1.59923, 2.04416, 1.24878, 0.746729, 4.59604, 1.14166, 1.49411, 1.925], 
+        [1.59339, 0.226491, 2.13173, 2.32835, -0.704218, 1.73482, 3.22285, -2.25813, 4.06713, -1.3465, 2.39547], 
+        [1.76356, 1.35133, 1.62958, 0.741861, 3.69287, -0.889372, 0.28864, 0.499178, 1.96168, -0.191296, 1.37528], 
+        [1.86808, -0.574615, 2.49401, 0.507442, 0.409595, -1.42405, 5.01813, -0.883892, 1.71263, 1.9967, 1.02615], 
+        [1.96567, 0.543708, 1.8708, 0.127188, 1.57455, 1.37765, -1.03635, 1.48987, 1.20725, 0.998518, 0.725618], 
+        [1.29858, -0.297287, 1.95468, 0.25377, 1.47485, 0.286347, 2.81475, 1.79216, -0.400203, 3.07083, 0.329235], 
+        [1.16375, 1.448, 0.961803, 1.83153, 0.68932, 2.19544, 0.639774, 0.833984, 1.41646, 1.7111, 0.921857]
+      ], 
+      [
+        [4.26451, -0.676623, 4.36234, 1.93777, -5.01196, 1.68498, 7.04991, 3.46822, -1.45766, 0.454124, 1.85319], 
+        [1.84665, 1.43096, 1.03767, 4.44498, 3.39772, -1.47125, 0.280509, 6.45881, 0.920515, 2.03063, 1.36821], 
+        [0.431896, -0.300338, -4.11849, -6.45416, 3.8943, 6.55172, -3.99445, 2.82258, 0.822269, 0.467158, 2.83035], 
+        [2.03959, 0.217838, 0.67599, 1.31303, -1.32932, 0.837687, -3.77346, -2.39399, -2.33301, 4.41155, 2.10902], 
+        [0.77124, 5.21704, 0.606505, 1.48934, -1.39074, -0.74086, 0.694666, -8.44061, 8.80698, -0.0508806, 2.78039], 
+        [2.49921, 4.14516, -1.24866, 2.13544, 0.272681, 0.110891, -0.615452, 0.394363, 7.11739, 4.76305, 2.03896], 
+        [2.76116, 0.366968, 2.36455, -1.81378, -5.62814, 1.89411, -4.15798, 4.5478, -2.37729, 0.745409, 4.99549], 
+        [2.65399, 2.957, 2.18501, 1.09119, 1.35328, -1.13026, -1.86496, 4.61089, 2.74296, -0.974195, 0.665623], 
+        [-1.05991, 1.45008, 0.117103, 1.35237, -0.0326885, 2.6396, 8.92752, -0.33137, 5.45028, 7.11421, -0.913323], 
+        [1.42947, 1.05565, 1.54452, -0.815545, -0.812409, -1.14549, -0.403589, 1.59921, 0.931421, 0.921486, -0.482739], 
+        [-0.19523, 1.75315, 2.53156, 3.01488, 2.37715, 1.42774, 3.89017, 1.1555, 2.92347, -0.388017, -0.152108]
+      ], 
+      [
+        [1.26267, 0.80379, -0.590435, 1.95623, 2.65065, 0.881153, 0.18321, 2.80418, 1.71755, 1.0863, 1.18758], 
+        [0.846099, 1.53153, 0.82776, 4.71315, -1.10922, -0.94351, 3.80891, 1.48126, 0.0174298, 1.84842, 0.855212], 
+        [1.82416, 0.777828, 0.823557, -0.406446, -0.655422, 2.16078, 1.39233, 0.509368, 1.71499, 1.72325, 1.35029], 
+        [0.943923, 0.314675, 0.960749, 2.49205, 0.63945, 4.66875, -1.29858, 1.67382, 0.940142, 1.56752, 0.778603], 
+        [1.05468, 2.88045, 0.498553, 2.14866, 0.260319, 1.06192, 2.11799, -1.78365, 0.306805, 1.38943, 1.54158], 
+        [2.35249, 0.0694537, 0.907814, 3.26245, -0.350388, 2.68531, -2.35828, 3.34568, 1.60514, 0.677898, 1.34306], 
+        [1.59812, 0.579175, 2.19772, 0.804289, 1.52102, 1.18995, 0.815819, 4.1128, 1.62278, 0.410103, 1.06855], 
+        [1.62179, 0.163132, 1.67597, 0.567768, 2.24198, -0.114277, 2.80079, 0.865225, 1.21306, -1.18746, 3.007], 
+        [1.42825, 0.857443, 1.9346, 0.8095, 0.770824, 0.760488, 1.16761, 0.430427, 0.957682, 2.44961, 1.4599], 
+        [1.17042, 0.858646, 1.4078, -0.0854703, 2.07955, 1.42272, 1.10166, 1.43839, 1.68998, 1.61828, 0.472753], 
+        [1.19284, 1.32311, 1.07486, 1.60107, 0.929891, 1.43507, 1.0678, 1.28545, 1.24453, 0.574917, 1.60866]
+      ], 
+      [
+        [2.01649, 3.93495, 1.97177, 1.4064, -4.00686, -2.1073, 8.38313, 1.84725, -0.625497, 1.48669, 1.17591], 
+        [0.651004, 2.06675, -1.41471, 0.457451, 2.35413, -0.447136, 3.50835, 5.03321, 2.81971, 0.735271, 1.03356], 
+        [-0.284943, -1.72578, 3.85566, 0.725387, -5.42167, 3.27798, 6.11722, 3.29745, -0.64442, 0.258729, 0.369888], 
+        [2.03278, -0.847546, -0.157909, -1.82683, 0.907115, 0.9698, 3.40957, 3.70825, -1.13883, 0.798931, 2.24714], 
+        [1.84285, 1.48793, 2.41312, -1.12445, 8.43197, 3.23905, -8.24143, 0.492226, 1.63691, -2.19854, 0.907587], 
+        [1.86325, 3.44698, 5.16687, -1.65744, 4.51357, 2.29127, 0.431465, -6.28354, -1.94323, 0.667054, 2.55983], 
+        [0.791401, 3.09003, 1.60049, 5.51994, 6.22653, 5.51325, -2.94997, -0.661193, -1.30246, -3.68184, 5.48531], 
+        [2.84146, 3.93132, 0.955217, 1.74078, -1.8665, 4.88184, 2.73972, 0.461242, 3.37084, -1.96175, 2.37143], 
+        [2.68627, 1.46265, 3.68231, 5.98163, -2.16085, -3.53812, 0.589124, 1.69816, 2.67222, 6.33776, 0.337762], 
+        [-0.103819, 1.216, 1.21714, 4.18357, 1.07552, -0.297568, 2.49721, -1.04955, 0.835523, 4.98467, 1.2727], 
+        [0.302425, 0.210264, 3.51036, -0.416717, 4.66291, 3.8887, 1.30416, 3.61039, 2.62312, -1.91253, -0.592553]
+      ], 
+      [
+        [0.755751, 2.15413, 1.08164, 1.20828, 1.8036, -0.114204, 0.471248, 2.13828, 1.74575, 1.2239, 1.19448], 
+        [1.83236, 1.3456, 0.303153, 2.63998, -0.666179, 1.31616, 2.573, 0.628803, 1.26554, 0.755838, 1.49914], 
+        [2.08002, -0.284464, 1.26679, 0.917663, 1.15337, 2.2935, 0.670411, 1.85795, 1.56103, 0.735094, 1.11409], 
+        [0.885375, 0.0910343, 2.0902, 1.36033, 1.60088, 0.483905, 2.75918, 0.0732249, 0.538576, 3.10242, 0.198999], 
+        [1.04429, 1.67117, 2.14111, 0.262855, 0.934337, 1.84891, 2.80763, -1.02519, 1.01821, 0.72631, 0.707692], 
+        [1.06586, 1.5432, 0.776037, -0.979259, 4.28696, -0.902123, 1.65754, -0.383111, 2.05175, 2.27462, 0.921237], 
+        [1.29528, 2.33929, 1.53771, 2.36734, -0.557073, 2.29285, 3.53406, 0.633057, 0.661612, -0.340257, -0.0295297], 
+        [2.31389, -0.226332, 2.12649, 0.476244, 2.10562, 3.28356, -1.47848, -0.596099, 1.48639, 1.63073, 1.9647], 
+        [0.805643, 0.545586, 1.26255, 2.77531, 3.51489, -0.403649, 2.36504, 0.929939, -1.36251, 4.13378, 1.06051], 
+        [0.968895, 2.37168, 1.92477, 0.421054, 1.06621, -1.33707, 2.64212, -0.0444005, 3.21507, 2.88476, -0.603992], 
+        [1.22723, 1.1917, 1.37017, -0.0513123, 1.91476, 1.51766, 0.888782, 1.95233, 0.866001, 0.262791, 1.81687]
+      ], 
+      [
+        [1.01191, -1.9938, 2.72511, 0.698278, -3.72146, -1.99961, 7.35238, 0.280156, -1.73488, -2.03375, 3.87596], 
+        [3.43384, 0.972605, 4.42832, -0.0519558, 2.02619, -4.00324, -0.00245798, 2.83439, 3.15284, -0.768664, 2.34133], 
+        [-2.8484, 2.18289, 5.86582, 5.12528, -6.0205, 0.351776, 7.75514, 0.623515, -3.608, 2.75208, 1.95103], 
+        [2.8127, -0.715716, -0.0939215, 2.23037, 2.16437, -0.669701, 4.82336, 5.4097, 1.48179, -1.39653, 1.15472], 
+        [-0.0107169, 3.02927, 1.58185, -1.38376, 1.64283, 0.0221173, 2.23297, 2.27456, 5.04881, 6.08361, -3.3275], 
+        [0.812012, 0.295263, 1.54512, -0.67565, -0.171156, 1.08183, 4.71727, 0.416864, -2.24173, 1.73345, -1.02968], 
+        [3.25465, 1.62882, -1.08162, 3.9111, 2.1069, -0.561648, 1.86768, 5.50634, 1.35029, -0.910864, 2.71329], 
+        [2.71587, 4.78192, 4.54385, 3.76181, 3.31567, 1.69082, 1.31948, 1.30131, -2.63212, -3.77507, -0.784712], 
+        [4.04179, 6.09207, 3.46655, -0.905842, 2.25063, 3.07369, -7.94834, -5.1509, 12.8066, 3.94592, -0.107023], 
+        [2.66125, 4.45916, -0.792127, 3.64262, 4.66026, 1.93933, -0.822544, -3.60494, 1.7094, 4.41686, 2.33145], 
+        [6.35266, -0.117169, -2.20497, 0.532982, -2.02139, 1.68433, 0.441222, 3.42331, 5.99553, -0.597777, -2.27068]
+      ], 
+      [
+        [2.13931, 0.281214, 1.35876, 0.885757, 2.29609, -0.674496, -0.306536, 1.2145, 2.02407, -0.0947503, 0.629779], 
+        [0.921336, -0.197963, 2.66676, -0.0461751, 1.19443, -0.0578332, 2.51156, 2.92491, -0.69814, 0.753417, 2.13658], 
+        [2.18964, 1.04635, -0.124341, 2.31792, 2.65302, 0.904024, -0.26256, 2.24188, 1.69551, 1.50062, 0.441276], 
+        [1.19865, -0.768974, 3.41895, 1.52375, -0.0493186, -0.547045, 4.05825, 0.0745111, 1.07631, 1.24081, 1.45981], 
+        [1.16178, 1.29106, 1.42919, -0.153708, 1.20767, 0.796666, 0.82648, 0.719715, 0.804688, 2.92577, 1.58102], 
+        [0.881845, 1.53892, 0.804212, 0.554957, 0.733315, 2.47012, 1.70069, -0.827911, 3.25536, 1.69582, 0.245638], 
+        [1.12489, 2.17554, 1.76394, 2.5384, 1.77603, 1.60055, -0.581052, 1.79167, 2.28714, -0.614178, 1.34258], 
+        [1.87966, 0.555233, 2.44229, -1.02857, 2.19855, -0.0503811, 2.42148, 2.80019, -0.803768, 1.01962, 1.79199], 
+        [0.970238, 2.85602, 1.959, 0.187724, 1.62997, 1.67346, 1.81845, -1.40816, -0.153536, 2.91851, 1.31743], 
+        [3.12036, -0.448793, 0.570262, 2.80801, 0.644026, 0.491625, -0.0202318, 1.72681, 2.51582, 1.82077, 0.28935], 
+        [1.35663, -0.248986, 2.07956, 1.52062, 1.04028, 1.09986, 1.11171, 2.64876, 0.413452, 0.509613, 1.65149]
+      ], 
+      [
+        [-0.709809, 1.7953, 1.07511, 1.23113, -1.80133, 2.77842, 2.3297, 1.61761, -1.87402, 2.39716, 1.56241], 
+        [0.671669, 0.567887, -0.183191, 1.38019, -0.498465, -0.912282, -1.48845, 0.332229, 0.368613, -0.476609, -0.53767], 
+        [-1.66476, 1.48989, 5.17194, 0.399056, -1.20544, 2.27821, 8.59908, -0.106106, -1.49373, 1.74596, 3.12605], 
+        [0.862007, 1.14301, 0.80974, 2.4156, 1.52395, -0.116217, -0.0390559, 3.25042, 2.08347, 0.371591, 0.468734], 
+        [-1.09055, 1.6875, 2.70975, 1.82742, -3.26267, 2.88385, 3.0138, 0.604609, 4.82532, -0.0300122, 1.38943], 
+        [0.925804, 0.521662, 0.264872, 0.428619, -0.920523, -1.45161, -0.239783, 2.54485, 2.33047, 2.94254, 3.01336], 
+        [2.72241, 0.310357, 1.9278, -0.167136, 3.76379, 1.35838, 1.5296, 0.913839, 0.998411, 2.13458, -0.522884], 
+        [1.79257, 2.61406, 2.96914, 3.60881, 1.99004, 1.05602, 0.850381, 1.51642, 1.60684, -0.0898734, -0.05704], 
+        [3.86197, -1.2672, -1.09007, 2.10521, 1.16518, 0.929559, 1.13134, 3.44464, 0.766024, 0.25252, 2.01942], 
+        [2.90756, 5.22053, 3.56801, -0.208272, 0.886832, 1.78323, -0.231105, -2.23442, -0.915495, 2.49642, 2.6727], 
+        [-0.770568, 1.34261, 2.39252, 1.13805, -0.825851, 1.24129, 2.74607, 1.11945, 3.27244, 1.22399, -0.587841]
+      ]
+    ]
+  ], 
+  [
+    [
+      [
+        [0.463065, -2.79891, -3.01963, 1.67692, -0.283164, 0.000702143, 1.20331, -2.33722, -1.55651, 0.151063, -0.552593], 
+        [-2.02653, -3.48228, -4.21085, 1.3041, 5.7566, 0.739381, -1.16844, -2.4464, -4.2029, -0.103612, 1.17763], 
+        [1.4909, 0.0724794, -0.336197, -0.0394748, 0.36772, -0.696032, -0.71526, -0.615686, -0.370729, -1.21114, -0.143467], 
+        [-0.597375, -0.298928, 0.682278, 0.109699, 0.0528708, -0.128953, -0.083692, -0.402062, -1.98337, -1.63243, -1.46841], 
+        [-1.86501, 2.34068, -0.756567, 2.4863, -1.12173, 1.75042, 2.41583, -5.63232, -2.11118, -1.49041, -0.010933], 
+        [1.17965, 3.08201, 4.80086, 3.20071, 6.08256, 2.65447, 0.457319, -6.38875, -7.83233, -1.37109, -3.07512], 
+        [-3.06024, -0.67843, -3.59135, -1.05468, -3.94177, -0.316762, 1.1739, 1.88092, 1.21746, -0.44673, -1.74721], 
+        [0.564535, 0.214593, -1.31334, -0.884286, -1.01295, -0.0662858, 1.16635, 1.58268, 2.44535, -0.575218, 0.236856], 
+        [-0.939087, -1.15937, -2.37888, 1.65655, -0.389868, 1.2402, 0.285178, -2.04901, -1.13784, 0.283731, 0.176316], 
+        [0.241644, -0.533612, -1.34272, 1.84463, 4.08212, 1.66507, 1.3276, -2.18262, -3.29411, -0.0517334, 1.18665], 
+        [-0.715602, -0.686801, -3.23936, -0.641934, -2.07674, -0.743891, -0.153786, -0.411221, -0.56041, -0.419581, 0.321385]
+      ], 
+      [
+        [-0.307127, -1.99323, -1.57818, -1.10673, -1.84253, 0.956558, 0.992786, -0.844103, -0.0594134, -0.971911, -1.39117], 
+        [-0.866188, 1.37337, -6.38971, -1.03988, 4.01182, -1.67943, 1.37204, 0.442958, -4.01608, -0.498767, 0.186051], 
+        [-2.57872, 1.52168, 1.14901, -0.504638, 2.74476, -1.35091, -2.47709, 1.08941, -0.719406, -1.15939, 0.800102], 
+        [-0.937269, -0.577425, 0.540781, -1.04016, 0.546011, -0.879547, 0.818199, -0.792057, -1.06532, 0.239006, -1.38665], 
+        [-0.610342, 1.07611, -2.05384, 0.224124, -2.47182, 0.785497, -0.450198, -2.8511, 1.89791, 0.77638, 0.535499], 
+        [-0.408888, -2.75564, 1.71028, -2.66286, 3.54239, -2.59337, 3.52474, 2.84452, -3.8696, -0.344841, -1.70197], 
+        [2.5719, -1.97471, 4.15865, -3.15661, 2.77987, -3.04853, -5.75212, 3.63296, -6.8936, -0.775022, -2.59041], 
+        [1.22137, -1.27425, -0.456526, -0.259393, -1.78994, -0.619248, -1.25234, -1.57488, 0.551388, -0.298862, -0.334423], 
+        [0.133536, -0.631806, -1.47919, 0.374064, -1.36086, 0.40379, 2.06949, -2.20347, 1.57126, -0.680278, -0.748314], 
+        [1.2684, -0.821084, -2.04067, -1.77832, 1.89369, -1.88677, 1.92177, 0.40495, -3.56834, -0.541757, 0.216504], 
+        [-1.23879, -0.854676, 0.362375, -1.92965, 2.48858, -2.04923, -1.10834, 0.515257, -0.634047, -0.546799, 0.601114]
+      ], 
+      [
+        [2.56136, -2.67064, 1.24163, -2.14835, -5.30858, -1.03783, -0.970104, 1.81162, 2.96043, -0.525968, -0.0472172], 
+        [1.97397, -0.687428, -5.83074, -4.55798, -0.907998, -1.7203, -0.937315, 4.05663, 4.2946, 0.273773, -1.31991], 
+        [1.23083, 0.624017, -4.31677, -1.05962, 6.15776, -2.07175, -3.85938, -0.173476, -3.80886, -4.2456, -3.27983], 
+        [-0.360355, -0.32223, -2.73249, -0.724147, 2.57989, -2.55704, -6.21932, -1.09965, -2.28597, -2.40929, -3.48016], 
+        [-5.04759, 2.31529, -1.41049, 0.94944, -0.336401, 0.0889204, 1.23626, -1.00222, 1.75614, -1.72398, 0.513402], 
+        [-2.72684, 0.584789, -0.561865, -2.39118, -2.80648, -2.25606, 2.24885, 2.00867, 0.785334, -1.21763, -5.22906], 
+        [-5.71734, -0.688453, -1.16618, -3.91563, -0.544849, -0.671706, 1.73683, 4.34685, 4.22761, -1.59418, -4.23487], 
+        [-0.669134, 0.666671, -1.14416, -2.34076, -3.22218, -0.322468, -1.02381, -0.57713, 3.07817, -3.23958, -2.89379], 
+        [-0.899678, -0.294669, -1.77509, 0.954093, -3.34869, -2.26972, -3.8113, -0.849326, 3.05773, 1.41288, 0.986882], 
+        [-0.237322, -0.288445, -4.78247, -0.902874, -1.89545, -3.94862, -1.41685, 1.31095, 1.94625, 1.39641, 4.43639], 
+        [1.19641, 0.190953, -5.22353, -1.87206, 1.59917, -0.847996, 1.7385, 0.426133, -3.16254, -1.45304, 0.800678]
+      ], 
+      [
+        [0.331831, 0.0292284, -0.039801, -1.56, -0.169898, -1.55199, 0.377756, 1.17162, 0.571972, 2.2829, 1.00311], 
+        [1.16892, -0.607733, -2.41, 0.435134, -0.843581, 1.06859, -2.4242, -2.64191, 6.77995, -2.57246, 0.192727], 
+        [-1.30776, -0.222938, -4.32613, -1.83908, -2.57538, 1.35599, 2.69258, -3.46531, 1.28092, -3.14692, -1.52321], 
+        [-0.157657, -0.916331, -5.13914, 0.800016, 2.97765, 0.510407, -3.154, 0.341493, -0.699377, 0.375321, -2.27372], 
+        [-1.06132, -0.762038, -0.398414, 0.278153, -0.829732, -0.510453, -5.22922, -0.131848, -2.85113, 0.105636, -0.33813], 
+        [-1.7046, -1.25755, 0.211184, 0.0686221, -1.74782, 0.73724, -3.8759, -0.508821, 2.05498, 0.643676, -2.90262], 
+        [0.918082, -1.41665, 1.1482, -0.401347, -0.587765, 1.17475, -1.5401, -1.0915, -2.46286, 0.156652, -1.53959], 
+        [-0.653901, -0.475094, 0.0818096, 0.453818, -2.54854, -1.07257, -2.33592, -0.806778, 1.79041, 0.578148, -2.32064], 
+        [0.063035, -0.630322, -1.51383, 0.630766, -1.7191, -3.2768, 1.31973, -1.08284, -1.99131, 1.62612, -3.21201], 
+        [0.32211, 0.0307786, -2.39059, -0.881258, -1.34706, 1.76363, -4.7102, -0.897596, -0.299956, -2.23017, 2.41029], 
+        [-1.60096, 0.0969979, -0.665578, -0.925525, -1.23255, 2.03205, 0.771799, -0.945339, 3.59042, -2.43523, 1.41344]
+      ], 
+      [
+        [-1.81796, 0.621175, 3.37338, -2.39774, 1.60933, -2.3087, -3.18502, 0.574594, -6.84787, 3.8691, 2.24926], 
+        [0.420536, 1.3639, 1.69568, -1.0992, -1.86691, -0.847311, -4.53318, -1.3459, -1.69088, 3.57213, 0.902237], 
+        [-0.335806, 0.39162, 1.74144, -3.51991, -3.22821, 2.65191, 3.28906, -3.12976, -0.162081, -0.207113, -4.11527], 
+        [-0.314747, -0.299602, -3.03802, -4.39669, 5.98155, 4.15794, 0.626608, -1.15159, -0.846281, 0.312512, -2.40895], 
+        [-1.57679, 0.473393, -3.76195, -0.557714, 11.448, -0.412635, -1.26867, -1.42702, -0.252254, -0.328517, -1.00243], 
+        [-1.44469, -0.374033, 3.7965, 1.79278, 4.53071, -0.711318, -4.90872, -3.56709, 1.72896, 0.370714, -2.50186], 
+        [-3.1461, -1.23978, -2.31665, 1.1879, 0.296486, -0.573173, -0.801666, -2.10266, 3.4807, 2.70909, -0.365531], 
+        [-0.753042, -0.244337, 1.79812, 2.59882, 3.03042, -1.5074, -3.68166, -3.5398, 3.64148, 2.62985, 2.70197], 
+        [-0.745279, -0.266684, 0.962529, -0.354939, 3.75516, -5.20013, -2.73296, -2.8128, 0.42026, 1.83461, -0.921072], 
+        [-0.0712019, 0.329022, -1.19826, -2.2108, -0.862267, -3.85581, -5.18538, -3.16767, -1.26066, -0.600791, 0.679033], 
+        [0.774493, 0.358085, -0.510824, -0.982229, 3.4867, 0.435841, 2.40479, -1.42044, -1.36421, -2.44065, -1.27894]
+      ], 
+      [
+        [-0.525091, -0.214212, 1.18822, 1.15648, 1.33428, -1.03809, 0.0217085, -0.695703, -1.02821, -0.799934, -1.61462], 
+        [-0.386693, -0.881702, 3.78903, -1.30536, -1.36592, 0.146697, -1.01991, -0.131782, -2.89842, -0.784533, 0.642987], 
+        [0.324977, -0.458029, -2.23762, -2.31768, -4.23452, 1.54599, -1.11526, -0.156351, 1.59791, -0.450024, 1.5369], 
+        [0.587505, -0.726043, -2.78271, -0.0448682, 0.744485, -1.95452, 1.93129, -0.0675611, -0.39104, -0.564207, -1.00241], 
+        [-1.30766, -0.358362, -1.15106, 1.59125, 2.3962, -0.906258, -0.736497, -1.39101, -2.22814, -0.751812, -0.978632], 
+        [-0.947331, -1.22199, 1.38795, -2.40778, 4.53846, -1.10731, -2.75147, 0.688326, -1.05261, -0.141539, -1.18699], 
+        [0.0103476, -1.51787, -0.448855, -2.78987, -3.02606, -1.42491, -3.37158, -0.505456, -2.42892, 0.433323, -2.41021], 
+        [-1.43411, -0.585079, -3.00156, -1.47603, 2.20579, -0.181179, -3.40786, 0.363002, -1.9369, -1.76833, 1.85207], 
+        [-0.509331, -1.09083, 2.44539, -2.13, 2.20797, -1.5675, -0.153729, -0.524543, 3.22051, -0.751656, 1.55198], 
+        [-1.76964, -0.325223, -0.367801, 0.151328, -2.06109, 1.16901, -3.71444, 0.378929, 0.262182, -1.54446, 0.22109], 
+        [0.0128323, -0.304222, -0.328139, 0.230435, -2.2155, 1.36822, -1.32684, 0.483639, 0.0407881, -1.66439, -0.964308]
+      ], 
+      [
+        [-1.74673, 0.997142, -3.28256, 0.662803, 2.51474, -0.631013, 0.419734, 0.574235, 3.21881, -4.2297, -3.18579], 
+        [-1.3337, 0.429981, 2.92217, 1.43472, -0.645572, 0.893126, 1.17901, 2.11683, -2.73889, -5.80706, -4.80998], 
+        [-1.43069, -1.64506, 3.94722, 1.22145, -7.63037, -0.632567, -3.72517, -0.80669, -1.66654, -1.20025, 2.1202], 
+        [-1.36025, -1.83053, -2.17575, 0.0125968, 0.265924, -1.69961, -1.39973, 0.366037, -2.21137, -0.38251, -1.31994], 
+        [2.12292, -2.14509, -8.89223, 1.68132, -1.87966, 2.90427, 5.22645, -4.75342, -3.63824, 0.0156819, -0.875283], 
+        [-3.06537, -4.35581, -5.03929, 1.31814, 3.2035, 3.96339, 0.346027, -6.2709, -3.5531, -0.248154, -0.60799], 
+        [0.672693, 0.0611497, -2.28762, -0.206528, -2.8487, -0.0230963, 2.40443, -0.626883, 3.90558, -1.06587, -2.1051], 
+        [-1.03221, -0.115972, 0.612332, -1.0668, 3.65505, -0.708639, -0.43181, -1.16488, -0.773875, -3.37643, -1.97727], 
+        [-2.79365, 2.33873, -1.23958, -4.8423, 3.56088, -0.93514, 1.3512, -5.32606, -3.52468, -1.15569, 0.362838], 
+        [0.461788, 3.02494, 5.74304, -2.58949, -1.16136, 0.0413722, -0.41971, -5.06893, -6.28841, -0.784903, -0.695567], 
+        [-4.24553, -1.27857, 2.72554, 0.0922676, 1.78296, 0.265249, 4.1417, -0.12476, 3.40468, -0.171306, -0.86327]
+      ], 
+      [
+        [-1.63668, -0.965049, -1.36634, -0.657761, 1.39049, 1.33831, 1.4183, 1.55928, 0.820019, -1.95723, 1.10238], 
+        [-2.61142, -0.72064, 1.44186, -0.0530279, 1.52516, -1.88652, 2.5443, -2.3622, 1.58007, 1.74941, -4.01499], 
+        [1.08934, -1.8142, 0.920475, 1.21979, -1.30722, -2.40132, 0.21054, -1.964, -3.68013, 1.40998, -2.51403], 
+        [-0.763199, 0.850943, -1.58491, -1.9067, 1.9705, 0.321374, -0.678337, -0.803048, -1.40104, 0.0800933, -1.059], 
+        [-1.495, -0.543901, 0.370596, -1.57923, -3.58988, 0.807899, -4.17295, -3.73054, -1.22954, 0.00334942, -0.544758], 
+        [-0.665315, 1.56264, -3.99808, -1.44955, -0.594948, -1.70505, -0.0472252, 2.68715, -4.32322, -0.424087, -0.515626], 
+        [-3.45644, 1.77503, -1.78051, -0.79205, 1.88138, -2.05272, -1.12172, 3.43756, -0.907179, -0.74836, 0.506759], 
+        [-1.85107, -0.991447, 0.367649, -1.72999, 1.13677, -0.323097, -0.968884, -1.14068, 1.29958, 0.26148, -1.98193], 
+        [-0.632782, 0.245571, -0.0363834, -3.08127, 0.15884, -0.479984, -0.0771767, -3.02879, -0.771662, -0.895247, -2.03401], 
+        [-2.27359, -2.98209, 3.08806, 0.886753, -3.38233, -0.746443, 0.135398, 1.87992, -5.45636, 0.527638, -1.16221], 
+        [3.17405, -3.27726, 1.19097, 1.05251, 0.048861, -0.775407, -1.91614, 2.16418, -1.95343, 0.649246, 0.10359]
+      ], 
+      [
+        [0.971971, -2.33376, -3.4174, 1.46388, -2.56791, 0.471328, -2.66336, 0.640555, 4.25813, -4.29081, -0.496737], 
+        [-2.33991, -3.69849, -0.697025, 2.04242, 2.50127, 0.172218, -3.79243, -0.000433981, -0.868328, -1.9552, -5.72643], 
+        [1.23325, -3.75579, -0.788591, 1.5277, 2.59293, -0.187256, -4.36488, 1.12598, 1.09995, 2.86506, -0.721015], 
+        [0.377469, -1.74623, -3.81603, -0.199496, 0.711729, 0.10551, -0.854584, 1.27182, 0.78714, 1.02429, 4.02244], 
+        [2.74702, 2.06383, 0.304769, -1.92229, -2.88997, 2.12023, 3.81266, -1.67937, -1.32317, -1.10387, 1.37059], 
+        [1.79823, 3.11048, 2.01409, -3.40409, -2.58775, -0.6357, 7.16546, 0.86404, 0.267847, -1.31927, -1.5502], 
+        [-0.954444, 1.93356, 0.224982, -0.812522, -1.68102, -3.04449, 0.412737, -0.805278, 1.05338, -1.24233, -0.36456], 
+        [-1.42614, -0.26315, 1.04021, -1.62849, -1.33587, -1.54763, -2.00925, -2.1585, -2.8515, -0.676553, -0.781281], 
+        [-6.11727, 2.10464, 1.8326, -2.66817, -0.33277, 1.27386, 2.84842, -1.65369, 3.50341, 0.743764, -0.588076], 
+        [-2.32935, 0.741125, 6.0748, -0.33387, -1.06129, 0.750927, 5.985, 1.27643, 0.302563, -0.64863, 3.56317], 
+        [-6.67649, -3.30119, -0.243467, -0.0633617, -2.79626, -1.42116, 1.68712, 0.817022, 0.0169065, -0.461669, 3.51537]
+      ], 
+      [
+        [-0.362276, -1.199, -1.49471, -0.685237, -1.96173, -0.994736, 0.947311, -0.414896, 1.66876, -0.969656, 1.12271], 
+        [-0.58128, 0.39431, -4.22462, -1.25198, 2.02916, 0.281314, -0.346512, -0.0896992, -0.104102, 0.764675, -3.09165], 
+        [-1.15368, 0.0122641, 1.7595, -1.32516, 0.427497, 0.0153559, -3.42925, -0.202087, -6.7103, 0.525998, -4.6198], 
+        [-0.232292, 0.267307, -1.77329, -0.553716, -1.01262, -0.240658, -1.81789, -0.751788, -2.64582, -1.15379, 1.78167], 
+        [-3.49728, 0.483502, -4.40096, -2.30011, -1.21646, 0.135291, 0.302683, 0.887748, 3.3538, -1.28397, 2.56033], 
+        [-3.7642, -1.95499, 1.11846, 1.1363, -2.73421, -1.3041, 2.59571, -2.16735, 1.54032, -0.239561, -1.15283], 
+        [2.23668, -1.93999, 1.4015, 1.28587, 1.51631, -1.92885, 2.42119, -2.30286, -0.889746, -1.37724, -1.59778], 
+        [-1.61326, -1.20689, 1.40096, -0.282896, -1.35653, 0.0914034, 0.298919, -0.00320452, -3.69963, 0.40494, -0.974421], 
+        [0.638414, 0.319411, -0.267386, 0.297389, -1.74485, 0.928229, -3.65474, 0.438701, -4.43937, -0.44236, -1.73685], 
+        [-0.143481, -2.5811, 3.1095, -0.910279, -1.05174, -1.81911, 0.965897, -1.28329, -2.5515, -0.534426, 1.10183], 
+        [1.4892, -2.82566, 0.371986, -0.955666, 0.8212, -1.97462, 1.9702, -1.37517, 2.44384, -0.541286, 2.00911]
+      ], 
+      [
+        [0.712445, -1.20859, 0.118444, -0.945973, -1.41913, -0.958407, -0.454614, -0.261741, 1.1601, -0.793846, 0.797762], 
+        [0.453762, -0.354865, -2.65788, -2.66475, 1.61445, -0.0388941, 0.193323, 0.743479, 0.970741, 1.13324, -1.51878], 
+        [1.21751, -0.429172, -2.41905, -2.17856, 3.48302, -0.251727, 0.980514, 0.174401, 0.878053, 0.413831, -3.84364], 
+        [0.465087, -0.105593, -0.922525, -0.551363, -0.433427, -0.901482, -1.17562, -1.51593, -2.02433, -3.07256, 0.739685], 
+        [0.557868, -0.0960836, 0.344777, -2.50413, -2.11482, -0.354535, -4.7604, 0.605145, -1.45215, -2.38781, 2.70358], 
+        [-3.49273, -3.45021, 2.07709, -1.63966, -1.59743, -1.34542, -1.0837, 0.407628, -0.0265993, -0.0259756, -0.792306], 
+        [-4.62313, -2.94485, 1.77389, -0.382148, 1.87574, -1.97714, -0.77328, -0.550753, 1.25753, -1.4407, -1.93878], 
+        [-1.7456, -1.55516, 0.535727, -0.107178, -0.212558, -0.618821, 0.612051, 0.817269, -0.959525, -1.70454, -0.199349], 
+        [-4.94993, 0.163089, -0.265513, 0.501452, -1.2721, 0.422308, 0.380503, 0.866419, -0.763104, -2.10183, -0.62416], 
+        [-2.61754, -0.702001, -0.0137128, 0.136039, -2.42086, -1.33697, -0.984925, -1.2002, -1.53399, -3.23613, 0.675744], 
+        [-2.34235, -1.65155, -1.31941, -0.312695, -3.39724, -1.66234, -1.55933, -1.31361, -2.66855, -2.18675, 2.91517]
+      ]
+    ], 
+    [
+      [
+        [0.0413488, 1.73274, 1.366, 0.559607, -4.62294, -4.04581, -0.811308, -0.61588, 0.78319, 0.0390913, -1.65677], 
+        [-2.65009, -2.36906, 2.87237, 1.97547, -1.43967, -1.68276, -3.65581, -2.81783, 0.572969, 0.123767, -0.984951], 
+        [-1.47048, -1.09479, -2.32531, -0.891252, -2.69908, -2.52858, -0.75036, -2.84278, 0.477944, 0.803779, -1.88748], 
+        [-0.752611, -0.656375, -0.963134, -1.15915, -1.50315, -1.23866, -1.67601, -1.65744, -1.80798, -1.37638, -0.349776], 
+        [-1.97955, -3.91601, -1.53293, -3.49865, -2.30461, -4.42786, -0.159271, 2.11135, -1.11915, -2.1596, -0.671583], 
+        [1.05901, 0.800708, -0.531464, 1.42789, -1.26989, 0.231274, -6.81898, -4.98773, 0.743029, -2.67776, -0.898771], 
+        [-1.74408, -2.76183, 1.77699, 0.195421, 0.849547, -0.301508, -1.26635, -2.78014, -1.69882, -0.807676, -0.490707], 
+        [-1.17826, -1.68065, -1.87233, -1.10976, -0.191152, -0.188345, 0.590515, 0.885557, -1.62343, -0.433209, -0.815648], 
+        [-2.3838, -3.09397, 1.06035, -1.95454, -2.31603, -2.55742, -1.02707, 0.519494, 0.199908, 0.269686, -2.2368], 
+        [-1.63446, -2.10136, 0.447464, 0.880466, -0.882776, 0.0402573, -3.4161, -2.25511, 0.558765, 0.113565, -1.02378], 
+        [-1.10077, -1.60692, 0.632776, -0.353556, -0.526939, -0.782805, -0.861103, -1.43482, -0.909336, -0.476672, -1.75422]
+      ], 
+      [
+        [-4.51772, 1.88317, 0.865624, -0.867615, -1.15779, -3.35303, -2.22126, 0.0470425, 0.321927, -0.571286, -1.94203], 
+        [-0.599148, -2.48306, -0.366847, -1.48554, -2.26791, 0.366719, -0.959759, -1.39731, 0.490426, -1.41949, -1.8508], 
+        [2.41942, 1.01881, 0.441692, -4.86919, -4.04115, -1.69048, 1.15516, 0.248013, -0.682709, -0.788658, -1.14375], 
+        [-1.55067, -1.08266, -0.732021, -0.45036, -1.33505, -0.585961, -0.353645, -0.535865, -1.24046, -1.66768, 0.81829], 
+        [3.09115, -4.72781, 0.0028497, -4.09695, -0.0787032, -4.26825, -8.93504, 4.00475, 3.81368, -0.673063, 0.568393], 
+        [-1.88847, 0.631312, -9.00891, 0.330754, -7.4481, 0.655785, -3.03901, -3.101, 11.4483, -0.64967, 0.585967], 
+        [-3.40748, -5.21229, -5.59394, -3.68772, -5.88156, -2.91967, 4.80145, 2.73352, -1.22821, 1.10979, -0.804472], 
+        [0.713576, -0.0422839, -2.19773, -1.25346, -1.6556, -1.19503, -3.94081, -0.586572, -5.80311, -1.43705, -1.0139], 
+        [-2.06649, -1.72275, 2.6908, -2.4043, 0.0389019, -3.87216, -5.4504, -1.95507, -0.326636, -1.07164, -2.13646], 
+        [0.971, -0.360051, -2.72268, -0.379885, -5.5319, 0.00680447, -3.55411, -1.54479, 0.0415593, -1.3728, -1.93259], 
+        [-1.9881, -0.2131, -2.55765, -3.24765, -4.37003, -2.56017, -0.194041, 0.464799, -0.0769306, -2.02831, -1.47461]
+      ], 
+      [
+        [-3.16712, 0.00278664, -4.02494, 0.474158, 2.77622, -0.606973, -0.341131, -3.0482, -8.11971, -6.78759, 1.00108], 
+        [-1.08225, -2.67155, -1.21092, 0.728599, -6.04966, -3.25939, 4.34675, -0.461561, -1.76431, -2.03735, -4.3382], 
+        [-1.68202, -5.03871, 1.88823, 7.18998, -6.55099, -2.56134, 5.46379, -2.56436, -0.866638, 0.320839, 0.896522], 
+        [-0.684001, -0.750977, -0.925276, 1.44382, -1.76511, -4.30874, -0.829677, -2.30493, -0.143357, -2.68392, -0.843298], 
+        [0.028303, -3.52748, 1.32869, -0.520321, 0.39844, -2.60678, 4.66449, 3.59502, -3.62088, -1.81146, -1.09831], 
+        [-0.437016, 1.17746, -1.32354, 0.180169, -2.26146, -1.09606, 2.84943, -1.26034, -3.31902, -4.167, 1.78355], 
+        [0.907879, 2.08531, -2.31969, 4.28302, -3.27293, 1.02279, 2.29007, -6.33681, -1.84683, -2.39167, 1.19113], 
+        [-1.87493, -1.46028, -0.224179, -2.30001, 0.659719, 0.216233, -0.531803, 2.23186, -3.04387, -2.0268, -1.08691], 
+        [1.53251, -1.43023, -0.411811, -3.20258, 1.9626, 2.70323, -0.299946, 4.52048, -7.38941, -2.50376, -2.23568], 
+        [-2.73061, -2.78922, 1.93395, 0.713343, -3.75997, -1.32285, 2.90239, 0.0979649, 1.70156, 1.95543, -3.88489], 
+        [-0.161695, -2.4008, -0.417915, 2.10242, -2.89452, 1.06637, -1.28991, -2.1545, -1.7555, 0.980615, -2.01517]
+      ], 
+      [
+        [-0.725867, -1.61879, -1.91765, 0.728622, -3.9311, 1.21943, 4.34329, -4.31707, 1.82313, -5.32998, 0.203995], 
+        [0.947179, -0.539733, -1.35665, -2.01832, 2.08259, -2.07111, 3.18076, 0.644273, -1.9902, 1.60286, -4.03369], 
+        [-0.833278, -0.716932, -1.49951, 2.63133, -1.96859, 1.8504, -2.94618, -1.99737, -7.39506, 0.561655, 0.656731], 
+        [-0.771678, -0.643503, -7.29434, -3.21867, 3.73317, -1.03396, 4.06432, -1.60022, 3.12949, -1.39937, 2.0303], 
+        [-0.536399, -2.03751, -0.0015806, -1.6373, -3.25986, 4.23674, 2.06411, 0.67944, -2.47311, 2.03383, 1.58425], 
+        [-2.76778, -0.778061, -4.47658, -1.66079, -0.334128, -2.13713, -0.451263, -1.52327, 0.343581, -1.4597, 3.06965], 
+        [-2.10284, -2.58145, -2.29268, 0.390574, 3.44795, -0.786298, -0.490569, -1.99479, -3.8511, 2.89839, 1.19789], 
+        [-1.16733, -1.08696, 0.151949, -1.58171, 1.22943, -0.718608, -6.20929, -1.49976, -2.18553, -1.67061, 2.29956], 
+        [-1.85653, -0.477952, 2.01895, 0.173986, -6.25714, 1.90109, 0.0124987, -3.26173, 1.45057, -1.55856, -2.28461], 
+        [0.221187, -1.21328, -0.0736707, -0.935452, -3.40389, -3.09431, 1.91795, -1.19322, -5.22887, -0.0645803, -6.34719], 
+        [-0.278735, 0.178206, -0.964836, -1.92627, 2.95401, 0.588652, -0.628844, -2.66066, -4.42731, -3.81921, -2.19579]
+      ], 
+      [
+        [0.523324, -1.72207, -6.09389, -3.5005, 0.380994, 1.85183, -1.54151, -3.30535, 7.36107, -2.77153, -1.03107], 
+        [-1.39963, -1.50841, -0.211074, -3.02277, -3.44541, -2.18453, -1.92286, -1.14153, -0.80123, -0.845656, 3.62935], 
+        [-0.151246, -3.6951, -3.41241, 0.901047, 1.46441, -5.20219, -3.72673, 2.61292, 2.37182, -0.667606, 1.47958], 
+        [-1.63718, -1.69758, 2.08991, 1.83713, -5.52673, -2.13735, -0.576648, -2.43961, -1.42259, -2.62616, -0.34596], 
+        [-1.97678, -2.59159, -4.89597, -0.690885, -6.92963, -6.10541, 2.04427, -0.0796212, 1.40239, -1.99321, -1.01116], 
+        [0.0873493, 0.652799, -0.563809, 0.225224, -3.82388, -2.64565, -2.24285, 0.128908, -2.56267, -2.66505, 0.457784], 
+        [-1.26764, 1.91971, 0.448172, 0.805161, -3.35084, -3.34744, -2.04975, 3.4187, -1.65442, -3.74044, -1.79342], 
+        [-0.43026, -0.23216, 1.29951, 1.47668, -1.91071, -0.935585, 0.420285, 1.34796, -0.707002, 0.431428, -1.89955], 
+        [0.799925, 1.11364, -1.50113, -1.0888, -3.11797, 5.54641, -5.77016, 3.8674, -5.10982, -6.8036, 1.28054], 
+        [-0.720577, -0.787584, -0.625579, -1.03357, -0.915436, -1.95358, -1.47981, 0.00376332, -1.61267, -0.192316, -2.48531], 
+        [-0.178978, -2.1026, -2.10383, 0.019766, -2.90413, -3.24589, -5.38377, 1.22806, -4.35389, 2.173, -0.394542]
+      ], 
+      [
+        [-0.343428, -1.60053, 0.529796, -3.25071, -0.513753, 0.000254273, -1.28912, -0.547821, -0.16066, -0.961385, -2.23039], 
+        [-1.02938, -0.725318, 2.30965, 0.505064, -0.849387, -1.53784, 1.30778, -1.21422, -1.89069, -1.24317, -2.70118], 
+        [-1.21817, -1.98344, -3.98955, 1.83152, 2.75581, -2.72133, -1.40351, 0.0910047, 0.269886, -2.83222, -0.97733], 
+        [0.201365, -0.597529, -3.1873, -1.86979, -0.382609, 0.259925, -3.12152, -1.12654, 2.08991, -0.698037, -0.487172], 
+        [-0.396006, -1.47712, 3.2641, -4.80692, -3.7961, -3.73431, -1.99823, 2.37425, -1.73541, 0.162797, -0.23052], 
+        [-1.84906, -0.616625, -3.16544, 0.530442, -2.72939, 0.0904888, -2.6247, -2.33317, 1.80972, -1.21756, 0.17856], 
+        [-2.0855, -1.99269, -4.02262, -3.39712, -6.56708, 0.595671, 0.461909, 1.23153, 0.996081, -1.86373, -2.48183], 
+        [-2.14648, -1.19997, -5.74227, -1.06994, -5.21819, -1.27267, -2.63423, -2.26457, -2.1572, -0.444471, -5.19009], 
+        [-1.36429, -1.07726, -4.10175, -3.09499, -4.54353, 2.05731, 0.353704, 0.0803078, -1.20372, -5.31763, -1.90264], 
+        [-2.4311, -1.47183, -1.11785, -1.55107, 0.619699, -2.42027, 2.16755, -1.96573, 2.04713, 0.0879066, -2.98974], 
+        [-0.382784, -1.61638, -0.0988192, -0.341937, 2.34445, 0.523592, 1.43151, -0.732431, -3.08004, -1.27877, -1.08579]
+      ], 
+      [
+        [0.697802, -0.332861, 2.31988, -1.85191, -4.07111, -4.06596, -2.90183, -4.74516, -1.8628, 1.20169, 0.123495], 
+        [0.0701833, 0.781778, -3.41712, -3.34639, 3.22231, -2.27238, -2.15933, -1.65879, -4.4673, -2.69267, -0.496311], 
+        [1.25533, 1.95681, -3.01248, -4.99182, 3.76057, -3.94065, 2.74453, -3.23585, 0.784941, 1.1054, -3.16044], 
+        [-2.68094, -2.41077, 3.14339, 0.347983, -6.33583, -2.35235, 0.395075, -2.38039, -1.31864, -1.5624, 0.610822], 
+        [-0.120355, 0.247889, 0.532249, -3.16736, 2.99461, -1.30804, 0.58953, 4.18533, 0.382442, -1.02879, -1.19324], 
+        [-2.98528, -2.26571, 1.01688, 0.566777, 0.191011, 0.247172, -0.34758, -1.90336, -0.116499, -1.15161, -0.763439], 
+        [-2.54491, 0.186197, -5.19499, -0.7725, 3.79658, -0.652794, -4.38789, -0.970519, -6.22294, -2.75594, 0.763034], 
+        [0.427046, 0.798455, -0.0513665, 1.9211, -4.52697, -1.12048, 0.944024, 0.488044, -5.12494, -1.31027, -1.1911], 
+        [-2.44198, -1.47756, -4.18238, 6.32953, -3.72494, 1.06847, -4.55165, 4.26088, -1.493, 2.76746, -1.71963], 
+        [2.74481, 2.86877, -5.13537, -1.87454, 1.46481, -0.162483, -3.83075, -2.66438, -1.26424, -0.924858, 1.60235], 
+        [-0.643247, 0.840973, -2.29552, -1.95785, -1.88005, -2.52881, -3.90675, -1.86029, -2.6519, -0.232828, -1.00161]
+      ], 
+      [
+        [-0.810813, -0.752485, -3.23111, -0.522294, 2.48318, -3.88274, 3.35703, -4.46937, -4.94578, 2.14451, 1.10306], 
+        [-3.61049, -1.3926, -1.7313, -1.18869, 3.61601, 0.717796, -0.80297, 0.954576, -2.70641, -2.48726, 5.56989], 
+        [-3.39054, -0.537102, 2.36615, -2.28024, -5.77537, 0.328029, -2.83307, -2.34281, 2.09312, 3.20945, 0.367559], 
+        [-0.708472, -2.07785, 2.80362, 0.165156, -2.9656, -1.41129, 3.33629, -0.462704, -1.46286, -1.60837, 0.256757], 
+        [-2.417, 3.57294, 0.0945889, -3.40843, 0.712272, -0.7471, -9.12324, 4.87405, 1.44371, -0.501694, -1.01296], 
+        [-0.275543, -2.57096, 3.35832, -0.507863, -6.47257, -0.575601, -6.14129, -3.83959, 6.29995, -1.15888, -0.92686], 
+        [3.3873, 1.00982, -0.474362, -4.25634, -4.83035, -3.1896, 5.07714, 0.640517, -1.82443, -0.1602, 0.007828], 
+        [-2.8242, -1.00771, -4.08797, -0.240239, -4.7323, -1.21831, -1.23823, -0.640101, -1.56629, -1.38694, 1.55925], 
+        [2.86882, -5.64538, -9.16222, -0.462917, -0.359441, -0.945573, -7.32383, 1.67732, -0.674112, 2.4596, -0.66358], 
+        [-4.21246, 0.334743, -8.8805, -2.20304, 0.881539, -1.15699, -1.55617, -2.82386, 3.78699, -2.20705, 0.850519], 
+        [-4.86626, -5.10272, -0.143055, 0.220304, -0.633077, -2.09371, 2.72115, 1.66805, 2.30115, -0.909042, -1.02462]
+      ], 
+      [
+        [-2.74467, 0.0120914, 1.8719, 0.199941, 0.90596, -1.87608, 1.93392, -3.66532, 0.0948633, 2.27295, -2.33739], 
+        [-1.13698, -0.779164, -0.254359, 1.00395, -3.63439, -2.83009, 0.219969, -2.98417, 0.621101, -4.43284, 0.0573924], 
+        [-3.43951, 3.28048, -1.50786, -2.92485, 2.08996, 0.0985909, 3.46625, -0.772732, 2.95602, -4.03383, -2.2683], 
+        [-1.40675, -2.24104, -1.63004, -0.825961, -0.015923, -1.49445, -0.00959086, -0.460128, 2.72894, 1.84458, -2.29603], 
+        [0.0591261, -0.411675, -3.13732, 2.88317, -0.213873, -4.77511, -3.55501, -0.671924, -2.44666, -0.0825623, -2.61181], 
+        [2.67799, 2.02166, -3.69523, -0.426564, 1.57503, 1.36341, -0.428702, -1.03621, -5.72827, -1.56794, -1.07061], 
+        [-0.245132, -3.31005, -3.99458, -0.190002, -2.53937, 3.82118, -3.25285, -5.6249, 1.66279, 2.13645, -2.58403], 
+        [0.545156, 1.1156, -3.36484, -0.98694, -1.09694, -1.27859, -2.08579, -2.27075, -0.720471, -1.09655, 0.323927], 
+        [-4.12284, -4.64921, -2.4159, 1.46421, -3.26682, -2.72762, -3.00967, 1.76836, -1.76042, 1.1159, -3.71201], 
+        [0.667043, 2.01259, -3.12537, -1.56275, -0.46538, 1.16769, -1.3474, -0.574482, 0.0326049, 1.93883, -2.90382], 
+        [-2.27567, 4.40023, -0.770758, -2.88693, -1.50055, 0.800169, -0.68429, -4.0671, -2.1915, -0.000383854, -4.18333]
+      ], 
+      [
+        [-2.69948, 0.349695, 0.772253, -1.43944, -4.49041, 0.0645406, -0.883298, -0.784464, -2.05376, 0.420838, 0.943537], 
+        [-0.69445, -1.70094, -1.84916, -1.09947, -3.63463, -1.51288, 3.27834, -0.974308, 3.54515, -1.53669, 3.42437], 
+        [-0.843538, 1.10566, -0.450534, -3.56187, -1.41102, 0.728736, 0.0630374, 0.410414, 1.4729, 1.48347, -2.18539], 
+        [-0.334762, -1.52232, 1.22027, -1.00392, -1.68824, -1.36246, -2.09991, -1.14395, -6.20206, -1.30411, -4.46072], 
+        [2.6548, -1.15393, -6.81326, 1.88706, 1.03941, -2.01279, 0.913836, -4.97801, -2.55677, -3.48612, -1.69441], 
+        [-5.53344, -0.780486, -8.29527, -2.69147, 1.10247, -0.649712, -2.40065, 0.582579, -3.83224, -1.09252, 0.0345844], 
+        [-1.5384, -5.58599, -0.914956, -0.0708879, -2.64636, -1.49779, -5.4641, -1.55903, -1.51992, 1.50704, -1.10274], 
+        [-2.63637, -0.7923, -2.88929, -1.083, -0.227935, -1.54046, 2.50025, -1.02062, -0.447436, -2.12692, 0.495517], 
+        [1.86579, -5.73192, -1.89692, -1.29319, 2.95984, -2.26015, -0.295962, -0.383756, 0.526592, -0.175805, -3.15019], 
+        [-1.49446, 0.570081, -5.49821, -0.50627, -2.91321, -0.23543, -6.02617, -0.621426, -7.52361, -1.84979, -2.99185], 
+        [-4.69361, -3.22955, -2.82291, -0.878669, -3.0377, -2.99168, -3.01804, -2.34602, -0.777079, -3.27027, -2.0347]
+      ], 
+      [
+        [-1.31543, 0.0726254, -4.21679, -1.88116, 0.376907, -0.0673403, -0.37393, -0.523756, -0.268935, 0.500195, -2.52498], 
+        [-0.721514, -1.29088, -0.66517, 0.282941, -2.96588, -1.43911, -1.35067, -1.78804, -0.0603773, -2.16793, 0.133681], 
+        [-0.666564, -1.41032, -4.03422, 2.00674, -2.79525, -2.18132, -1.02836, -3.09138, -0.946752, -5.03641, 1.21736], 
+        [-0.890875, -1.40031, -1.00474, -0.996791, -0.746384, -0.869792, -1.25671, -0.436628, -1.10442, 0.483699, -3.60012], 
+        [-3.62999, -4.12992, -1.40194, 1.06314, -2.9932, -1.93193, 0.588488, -1.7289, -2.67641, 2.65785, -3.47572], 
+        [-0.243257, 0.8465, -2.35812, -0.744182, -3.22063, -0.419197, -2.63549, -1.19472, 0.892224, -1.3428, -0.617957], 
+        [-4.8044, 2.91211, -2.68079, -1.74639, -4.35868, 1.54095, 0.20196, 0.773022, -1.88631, -0.740384, -1.07178], 
+        [-0.821674, -0.325209, -1.91323, -1.29036, -0.386893, -1.08828, -1.90785, -1.84504, 1.15517, -0.564131, -2.93114], 
+        [-1.13016, -1.59215, 1.47828, -2.21074, -0.999801, -3.25772, 0.687064, -3.91922, -3.73211, -1.01038, -1.69171], 
+        [-1.79012, -0.513454, -0.500271, -1.29731, -0.194156, -0.321642, -1.20595, -0.501745, -0.0969252, 0.449222, -4.15035], 
+        [-1.42504, 1.80215, 0.209002, -1.16784, -1.14195, 1.45771, -1.93576, 0.636318, -3.77464, 1.69983, -3.52047]
+      ]
+    ], 
+    [
+      [
+        [2.3671, 4.01095, 3.36058, 5.21396, -5.59842, -3.22014, 3.44495, 0.609745, 4.08686, 3.34718, -0.729905], 
+        [3.10829, 3.4047, -2.68568, 3.92301, -0.02713, -2.02065, 4.75542, 0.919342, 0.357242, 2.69727, 0.474371], 
+        [4.57251, 1.74091, 1.06095, -4.39257, -1.7577, 1.99624, 1.57906, 0.954761, 4.66565, 0.948117, 0.292027], 
+        [0.878699, 1.54875, 0.947066, -0.0408118, 1.88585, 0.189745, 2.15118, -0.159387, 2.50406, 2.32141, 0.626744], 
+        [0.254717, -2.17016, 0.928838, 0.455, -1.56815, -1.57865, 1.74925, 4.55861, 1.14155, -1.58473, 3.87258], 
+        [-1.22927, -1.09917, -0.474001, -0.114945, 0.0663741, -1.48462, 7.32815, 3.12642, 1.56787, -0.527545, 2.06156], 
+        [-4.25772, -2.46792, 0.399662, 0.363987, -2.32092, 2.7429, 4.61784, 4.1298, 1.71587, 5.16354, 0.112954], 
+        [1.45339, -1.18274, 2.60543, 1.6311, 0.249731, 2.05429, -1.23223, 1.44213, 0.738417, 2.40514, 0.609723], 
+        [-2.6593, 0.164534, 4.54285, 1.03148, -0.0576516, -1.79091, 0.560882, -0.201378, 3.42513, 2.10882, -0.6724], 
+        [1.99048, -0.780503, 0.0997072, 1.01633, -0.0851774, -0.269563, 3.41212, 1.55246, 0.037032, 2.59575, 0.526505], 
+        [-0.0473285, 3.1253, -0.068705, -0.300447, -1.42421, 1.05775, 1.85475, 2.07946, 2.22278, -0.448285, 1.04357]
+      ], 
+      [
+        [1.41647, 2.45181, 0.0254834, 2.82788, 2.78131, -0.664613, 1.18042, 1.01061, 0.349085, 2.08814, 1.62577], 
+        [2.56849, -0.74041, 2.37881, 3.67791, -2.50496, 1.31716, 2.36428, -0.596429, 2.88043, 2.04283, 0.245727], 
+        [1.08621, 0.538767, 2.22191, -0.513673, 1.65905, 1.85859, 0.623698, 0.491328, 0.826438, 1.28809, 1.80584], 
+        [1.27452, 1.51001, 0.372622, 1.37632, 1.03288, 1.23619, 1.00464, 0.884161, 2.4133, 0.565812, 1.32329], 
+        [0.847725, -0.214023, 0.0153775, 0.972042, 0.605578, 0.070248, 1.64617, 2.76471, 2.0822, -0.257823, 0.969464], 
+        [-0.321963, 3.68847, -1.00879, 4.10179, -1.8888, 3.18775, 2.55525, -3.41197, 3.32937, -0.0926589, 2.55473], 
+        [1.76735, 0.744512, 0.00905859, 2.00662, 0.431692, 2.77736, 0.0494993, 0.567919, 1.31067, 2.55497, 1.11013], 
+        [0.26723, 1.11251, 2.16208, 1.01523, 1.40101, 1.87496, 0.160931, 3.14986, 0.273406, 1.53211, 0.663746], 
+        [1.84348, 0.959125, -0.608983, 0.967703, 1.21653, 0.0629601, 1.60034, 1.32836, 0.664325, 1.57648, 1.88568], 
+        [0.5602, 0.572958, 1.61589, 3.24966, -1.03301, 2.68789, 1.12265, -0.163885, 2.37388, 2.05722, 0.264692], 
+        [1.1157, 1.96329, 0.750001, 1.31783, 1.11853, 1.80177, 0.861292, 1.05671, 1.3595, 0.69279, 1.54079]
+      ], 
+      [
+        [1.21321, -2.90127, 8.99527, 3.03984, -4.91195, 4.47487, -0.783768, -2.31254, -0.483526, -8.22646, 7.2172], 
+        [3.2429, 2.35902, 4.8724, 4.42201, 3.03014, -0.442101, -3.97141, -0.715658, 3.3801, -4.28528, 5.63848], 
+        [-1.90045, 2.06593, 11.1283, 9.22831, -10.7283, -0.232794, 0.662762, 2.865, -1.37653, 4.64617, 0.402735], 
+        [1.10603, 0.618786, -0.338231, 6.10052, -0.205174, -1.47936, 1.80124, 0.866853, 1.97311, 2.31584, 2.07385], 
+        [-0.152983, 4.11032, 3.4907, -0.788051, -1.2757, 9.37678, 4.30395, 2.19445, -1.21167, 2.57207, 3.95905], 
+        [-1.53142, -1.58727, -1.27653, 0.0484813, -0.773965, -0.0528202, -1.89077, 7.02059, 3.2176, -0.0502322, -0.0477128], 
+        [0.955315, 1.18986, 3.84035, 0.355283, 4.93574, -0.0174671, 0.0925499, 2.92918, 1.86088, 3.22013, 4.39856], 
+        [0.17747, -0.618448, 0.922659, 2.06182, 0.709353, 1.44078, -0.126405, 2.80505, 2.41922, 2.58747, 1.8464], 
+        [-1.30922, 1.56109, 5.82527, 3.19717, 1.40468, 6.90097, 0.675646, -0.514836, 0.557212, 0.995576, -0.702601], 
+        [1.56869, -0.435161, -1.36329, 0.364534, 1.7896, 3.05259, -3.16111, 3.51488, -1.37746, 1.39109, 2.69285], 
+        [1.25047, 2.24827, 5.14188, 0.254342, 4.5617, -0.224056, -0.0295284, -0.825956, 0.852455, -0.46368, -1.27137]
+      ], 
+      [
+        [1.94631, 0.216828, 0.379516, 2.42401, 2.20256, 1.85238, 1.2025, -0.242507, 2.34058, -2.4868, -0.381502], 
+        [0.728484, 0.385836, 3.17187, 0.806294, 1.84874, -0.818415, 0.667207, 3.34685, -2.00202, 1.02384, 3.11425], 
+        [1.21111, 1.42141, -1.25811, 3.92904, 4.83577, -0.364567, 1.04019, 2.59811, 1.09235, 3.52458, -0.429511], 
+        [0.852071, 1.46534, 3.38358, 2.47251, -1.36444, -1.59005, 4.08924, 0.133922, 2.05717, -0.405836, 2.31935], 
+        [0.508064, 1.7505, 1.22439, -0.28136, 2.74707, 3.00928, 0.34997, 2.06002, 2.83276, 0.968406, 0.944754], 
+        [1.00872, 2.70303, 0.725257, 1.01909, 1.9945, 0.239697, 1.78998, 2.3013, 0.32928, -1.00968, 2.78726], 
+        [1.19074, 1.183, 1.86062, 0.879403, 1.35176, 0.340793, 0.489772, 1.89399, 2.785, 1.6036, 1.14985], 
+        [1.27261, 1.23814, 1.64887, -0.216159, 1.76556, 2.06206, 1.19513, 3.06847, -0.0836972, -0.360363, 2.10059], 
+        [1.69806, 0.978855, 0.739354, 1.23547, 1.11711, 3.48617, 1.27692, 1.1412, 1.34017, 0.689754, 1.32459], 
+        [1.36916, 0.127848, 1.92843, 2.01821, 2.53973, -0.454198, 1.42757, 2.63645, -0.965265, 3.79108, -0.323593], 
+        [1.18728, 1.29033, 1.17092, 1.10035, 1.43848, -0.28685, 2.1926, 0.720616, 1.53252, 1.47817, 1.07461]
+      ], 
+      [
+        [-0.989749, 1.37327, -0.284096, -6.32432, 7.44598, 1.08232, -0.760261, 3.15267, -4.08494, 6.79713, -0.238683], 
+        [0.244282, -0.311014, 2.57326, -1.22659, 6.35002, 3.9823, 0.998559, -1.99062, -4.69512, -2.81439, -4.35197], 
+        [-1.90044, -0.0110809, 9.65873, 5.53035, -8.2517, -1.35539, 8.38637, 0.264483, 1.00817, -2.75438, 7.15027], 
+        [1.34165, -0.795187, 2.96204, 8.15668, 3.19921, -1.28636, 2.32316, 1.90044, 2.59943, 0.706934, 1.57612], 
+        [1.62266, 2.19192, 2.49668, -5.03237, -8.62917, -3.85022, 12.6111, 5.38468, -4.20379, 2.33327, 4.40864], 
+        [0.195188, 0.528036, 0.700362, -0.0541095, 5.61589, 0.207662, 5.27886, 5.15482, 1.89617, 2.01786, 0.723531], 
+        [2.83228, 1.60346, -2.81694, 4.00395, -5.88991, 4.95588, 9.78755, 2.98631, -5.88017, 1.35786, 3.48246], 
+        [0.627534, 2.1444, -1.73244, 4.15413, 0.76605, 1.00444, 1.22639, 5.48183, -0.390581, 2.45514, 1.56341], 
+        [2.38462, 2.02798, -0.692953, -1.2338, 7.3653, 1.66243, 6.59844, 0.936474, -9.44713, -2.8413, 3.27031], 
+        [0.619367, 2.89898, 0.977999, 1.91066, 4.25383, 7.62882, 3.56642, 3.65594, 0.604855, -2.96607, 2.12584], 
+        [1.05887, -0.103892, 4.29821, 1.14412, 1.14119, 0.946302, 4.30832, 0.0728836, -0.671746, 2.51021, -1.48968]
+      ], 
+      [
+        [1.1986, 0.935542, 2.6829, -1.38566, 0.108217, 1.65174, 1.60053, 1.22342, 0.384556, 2.00104, 1.60723], 
+        [0.932518, 1.55207, -0.372942, -0.0192958, 3.74074, 0.530917, 1.60881, 0.577006, 1.85452, 2.43661, 0.0317404], 
+        [1.64626, 0.667402, -0.264403, 4.2916, 0.963946, -0.433022, 1.35961, 0.928933, 1.64906, 0.0391326, 1.20664], 
+        [0.794042, 0.839755, 2.63095, 1.79606, -1.05273, 2.31123, 1.2148, 0.205374, 1.66195, 0.618216, 1.92444], 
+        [0.82368, 1.53502, 0.969979, -1.14945, 2.27476, 0.246503, -0.766777, 3.00097, 1.95394, 1.67613, 0.919077], 
+        [0.843635, 2.24618, -0.842831, 2.95613, -0.312383, 0.358075, 3.91685, 0.810239, 0.848529, 0.611278, 1.58456], 
+        [0.78598, 1.81279, -0.247163, 3.36918, 1.13553, 2.62336, -0.28236, 1.95967, 1.85319, 1.2303, 1.35338], 
+        [1.39338, 1.79197, 0.709227, 3.95307, -0.897119, 0.842861, 2.55253, 1.55237, -0.410934, 3.36584, -0.218603], 
+        [0.728814, 1.71937, 1.93433, 0.990651, 1.85915, 2.39105, 1.57485, 1.15481, 2.9277, -0.159635, 0.643474], 
+        [1.65185, 1.68198, 1.0069, 0.5476, 2.72354, -0.318038, 2.46308, 0.843914, -0.166944, 1.56609, 1.64992], 
+        [1.27596, 0.690518, 1.56677, 0.884219, 1.49003, 0.295282, 1.84326, 0.437011, 1.58298, 2.13859, 0.63938]
+      ], 
+      [
+        [2.86493, 4.1701, -6.75134, 3.12108, -0.304951, -5.18192, 2.16206, -4.72955, 7.18935, 2.49855, 0.696339], 
+        [-0.562453, 2.41219, -0.819085, -2.178, -1.46095, -1.99215, 3.53271, -2.69849, 6.85415, 3.27722, 1.43621], 
+        [1.70083, 1.47528, 1.20226, -1.8991, -0.316482, 5.69361, -4.86722, 1.40006, 7.46559, 4.62225, -0.761686], 
+        [2.09358, 1.90243, -0.769892, 0.922192, 4.60298, -1.34033, -0.0752209, -0.277601, 1.50667, 1.67943, -0.320003], 
+        [4.11199, 4.38645, -2.52061, 3.33677, -2.3902, 4.79513, 4.90851, 7.6505, -0.0758231, 0.978743, 2.56529], 
+        [3.24246, 2.64673, -2.801, -2.12206, -4.13748, -0.687271, 2.11472, 8.8745, 0.768446, 1.92012, 1.05469], 
+        [7.49563, 2.36682, 2.47894, -1.27335, -1.77388, -0.700887, 11.579, -2.33144, 0.0271784, 1.25227, 1.67451], 
+        [0.129843, 2.40643, 0.452889, 0.679048, 3.53815, 2.09406, 1.68, 3.41469, 5.10104, 0.178458, 1.31686], 
+        [3.85404, -1.70729, 0.925438, 2.41861, -1.39485, 0.724851, 2.8673, 2.83887, 0.164983, 7.30626, -3.3494], 
+        [-2.11588, 1.38918, 4.35094, 4.23587, 0.833261, 4.87356, 5.87687, 5.6912, 0.402762, 1.63488, -1.98966], 
+        [-1.34406, -1.2783, 0.484681, 0.843257, 0.362489, -0.0925243, 4.38698, 1.52976, 4.11524, -0.525866, 2.44114]
+      ], 
+      [
+        [0.235228, 2.26937, 2.12782, 1.07977, 2.19492, -1.23291, 0.954848, -1.24962, 0.953897, 2.05108, 1.4286], 
+        [1.59606, 2.59323, -0.06028, 0.303645, 0.18995, 1.10586, 0.573775, 1.88746, 3.29569, -1.76524, 2.73919], 
+        [1.45592, 1.4439, 1.98789, 0.100549, 1.08992, 2.78489, 0.529243, 1.89817, -0.354463, 1.24713, 1.84214], 
+        [2.1915, -0.204861, 0.58505, 2.39051, 1.34861, -0.230961, 1.6167, 0.751669, 2.52333, 0.870952, 1.10602], 
+        [1.59673, 1.81458, 1.45281, 1.86855, -0.267149, 1.47884, 1.08915, 4.70492, 1.87427, 0.963084, 1.5784], 
+        [2.64561, -1.06544, 1.63222, 2.63012, -0.0202857, 3.48345, 2.24201, -1.33649, 1.61036, 1.25784, 1.07961], 
+        [0.594786, 0.817006, 1.58519, 0.899787, 1.00898, 1.31585, 1.3551, -0.94399, 2.89179, 1.04989, 1.2205], 
+        [1.22421, 2.48196, -0.565151, 2.80615, 0.573795, 1.11226, 0.814632, 2.07476, 1.05752, -0.120389, 2.08745], 
+        [0.00170553, 0.54438, 1.3784, 2.68792, 0.876438, 1.60925, 1.93394, 2.81603, 1.04932, 2.73008, 1.85493], 
+        [-0.00883365, 4.97085, 0.0548733, -0.0249132, 1.61365, 2.14016, 2.00967, -1.37555, 3.31871, 0.971649, 0.622913], 
+        [1.21749, 1.56542, 1.10884, 0.424472, 1.73351, 0.869951, 1.51781, 0.175481, 1.93537, 0.187233, 1.84123]
+      ], 
+      [
+        [3.80389, 1.69829, 1.90687, 3.58694, -5.55396, 4.09793, -3.76044, 2.36365, 2.56201, -1.0648, 3.9542], 
+        [2.82522, 3.01659, -0.241022, 3.10115, -0.383536, -1.89277, -2.74063, -3.71601, 1.79064, 3.64791, 2.3476], 
+        [5.02541, 0.673344, -3.17125, -0.222338, 3.16868, 2.50933, 4.39329, 4.96897, 4.32581, 6.0764, 0.734659], 
+        [3.04369, 3.76183, 1.05831, -1.12909, -0.241511, 2.70599, -0.93909, 0.92715, -2.58544, 4.6004, 1.02567], 
+        [5.14722, 2.66888, 3.35364, 6.17871, -1.64083, 1.09231, 3.23656, -7.90267, 5.74042, -2.81767, 0.860328], 
+        [-1.33831, 5.85941, 2.45661, 3.67996, -2.10165, 0.44435, 3.18908, 3.58157, 7.39559, 1.25935, 1.58829], 
+        [0.0960852, -2.11948, 3.75773, -0.0675906, 2.3137, 0.978578, -10.1526, 1.80782, 4.03564, 5.10116, -0.886225], 
+        [-0.0202389, 1.62532, 1.81578, -0.460444, 1.41209, 2.49059, 2.36223, -0.439474, 1.46314, 4.43106, -0.175461], 
+        [0.66217, -1.95695, 1.07106, -1.50054, 3.90415, -0.0335385, 3.757, 0.817727, 8.18834, 2.53463, -1.50851], 
+        [-1.4915, -3.67979, 3.16888, 2.25462, 1.78356, 0.873356, 2.40495, 4.53557, 2.16773, 6.80066, 1.66905], 
+        [1.6447, 1.01555, -5.55345, 2.24122, 0.487666, 0.190215, -4.47965, 0.484308, 3.18444, -2.50443, -0.498999]
+      ], 
+      [
+        [1.35617, 1.75058, 0.149016, 2.18591, 2.04802, 1.44841, 1.99007, 0.634791, 1.90296, 0.974961, 0.996145], 
+        [1.83906, 0.212687, 1.72072, 3.40258, -0.239465, 0.105179, 1.73895, -0.0723152, 2.76197, -1.17121, 2.87193], 
+        [1.51916, 1.10095, 1.5779, 0.624154, 1.40879, 1.48999, 0.884832, 2.08552, -0.255319, 2.63163, 1.80988], 
+        [1.66657, 0.164686, 1.74085, 1.26968, 1.49879, 1.20615, 1.1244, 2.12587, 0.682181, 3.58766, -0.977273], 
+        [-0.50572, 2.02111, 1.40111, 3.18505, 1.53797, 0.916721, 1.93708, -0.945756, 1.09962, 0.252078, 1.65138], 
+        [1.05381, 4.62651, 0.0801265, 0.375114, 0.474237, 2.5456, -1.18408, 2.17893, 1.51702, 0.602762, 1.67493], 
+        [0.698306, 0.861712, 2.15945, -0.233083, 1.9398, 1.74475, 2.0494, 1.88052, -0.477683, 2.78138, 1.78955], 
+        [1.02, 2.59536, 0.244785, 0.700764, 2.08417, 0.68881, 1.271, -0.207183, 3.46226, 1.13088, 0.542256], 
+        [1.01247, -0.255801, 1.14794, 0.535631, 0.340875, 0.50046, 0.868707, 1.47271, -0.394736, 2.11312, 2.72017], 
+        [-0.270843, 3.34463, -0.0227028, 1.14347, 0.895288, 3.04055, -0.163859, 2.42546, 1.29064, 3.09796, -0.928368], 
+        [1.12837, 2.16098, 0.589725, 1.69636, 0.898649, 1.49844, 1.05948, 1.29097, 1.33592, 0.0143107, 1.9733]
+      ], 
+      [
+        [1.95117, 0.434072, 3.7138, 0.767167, 0.378941, 0.708463, 0.357917, 1.47419, 0.902629, 0.872492, 2.21416], 
+        [1.69232, 2.52069, 2.39819, 1.51692, 2.84602, 2.13101, 1.19862, 1.02396, 0.459273, 2.0918, 0.827161], 
+        [0.423545, 0.741052, 4.04879, 1.17862, -2.50408, 0.793639, 2.11483, 0.930946, 3.36628, 0.537894, 2.9154], 
+        [1.50544, 2.15427, 1.53738, 1.17626, 1.54609, 1.90078, 2.12844, 1.5197, 2.68099, 1.94562, 3.05008], 
+        [2.65817, 1.06352, 3.88064, -0.951207, 1.45148, 1.53153, -2.05442, 3.24574, 1.13508, 1.16494, -2.50563], 
+        [1.62849, 0.952459, 4.16646, 4.54548, 3.69273, 0.54378, -0.139659, -1.98651, -1.24222, 1.31062, 1.00019], 
+        [4.97214, 1.22095, -5.65671, 1.30241, 2.34689, 0.532093, -0.134282, 1.33488, 4.75679, -0.273875, 1.86782], 
+        [1.24841, 0.837061, 1.52066, 1.29799, 1.4516, 2.22713, 1.59417, 1.10886, 1.50015, 3.44969, 3.19136], 
+        [0.561098, 3.02176, -3.01908, 1.94332, 1.16641, 2.04362, -0.573207, 1.60646, 6.20995, -0.161971, -1.268], 
+        [0.0382036, -1.88109, -1.04896, 0.155936, -0.203727, -0.26444, 0.620908, 0.47803, 2.33761, 3.02133, 3.77825], 
+        [3.49769, 1.08676, 0.35934, 1.18813, 3.86575, 1.13094, 0.7589, 1.16318, 1.40716, 1.20374, -2.81922]
+      ]
+    ]
+  ]
+], grad_fn = Deconv3d0)
+[       OK ] deconv.3d (71 ms)
+[----------] 1 test from deconv (71 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (71 ms total)
+[  PASSED  ] 1 test.
