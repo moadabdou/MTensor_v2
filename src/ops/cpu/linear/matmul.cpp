@@ -43,6 +43,10 @@ namespace ops{
             auto dst_shape = in_tensor_0_shape;
             dst_shape[dst_shape.size() - 1] = in_tensor_1_shape[in_tensor_1_shape.size() - 1];
 
+            if (operands.size() != 2 && operands[2]->shape().size()  != 1){
+                throw  std::invalid_argument(" bias must be a 1D tensor");
+            }
+
             const auto& in_tensor_2 = operands.size() != 2 ? 
                 utils::broadcast_to_shape(
                     operands[2]->is_contiguous() ? operands[2] :  contiguous.forward({operands[2]})
@@ -126,6 +130,109 @@ namespace ops{
 
     void Matmul::backward(const std::shared_ptr<TensorImpl>& diff_loss_out){
 
+        dnnl::engine engine(dnnl::engine::kind::cpu, 0);
+        dnnl::stream engine_stream(engine);
+
+        auto &x = m_operands[0];
+        auto &w = m_operands[1];
+        const auto& dims_x = x->shape().size() - 1;
+
+        Transpose transpose(dims_x, dims_x-1);  // w,x are broadcasted before matmul
+
+        Matmul matmul;
+
+        if (x->requires_grad())
+        {
+
+            bool prev_state = w->requires_grad();
+            w->set_requires_grad(false);
+
+            auto diff_loss_x = matmul.forward({diff_loss_out, transpose.forward({w}) });
+
+            w->set_requires_grad(prev_state);
+
+            if (!x->get_grad())
+            {
+                x->set_grad(diff_loss_x);
+            }
+            else
+            {
+
+                dnnl::memory diff_loss_x_mem(
+                    {diff_loss_x->shape(), dnnl::memory::data_type::f32, diff_loss_x->stride()},
+                    engine,
+                    diff_loss_x->data_ptr().get() + diff_loss_x->data_offset());
+
+                accumulate(
+                    diff_loss_x_mem,
+                    x->get_grad(),
+                    engine,
+                    engine_stream);
+            }
+        }
+
+        if (w->requires_grad())
+        {
+
+            bool prev_state = x->requires_grad();
+            x->set_requires_grad(false);
+
+            auto diff_loss_w = matmul.forward({transpose.forward({x}), diff_loss_out});
+            x->set_requires_grad(prev_state);
+
+            if (!w->get_grad())
+            {
+
+                w->set_grad(diff_loss_w);
+            }
+            else
+            {
+
+                dnnl::memory diff_loss_w_mem(
+                    {diff_loss_w->shape(), dnnl::memory::data_type::f32, diff_loss_w->stride()},
+                    engine,
+                    diff_loss_w->data_ptr().get() + diff_loss_w->data_offset());
+                accumulate(
+                    diff_loss_w_mem,
+                    w->get_grad(),
+                    engine,
+                    engine_stream);
+            }
+        }
+
+        if (m_operands.size() > 2 && m_operands[2]->requires_grad())
+        {
+
+            const auto& b = m_operands[2];
+
+            std::vector<int64_t> sum_dims(diff_loss_out->shape().size() - 1);
+            std::iota(sum_dims.begin(), sum_dims.end(), 0);
+
+            Sum sum(sum_dims);
+
+            auto diff_loss_b = sum.forward({diff_loss_out});
+
+
+            if (!b->get_grad())
+            {
+                b->set_grad(diff_loss_b);
+            }
+            else
+            {
+
+                dnnl::memory diff_loss_w_mem(
+                    {diff_loss_b->shape(), dnnl::memory::data_type::f32, diff_loss_b->stride()},
+                    engine,
+                    diff_loss_b->data_ptr().get() + diff_loss_b->data_offset());
+                accumulate(
+                    diff_loss_w_mem,
+                    b->get_grad(),
+                    engine,
+                    engine_stream);
+            }
+        }
+
+        
     }
 
 }//ops

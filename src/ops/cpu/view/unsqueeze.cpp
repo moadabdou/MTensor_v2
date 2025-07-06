@@ -65,6 +65,7 @@ namespace ops{
         Contiguous contiguous;
 
         auto& x = m_operands[0];
+        if (! x->requires_grad()) return;
 
         auto diff_src =  contiguous.forward({squeeze.forward({diff_loss_out})});
 

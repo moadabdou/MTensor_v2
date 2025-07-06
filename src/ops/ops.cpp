@@ -1,6 +1,8 @@
 #include <unordered_map>
 #include <stdexcept>
+#include <limits>
 #include <MTensor/tensorImpl.hpp>
+#include <MTensor/utils/tensor_iterator.hpp>
 #include <MTensor/ops.hpp>
 
 namespace mt{
@@ -35,6 +37,201 @@ void accumulate(
     stream_engine.wait();
 
 }
+
+
+std::pair<float, int> horizontal_max_with_index_512(__m512 max_vals_vec, __m512i max_indices_vec) {
+
+    __m256 half_vals = _mm512_extractf32x8_ps(max_vals_vec, 1);
+    __m256i half_indices = _mm512_extracti32x8_epi32(max_indices_vec, 1);
+    __m256 max_vals_vec_256 = _mm512_castps512_ps256(max_vals_vec);
+    __m256i max_indices_vec_256 = _mm512_castsi512_si256(max_indices_vec);
+    __m256 cmp_mask8 = _mm256_cmp_ps(max_vals_vec_256, half_vals, _CMP_LT_OQ);
+    __m256 max_vals_256 = _mm256_blendv_ps(max_vals_vec_256, half_vals, cmp_mask8);
+    __m256i cmp_mask8i = _mm256_castps_si256(cmp_mask8);
+    __m256i max_indices_256 = _mm256_blendv_epi8(max_indices_vec_256, half_indices, cmp_mask8i);
+
+    __m128 half_vals_128 = _mm256_extractf128_ps(max_vals_256, 1);
+    __m128i half_indices_128 = _mm256_extracti128_si256(max_indices_256, 1);
+    __mmask8 mask4 = _mm_cmp_ps_mask(_mm256_castps256_ps128(max_vals_256), half_vals_128, _CMP_LT_OQ);
+    __m128 max_vals_128 = _mm_mask_blend_ps(mask4, _mm256_castps256_ps128(max_vals_256), half_vals_128);
+    __m128i max_indices_128 = _mm_mask_blend_epi32(mask4, _mm256_castsi256_si128(max_indices_256), half_indices_128);
+
+    half_vals_128 = _mm_movehl_ps(max_vals_128, max_vals_128);
+    half_indices_128 = _mm_castps_si128(_mm_movehl_ps(_mm_castsi128_ps(max_indices_128), _mm_castsi128_ps(max_indices_128)));
+    __mmask8 mask2 = _mm_cmp_ps_mask(max_vals_128, half_vals_128, _CMP_LT_OQ);
+    max_vals_128 = _mm_mask_blend_ps(mask2, max_vals_128, half_vals_128);
+    max_indices_128 = _mm_mask_blend_epi32(mask2, max_indices_128, half_indices_128);
+
+    half_vals_128 = _mm_shuffle_ps(max_vals_128, max_vals_128, _MM_SHUFFLE(1, 1, 1, 1));
+    half_indices_128 = _mm_shuffle_epi32(max_indices_128, _MM_SHUFFLE(1, 1, 1, 1));
+    __mmask8 mask1 = _mm_cmp_ss_mask(max_vals_128, half_vals_128, _CMP_LT_OQ);
+    max_vals_128 = _mm_mask_blend_ps(mask1, max_vals_128, half_vals_128);
+    max_indices_128 = _mm_mask_blend_epi32(mask1, max_indices_128, half_indices_128);
+    
+    return { _mm_cvtss_f32(max_vals_128), _mm_cvtsi128_si32(max_indices_128) };
+}
+
+std::shared_ptr<float> reduce_max_last_dim_avx512(
+    const float* data_ptr,
+    const std::vector<int64_t>& shape,
+    const std::vector<int64_t>& strides,
+    std::vector<std::pair<std::vector<int64_t>, int64_t>>& max_indices_vec
+) {
+
+    const int64_t last_dim_size = shape.back();
+    std::vector<int64_t> outer_shape(shape.begin(), shape.end() - 1);
+    std::vector<int64_t> outer_strides(strides.begin(), strides.end() - 1);
+
+    int64_t output_size = 1;
+    for (int64_t dim : outer_shape) output_size *= dim;
+
+    auto output_ptr = std::shared_ptr<float>(new float[output_size], std::default_delete<float[]>());
+    max_indices_vec.resize(output_size);
+
+    mt::utils::TensorIterator it(outer_shape, outer_strides);
+
+    auto kernel = [&](const std::vector<int64_t>& outer_coords, int64_t logical_idx) {
+        const int64_t slice_start_offset = it.get_flat_index_from_coords(outer_coords);
+        const float* slice_ptr = data_ptr + slice_start_offset;
+
+        float max_val = -std::numeric_limits<float>::infinity();
+        int64_t max_idx = -1;
+
+        const int vec_width = 16; 
+        int64_t vec_end = (last_dim_size / vec_width) * vec_width;
+
+        if (vec_end > 0) {
+            __m512 max_vals_vec = _mm512_loadu_ps(slice_ptr);
+            __m512i max_indices_vec_i = _mm512_set_epi32(15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0);
+
+            for (int64_t i = vec_width; i < vec_end; i += vec_width) {
+                __m512 next_vals_vec = _mm512_loadu_ps(slice_ptr + i);
+                __m512i next_indices_vec_i = _mm512_add_epi32(max_indices_vec_i, _mm512_set1_epi32(vec_width));
+                
+                __mmask16 mask = _mm512_cmp_ps_mask(next_vals_vec, max_vals_vec, _CMP_GT_OQ);
+
+                max_vals_vec = _mm512_mask_blend_ps(mask, max_vals_vec, next_vals_vec);
+                max_indices_vec_i = _mm512_mask_blend_epi32(mask, max_indices_vec_i, next_indices_vec_i);
+            }
+            
+            auto result = horizontal_max_with_index_512(max_vals_vec, max_indices_vec_i);
+            max_val = result.first;
+            max_idx = result.second;
+        }
+
+        for (int64_t i = vec_end; i < last_dim_size; ++i) {
+            if (slice_ptr[i] > max_val) {
+                max_val = slice_ptr[i];
+                max_idx = i;
+            }
+        }
+
+        output_ptr.get()[logical_idx] = max_val;
+        max_indices_vec[logical_idx] = {outer_coords , max_idx};
+    };
+
+    it.parallel_for_each(kernel);
+
+    return output_ptr;
+}
+
+
+std::pair<float, int> horizontal_min_with_index_512(__m512 min_vals_vec, __m512i min_indices_vec) {
+
+    __m256 half_vals = _mm512_extractf32x8_ps(min_vals_vec, 1);
+    __m256i half_indices = _mm512_extracti32x8_epi32(min_indices_vec, 1);
+    __m256 min_vals_vec_256 = _mm512_castps512_ps256(min_vals_vec);
+    __m256i min_indices_vec_256 = _mm512_castsi512_si256(min_indices_vec);
+    __m256 cmp_mask8 = _mm256_cmp_ps(min_vals_vec_256, half_vals, _CMP_GT_OQ);
+    __m256 min_vals_256 = _mm256_blendv_ps(min_vals_vec_256, half_vals, cmp_mask8);
+    __m256i cmp_mask8i = _mm256_castps_si256(cmp_mask8);
+    __m256i min_indices_256 = _mm256_blendv_epi8(min_indices_vec_256, half_indices, cmp_mask8i);
+
+    __m128 half_vals_128 = _mm256_extractf128_ps(min_vals_256, 1);
+    __m128i half_indices_128 = _mm256_extracti128_si256(min_indices_256, 1);
+    __mmask8 mask4 = _mm_cmp_ps_mask(_mm256_castps256_ps128(min_vals_256), half_vals_128, _CMP_GT_OQ);
+    __m128 min_vals_128 = _mm_mask_blend_ps(mask4, _mm256_castps256_ps128(min_vals_256), half_vals_128);
+    __m128i min_indices_128 = _mm_mask_blend_epi32(mask4, _mm256_castsi256_si128(min_indices_256), half_indices_128);
+
+    half_vals_128 = _mm_movehl_ps(min_vals_128, min_vals_128);
+    half_indices_128 = _mm_castps_si128(_mm_movehl_ps(_mm_castsi128_ps(min_indices_128), _mm_castsi128_ps(min_indices_128)));
+    __mmask8 mask2 = _mm_cmp_ps_mask(min_vals_128, half_vals_128, _CMP_GT_OQ);
+    min_vals_128 = _mm_mask_blend_ps(mask2, min_vals_128, half_vals_128);
+    min_indices_128 = _mm_mask_blend_epi32(mask2, min_indices_128, half_indices_128);
+
+    half_vals_128 = _mm_shuffle_ps(min_vals_128, min_vals_128, _MM_SHUFFLE(1, 1, 1, 1));
+    half_indices_128 = _mm_shuffle_epi32(min_indices_128, _MM_SHUFFLE(1, 1, 1, 1));
+    __mmask8 mask1 = _mm_cmp_ss_mask(min_vals_128, half_vals_128, _CMP_GT_OQ);
+    min_vals_128 = _mm_mask_blend_ps(mask1, min_vals_128, half_vals_128);
+    min_indices_128 = _mm_mask_blend_epi32(mask1, min_indices_128, half_indices_128);
+    
+    return { _mm_cvtss_f32(min_vals_128), _mm_cvtsi128_si32(min_indices_128) };
+}
+
+std::shared_ptr<float> reduce_min_last_dim_avx512(
+    const float* data_ptr,
+    const std::vector<int64_t>& shape,
+    const std::vector<int64_t>& strides,
+    std::vector<std::pair<std::vector<int64_t>, int64_t>>& min_indices_vec
+) {
+
+    const int64_t last_dim_size = shape.back();
+    std::vector<int64_t> outer_shape(shape.begin(), shape.end() - 1);
+    std::vector<int64_t> outer_strides(strides.begin(), strides.end() - 1);
+
+    int64_t output_size = 1;
+    for (int64_t dim : outer_shape) output_size *= dim;
+
+    auto output_ptr = std::shared_ptr<float>(new float[output_size], std::default_delete<float[]>());
+    min_indices_vec.resize(output_size);
+
+    mt::utils::TensorIterator it(outer_shape, outer_strides);
+
+    auto kernel = [&](const std::vector<int64_t>& outer_coords, int64_t logical_idx) {
+        const int64_t slice_start_offset = it.get_flat_index_from_coords(outer_coords);
+        const float* slice_ptr = data_ptr + slice_start_offset;
+
+        float min_val = std::numeric_limits<float>::infinity();
+        int64_t min_idx = -1;
+
+        const int vec_width = 16; 
+        int64_t vec_end = (last_dim_size / vec_width) * vec_width;
+
+        if (vec_end > 0) {
+            __m512 min_vals_vec = _mm512_loadu_ps(slice_ptr);
+            __m512i min_indices_vec_i = _mm512_set_epi32(15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0);
+
+            for (int64_t i = vec_width; i < vec_end; i += vec_width) {
+                __m512 next_vals_vec = _mm512_loadu_ps(slice_ptr + i);
+                __m512i next_indices_vec_i = _mm512_add_epi32(min_indices_vec_i, _mm512_set1_epi32(vec_width));
+                
+                __mmask16 mask = _mm512_cmp_ps_mask(next_vals_vec, min_vals_vec, _CMP_LT_OQ);
+
+                min_vals_vec = _mm512_mask_blend_ps(mask, min_vals_vec, next_vals_vec);
+                min_indices_vec_i = _mm512_mask_blend_epi32(mask, min_indices_vec_i, next_indices_vec_i);
+            }
+            
+            auto result = horizontal_min_with_index_512(min_vals_vec, min_indices_vec_i);
+            min_val = result.first;
+            min_idx = result.second;
+        }
+
+        for (int64_t i = vec_end; i < last_dim_size; ++i) {
+            if (slice_ptr[i] < min_val) {
+                min_val = slice_ptr[i];
+                min_idx = i;
+            }
+        }
+
+        output_ptr.get()[logical_idx] = min_val;
+        min_indices_vec[logical_idx] = {outer_coords , min_idx};
+    };
+
+    it.parallel_for_each(kernel);
+
+    return output_ptr;
+}
+
 
 std::shared_ptr<float> custom_eltwise_op(
     const std::shared_ptr<TensorImpl>& in_tensor, 

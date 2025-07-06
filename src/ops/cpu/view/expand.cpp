@@ -85,6 +85,7 @@ namespace ops{
         Sum sum(m_expanded_dims);
 
         auto& x = m_operands[0];
+        if (! x->requires_grad()) return;
 
         auto diff_src =  sum.forward({diff_loss_out});
 

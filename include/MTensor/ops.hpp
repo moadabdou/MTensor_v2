@@ -7,6 +7,7 @@
 #include <memory>
 #include <dnnl.hpp>
 #include <config/mtensor_export.hpp>
+#include <immintrin.h> // For AVX512
 
 namespace mt{
 
@@ -17,6 +18,9 @@ constexpr int EOD = -99999999;
 
 namespace ops{
 
+///////////////////////////////////////////
+//         COMMON  HELPERS
+///////////////////////////////////////////
 
 void accumulate(
     dnnl::memory& src,
@@ -24,6 +28,28 @@ void accumulate(
     const dnnl::engine engine,
     const dnnl::stream stream_engine
 );
+
+
+std::pair<float, int> horizontal_max_with_index_512(__m512 max_vals_vec, __m512i max_indices_vec);
+std::shared_ptr<float> reduce_max_last_dim_avx512(
+    const float* data_ptr,
+    const std::vector<int64_t>& shape,
+    const std::vector<int64_t>& strides,
+    std::vector<std::pair<std::vector<int64_t>, int64_t>>& max_indices_vec
+);
+
+std::pair<float, int> horizontal_min_with_index_512(__m512 min_vals_vec, __m512i min_indices_vec);
+std::shared_ptr<float> reduce_min_last_dim_avx512(
+    const float* data_ptr,
+    const std::vector<int64_t>& shape,
+    const std::vector<int64_t>& strides,
+    std::vector<std::pair<std::vector<int64_t>, int64_t>>& min_indices_vec
+);
+
+
+///////////////////////////////////////////
+//             CUSTOM OPS
+///////////////////////////////////////////
 
 std::shared_ptr<float> custom_eltwise_op(
     const std::shared_ptr<TensorImpl>& in_tensor, 
@@ -93,6 +119,9 @@ std::shared_ptr<float> custom_deconv_op_forward(
     dnnl::engine& engine,
     dnnl::stream& stream
 );
+
+
+
 
 
 
@@ -508,12 +537,11 @@ private:
 class MTENSOR_API Mean: public Operation {
 public:
     //inc_counter is true for operations that are inserted in grad graph
-    Mean(const std::vector<int64_t>& dims, float eps = 0.0f, bool inc_counter = false);
+    Mean(int64_t dim, float eps = 0.0f, bool inc_counter = false);
     std::shared_ptr<TensorImpl> forward(const std::vector<std::shared_ptr<TensorImpl>>& operands) override;
     void backward(const std::shared_ptr<TensorImpl>& diff_loss_out) override;
 private:
-    std::vector<int64_t> m_dims;
-    int64_t max_allowed_dim;
+    int64_t m_dim;
     float m_eps;
     static int64_t count;
 };
@@ -545,24 +573,24 @@ private:
 class MTENSOR_API Max_reduction: public Operation {
 public:
     //inc_counter is true for operations that are inserted in grad graph
-    Max_reduction(const std::vector<int64_t>& dims, bool inc_counter = false);
+    Max_reduction(int64_t dim, bool inc_counter = false);
     std::shared_ptr<TensorImpl> forward(const std::vector<std::shared_ptr<TensorImpl>>& operands) override;
     void backward(const std::shared_ptr<TensorImpl>& diff_loss_out) override;
 private:
-    std::vector<int64_t> m_dims;
-    int64_t max_allowed_dim;
+    int64_t m_dim;
+    std::vector<std::pair<std::vector<int64_t>, int64_t>> m_max_indices;
     static int64_t count;
 };
 
 class MTENSOR_API Min_reduction: public Operation {
 public:
     //inc_counter is true for operations that are inserted in grad graph
-    Min_reduction(const std::vector<int64_t>& dims, bool inc_counter = false);
+    Min_reduction(int64_t dim, bool inc_counter = false);
     std::shared_ptr<TensorImpl> forward(const std::vector<std::shared_ptr<TensorImpl>>& operands) override;
     void backward(const std::shared_ptr<TensorImpl>& diff_loss_out) override;
 private:
-    std::vector<int64_t> m_dims;
-    int64_t max_allowed_dim;
+    int64_t m_dim;
+    std::vector<std::pair<std::vector<int64_t>, int64_t>> m_min_indices;
     static int64_t count;
 };
 
@@ -620,6 +648,7 @@ public:
     void backward(const std::shared_ptr<TensorImpl>& diff_loss_out) override;
 private:
     static int64_t count;
+    std::shared_ptr<TensorImpl> m_dst_tensor; //a pointer on the output
     int m_dim;
 };
 
@@ -632,6 +661,7 @@ public:
 private:
     static int64_t count;
     int m_dim;
+    std::shared_ptr<TensorImpl> m_dst_tensor;
 };
 
 
@@ -656,6 +686,7 @@ private:
     std::vector<int64_t> m_strides;
     std::vector<int64_t> m_padding_l;
     std::vector<int64_t> m_padding_r;
+    dnnl::pooling_forward::primitive_desc m_pool_fwd_pd;
     std::unique_ptr<dnnl::memory> m_workspace_mem = nullptr;
 };
 
@@ -677,6 +708,7 @@ private:
     std::vector<int64_t> m_strides;
     std::vector<int64_t> m_padding_l;
     std::vector<int64_t> m_padding_r;
+    dnnl::pooling_forward::primitive_desc m_pool_fwd_pd;
     std::unique_ptr<dnnl::memory> m_workspace_mem = nullptr;
 };
 
@@ -698,6 +730,7 @@ private:
     std::vector<int64_t> m_strides;
     std::vector<int64_t> m_padding_l;
     std::vector<int64_t> m_padding_r;
+    dnnl::pooling_forward::primitive_desc m_pool_fwd_pd;
     std::unique_ptr<dnnl::memory> m_workspace_mem = nullptr;
 };
 
@@ -720,6 +753,7 @@ private:
     std::vector<int64_t> m_strides;
     std::vector<int64_t> m_padding_l;
     std::vector<int64_t> m_padding_r;
+    dnnl::pooling_forward::primitive_desc m_pool_fwd_pd;
     bool m_include_padding;
 };
 
@@ -742,6 +776,7 @@ private:
     std::vector<int64_t> m_strides;
     std::vector<int64_t> m_padding_l;
     std::vector<int64_t> m_padding_r;
+    dnnl::pooling_forward::primitive_desc m_pool_fwd_pd;
     bool m_include_padding;
 };
 
@@ -764,6 +799,7 @@ private:
     std::vector<int64_t> m_strides;
     std::vector<int64_t> m_padding_l;
     std::vector<int64_t> m_padding_r;
+    dnnl::pooling_forward::primitive_desc m_pool_fwd_pd;
     bool m_include_padding;
 };
 

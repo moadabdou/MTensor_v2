@@ -92,6 +92,7 @@ namespace ops{
                 );
                 grad_fn->m_workspace_mem = std::move(workspace_mem);   
                 grad_fn->set_operands({in_tensor}); 
+                grad_fn->m_pool_fwd_pd = pool_fwd_pd;
             }
 
             return std::make_shared<TensorImpl>(dst_data , 0 , dst_md.get_dims() , grad_fn , requires_grad, true , dst_md.get_strides());
@@ -104,7 +105,62 @@ namespace ops{
     }  
 
     void MaxPooling2d::backward(const std::shared_ptr<TensorImpl>& diff_loss_out){
-        utils::print_vector(m_workspace_mem->get_desc().get_dims());
+        
+        dnnl::engine engine(dnnl::engine::kind::cpu, 0);
+        dnnl::stream engine_stream(engine);
+
+        const auto& x = m_operands[0];
+        if (! x->requires_grad()) return;
+
+        auto diff_src_md = dnnl::memory::desc(x->shape() , dnnl::memory::data_type::f32, row_major_stride(x->shape()));;
+        auto diff_dst_md = dnnl::memory::desc(diff_loss_out->shape() , dnnl::memory::data_type::f32, diff_loss_out->stride());;
+
+        // Backward primitive desc
+        auto bwd_pd = dnnl::pooling_backward::primitive_desc(
+            engine,
+            dnnl::algorithm::pooling_max,
+            diff_src_md,
+            diff_dst_md,
+            m_strides,
+            m_kernel,
+            {0,0},
+            m_padding_l,
+            m_padding_r,
+            m_pool_fwd_pd
+
+        );
+
+        dnnl::memory diff_dst_mem(diff_dst_md, engine, diff_loss_out->data_ptr().get() + diff_loss_out->data_offset());
+        dnnl::memory diff_src_mem;
+        std::shared_ptr<float> data_storage; //in case if the x_grad does not exist
+        
+        if (x->get_grad()){
+            diff_src_mem = dnnl::memory(diff_src_md, engine); //x_grad exists so we allocate new temporary memory
+        }else{
+            data_storage = std::shared_ptr<float>(new float[x->numel()], std::default_delete<float[]>());
+            diff_src_mem = dnnl::memory(diff_src_md, engine, data_storage.get()); // x_grad does not exists so we make one and the result will directly routed to it 
+        }
+
+
+        auto pooling_bwd = dnnl::pooling_backward(bwd_pd);
+        pooling_bwd.execute(engine_stream, {
+            {DNNL_ARG_DIFF_DST, diff_dst_mem},
+            {DNNL_ARG_DIFF_SRC, diff_src_mem},
+            {DNNL_ARG_WORKSPACE, *m_workspace_mem}
+        });
+
+        engine_stream.wait();
+
+        if (x->get_grad()){
+            accumulate(
+                diff_src_mem,
+                x->get_grad(),
+                engine,
+                engine_stream
+            );
+        }else {
+            x->set_grad(std::make_shared<TensorImpl>(data_storage, 0 , diff_src_md.get_dims(), nullptr , false, true , diff_src_md.get_strides()));
+        }
     }
 
 

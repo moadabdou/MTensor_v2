@@ -60,6 +60,7 @@ public:
 
     const std::shared_ptr<TensorImpl>& get_grad() const;
     void set_grad( const std::shared_ptr<TensorImpl>& grad);
+    void set_grad_fn( const std::shared_ptr<ops::Operation>& grad_fn);
 
 
     static bool is_valid_shape(const std::vector<int64_t>& shape);

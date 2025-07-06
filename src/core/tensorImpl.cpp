@@ -50,7 +50,7 @@ namespace mt{
         set_name();
         init_tensor_desc();
 
-        #pragma omp for
+        #pragma omp parallel for
         for (int64_t i = 0; i < m_numel ;  i++){
             m_data.get()[i] = init_fn(i);
         }
@@ -249,6 +249,10 @@ namespace mt{
     }
     void  TensorImpl::set_grad( const std::shared_ptr<TensorImpl>& grad ){
         m_grad = grad;
+    }
+
+    void TensorImpl::set_grad_fn( const std::shared_ptr<ops::Operation>& grad_fn){
+        m_grad_fn = grad_fn;
     }
 
 }//mt

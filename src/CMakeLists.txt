@@ -13,6 +13,7 @@ target_sources(MTensor PRIVATE
 
   ${CMAKE_CURRENT_SOURCE_DIR}/ops/utils/tensor_print.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/ops/utils/broadcast.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/ops/utils/tensor_iterator.cpp
 
 
 

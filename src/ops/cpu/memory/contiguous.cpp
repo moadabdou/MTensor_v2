@@ -52,7 +52,29 @@ namespace ops{
     }  
 
     void Contiguous::backward(const std::shared_ptr<TensorImpl>& diff_loss_out){
+        dnnl::engine engine(dnnl::engine::kind::cpu, 0);
+        dnnl::stream engine_stream(engine);
+        Contiguous contiguous;
 
+        auto& x = m_operands[0];
+        if (! x->requires_grad()) return;
+
+        auto diff_src =  contiguous.forward({diff_loss_out});
+
+        if (x->get_grad()){
+
+            auto diff_src_md = dnnl::memory::desc(diff_src->shape() , dnnl::memory::data_type::f32, diff_src->stride());
+            dnnl::memory diff_src_mem(diff_src_md, engine, diff_src->data_ptr().get() + diff_src->data_offset());
+            accumulate(
+                diff_src_mem,
+                x->get_grad(),
+                engine,
+                engine_stream
+            );
+
+        }else {
+            x->set_grad(diff_src);
+        }
     }
 
 }//ops

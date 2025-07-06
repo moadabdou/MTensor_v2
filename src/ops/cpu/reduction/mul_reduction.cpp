@@ -79,7 +79,7 @@ namespace ops{
     }  
 
     void Mul_reduction::backward(const std::shared_ptr<TensorImpl>& diff_loss_out){
-
+        throw std::runtime_error("Backward is not implemented for  Mul_reduction() ");
     }
 
 }//ops

@@ -76,6 +76,7 @@ namespace ops{
         dnnl::stream engine_stream(engine);
 
         auto& x = m_operands[0];
+        if (! x->requires_grad()) return;
 
         if (!x->get_grad()){
             x->set_grad(TensorImpl::zeros(x->shape()));

@@ -66,7 +66,7 @@ namespace ops{
 
         const auto& x = m_operands[0];
 
- 
+        if (! x->requires_grad()) return;
 
 
         auto src_md = dnnl::memory::desc(x->shape() , dnnl::memory::data_type::f32, x->stride());

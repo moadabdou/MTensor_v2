@@ -80,7 +80,7 @@ namespace ops{
     }  
 
     void Norm_lp_power_p_sum::backward(const std::shared_ptr<TensorImpl>& diff_loss_out){
-
+        throw std::runtime_error("Backward is not implemented for  Norm_lp_power_p_sum() ");
     }
 
 }//ops

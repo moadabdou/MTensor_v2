@@ -19,11 +19,15 @@ TEST(softmax , softmax){
     mt::ops::Softmax softmax(1);
 
     std::shared_ptr<mt::TensorImpl> t1 = sq.forward({s.forward({ mt::TensorImpl::randn({5,6,3}, 0.0f,1.0f, 42, true)})}); //B,
-    std::shared_ptr<mt::TensorImpl> t2 = mt::TensorImpl::randn({3,2}, 0.0f,1.0f, 42, true);
-    std::shared_ptr<mt::TensorImpl> t3 = mt::TensorImpl::randn({2}, 0.0f,1.0f, 42, true);
+    std::shared_ptr<mt::TensorImpl> t2 = mt::TensorImpl::randn({4,3,2}, 0.0f,1.0f, 42, true);
+    std::shared_ptr<mt::TensorImpl> t3 = mt::TensorImpl::randn({4,3,2}, 0.0f,1.0f, 40);
 
     std::cout << t2;
-    std::cout  << softmax.forward({t2});
+    auto out = softmax.forward({t2});
+    out->grad_fn()->backward(t3);
+    std::cout << out;
+    std::cout << t3;
+    std::cout << t2->get_grad();
 
 }
 
@@ -41,11 +45,15 @@ TEST(softmax , softmax_log){
     mt::ops::SoftmaxLog softmax_log(1);
 
     std::shared_ptr<mt::TensorImpl> t1 = sq.forward({s.forward({ mt::TensorImpl::randn({5,6,3}, 0.0f,1.0f, 42, true)})}); //B,
-    std::shared_ptr<mt::TensorImpl> t2 = mt::TensorImpl::randn({3,2}, 0.0f,1.0f, 42, true);
-    std::shared_ptr<mt::TensorImpl> t3 = mt::TensorImpl::randn({2}, 0.0f,1.0f, 42, true);
+    std::shared_ptr<mt::TensorImpl> t2 = mt::TensorImpl::randn({4,3,2}, 0.0f,1.0f, 42, true);
+    std::shared_ptr<mt::TensorImpl> t3 = mt::TensorImpl::randn({4,3,2}, 0.0f,1.0f, 40);
 
     std::cout << t2;
-    std::cout  << softmax_log.forward({t2});
+    auto out = softmax_log.forward({t2});
+    out->grad_fn()->backward(t3);
+    std::cout << out;
+    std::cout << t3;
+    std::cout << t2->get_grad();
 
 }
 

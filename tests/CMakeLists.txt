@@ -40,23 +40,23 @@
 # include(GoogleTest)
 # gtest_discover_tests(memory_ops)
 
-add_executable(dnnl_tests)
+# add_executable(dnnl_tests)
 
-target_sources(dnnl_tests PRIVATE dnnl_tests.cpp)
+# target_sources(dnnl_tests PRIVATE dnnl_tests.cpp)
 
-set_target_properties(dnnl_tests PROPERTIES 
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-)
+# set_target_properties(dnnl_tests PROPERTIES 
+#     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+# )
 
-target_include_directories( dnnl_tests  PRIVATE 
-    ${CMAKE_BINARY_DIR}/_deps/dnnl-src/examples
-)
+# target_include_directories( dnnl_tests  PRIVATE 
+#     ${CMAKE_BINARY_DIR}/_deps/dnnl-src/examples
+# )
 
-target_link_libraries( dnnl_tests PRIVATE  GTest::gtest_main)
-target_link_libraries( dnnl_tests PRIVATE MTensor )
+# target_link_libraries( dnnl_tests PRIVATE  GTest::gtest_main)
+# target_link_libraries( dnnl_tests PRIVATE MTensor )
 
-include(GoogleTest)
-gtest_discover_tests(dnnl_tests)
+# include(GoogleTest)
+# gtest_discover_tests(dnnl_tests)
 
 
 # add_executable(eltwise_ops)
@@ -140,33 +140,25 @@ gtest_discover_tests(dnnl_tests)
 #     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
 # )
 
-# target_include_directories( softmax_ops  PRIVATE 
-#     ${CMAKE_BINARY_DIR}/_deps/dnnl-src/examples
-# )
-
 # target_link_libraries( softmax_ops PRIVATE  GTest::gtest_main)
 # target_link_libraries( softmax_ops PRIVATE MTensor )
 
 # include(GoogleTest)
 # gtest_discover_tests(softmax_ops)
 
-# add_executable(pooling)
+add_executable(pooling)
 
-# target_sources(pooling PRIVATE pooling.cpp)
+target_sources(pooling PRIVATE pooling.cpp)
 
-# set_target_properties(pooling PROPERTIES 
-#     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-# )
+set_target_properties(pooling PROPERTIES 
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+)
 
-# target_include_directories( pooling  PRIVATE 
-#     ${CMAKE_BINARY_DIR}/_deps/dnnl-src/examples
-# )
+target_link_libraries( pooling PRIVATE  GTest::gtest_main)
+target_link_libraries( pooling PRIVATE MTensor )
 
-# target_link_libraries( pooling PRIVATE  GTest::gtest_main)
-# target_link_libraries( pooling PRIVATE MTensor )
-
-# include(GoogleTest)
-# gtest_discover_tests(pooling)
+include(GoogleTest)
+gtest_discover_tests(pooling)
 
 # add_executable(conv_tests)
 
@@ -269,15 +261,24 @@ gtest_discover_tests(dnnl_tests)
 # include(GoogleTest)
 # gtest_discover_tests(eltwise_grad)
 
-add_executable(view_grad)
+# add_executable(view_grad)
 
-target_sources(view_grad PRIVATE view_grad.cpp)
+# target_sources(view_grad PRIVATE view_grad.cpp)
 
-set_target_properties(view_grad PROPERTIES 
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-)
+# set_target_properties(view_grad PROPERTIES 
+#     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+# )
 
-target_link_libraries( view_grad PRIVATE  GTest::gtest_main)
-target_link_libraries( view_grad PRIVATE MTensor )
-include(GoogleTest)
-gtest_discover_tests(view_grad)
+# target_link_libraries( view_grad PRIVATE  GTest::gtest_main)
+# target_link_libraries( view_grad PRIVATE MTensor )
+# include(GoogleTest)
+# gtest_discover_tests(view_grad)
+
+# add_executable(implement_max_without_dnnl)
+
+# target_sources(implement_max_without_dnnl PRIVATE implement_max_without_dnnl.cpp)
+
+# set_target_properties(implement_max_without_dnnl PROPERTIES 
+#     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+# )
+# target_link_libraries(MTensor PRIVATE OpenMP::OpenMP_CXX)

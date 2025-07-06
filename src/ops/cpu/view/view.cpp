@@ -57,6 +57,7 @@ namespace ops{
 
 
         auto& x = m_operands[0];
+        if (! x->requires_grad()) return;
 
         View view(x->shape());
         Contiguous contiguous;

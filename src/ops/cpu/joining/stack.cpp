@@ -107,7 +107,44 @@ namespace ops{
     }  
 
     void Stack::backward(const std::shared_ptr<TensorImpl>& diff_loss_out){
+        dnnl::engine engine(dnnl::engine::kind::cpu, 0);
+        dnnl::stream engine_stream(engine);
+        int64_t lower_bound = 0;
+        Contiguous contiguous;
+        Squeeze squeeze(m_dim);
 
+        
+        auto slice_list = sliceList( diff_loss_out->shape().size(), {0 , EOD});
+        
+        for (auto& operand :  m_operands){
+            
+            auto& x = operand;
+
+            if (! x->requires_grad()) continue;
+
+            slice_list[m_dim] = {lower_bound, lower_bound + 1};
+
+            lower_bound += 1;
+
+            Slice slice(slice_list);
+
+            auto diff_src =  contiguous.forward({ squeeze.forward({ slice.forward({diff_loss_out}) }) });
+
+            if (x->get_grad()){
+
+                auto diff_src_md = dnnl::memory::desc(diff_src->shape() , dnnl::memory::data_type::f32, diff_src->stride());
+                dnnl::memory diff_src_mem(diff_src_md, engine, diff_src->data_ptr().get() + diff_src->data_offset());
+                accumulate(
+                    diff_src_mem,
+                    x->get_grad(),
+                    engine,
+                    engine_stream
+                );
+
+            }else {
+                x->set_grad(diff_src);
+            }
+        }
     }
 
 }//ops
