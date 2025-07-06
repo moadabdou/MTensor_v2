@@ -104,7 +104,8 @@ std::shared_ptr<float> custom_conv_op_forward(
     const dnnl::memory::dims& padding_l,
     const dnnl::memory::dims& padding_r,
     dnnl::engine& engine,
-    dnnl::stream& stream
+    dnnl::stream& stream,
+    dnnl::convolution_forward::primitive_desc& fwd_conv_pd
 );
 
 std::shared_ptr<float> custom_deconv_op_forward(
@@ -117,7 +118,8 @@ std::shared_ptr<float> custom_deconv_op_forward(
     const dnnl::memory::dims& padding_l,
     const dnnl::memory::dims& padding_r,
     dnnl::engine& engine,
-    dnnl::stream& stream
+    dnnl::stream& stream,
+    dnnl::deconvolution_forward::primitive_desc& fwd_deconv_pd
 );
 
 
@@ -823,6 +825,7 @@ private:
     std::vector<int64_t> m_strides;
     std::vector<int64_t> m_padding_l;
     std::vector<int64_t> m_padding_r;
+    dnnl::convolution_forward::primitive_desc m_conv_fwd_pd;
 };
 
 class MTENSOR_API Conv2d: public Operation {
@@ -841,6 +844,7 @@ private:
     std::vector<int64_t> m_strides;
     std::vector<int64_t> m_padding_l;
     std::vector<int64_t> m_padding_r;
+    dnnl::convolution_forward::primitive_desc m_conv_fwd_pd;
 };
 
 
@@ -860,6 +864,7 @@ private:
     std::vector<int64_t> m_strides;
     std::vector<int64_t> m_padding_l;
     std::vector<int64_t> m_padding_r;
+    dnnl::convolution_forward::primitive_desc m_conv_fwd_pd;
 };
 
 
@@ -881,6 +886,7 @@ private:
     std::vector<int64_t> m_strides;
     std::vector<int64_t> m_padding_l;
     std::vector<int64_t> m_padding_r;
+    dnnl::deconvolution_forward::primitive_desc m_fwd_deconv_pd;
 };
 
 class MTENSOR_API Deconv2d: public Operation {
@@ -899,6 +905,7 @@ private:
     std::vector<int64_t> m_strides;
     std::vector<int64_t> m_padding_l;
     std::vector<int64_t> m_padding_r;
+    dnnl::deconvolution_forward::primitive_desc m_fwd_deconv_pd;
 };
 
 
@@ -918,6 +925,7 @@ private:
     std::vector<int64_t> m_strides;
     std::vector<int64_t> m_padding_l;
     std::vector<int64_t> m_padding_r;
+    dnnl::deconvolution_forward::primitive_desc m_fwd_deconv_pd;
 };
 
 //normalization 

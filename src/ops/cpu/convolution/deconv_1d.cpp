@@ -75,6 +75,8 @@ namespace ops{
             dnnl::memory::dims dst_dims = {src_shape[0], weights_shape[0], OW};
 
             const auto dst_strides = row_major_stride(dst_dims);
+
+            dnnl::deconvolution_forward::primitive_desc fwd_deconv_pd;
             
             auto dst_data = custom_deconv_op_forward(
                 in_tensor,
@@ -86,7 +88,8 @@ namespace ops{
                 m_padding_l,
                 m_padding_r,
                 eng,
-                strm
+                strm,
+                fwd_deconv_pd
             );
 
             
@@ -102,6 +105,7 @@ namespace ops{
                     m_padding_r,
                     true
                 );   
+                grad_fn->m_fwd_deconv_pd = fwd_deconv_pd; 
                 if (bias)
                     grad_fn->set_operands({in_tensor, weights, bias}); 
                 else
@@ -118,7 +122,146 @@ namespace ops{
     }  
 
     void Deconv1d::backward(const std::shared_ptr<TensorImpl>& diff_loss_out){
+        dnnl::engine engine(dnnl::engine::kind::cpu, 0);
+        dnnl::stream engine_stream(engine);
+
+        const auto& x = m_operands[0];
+        const auto& w = m_operands[1];
+        const auto& b = m_operands.size() > 2 ? m_operands[2] : nullptr;
+
+        auto diff_dst_md = dnnl::memory::desc(diff_loss_out->shape() , dnnl::memory::data_type::f32, diff_loss_out->stride());
+
+        if (x->requires_grad()){
+            
+            auto diff_src_md = dnnl::memory::desc(x->shape() , dnnl::memory::data_type::f32, row_major_stride(x->shape()));
+            auto w_md = dnnl::memory::desc(w->shape() , dnnl::memory::data_type::f32, w->stride());
+
+            auto bwd_pd = dnnl::deconvolution_backward_data::primitive_desc(
+                engine,
+                dnnl::algorithm::deconvolution_direct,
+                diff_src_md,
+                w_md,
+                diff_dst_md,
+                m_strides,
+                m_padding_l,
+                m_padding_r,
+                m_fwd_deconv_pd
+            );
+
+            dnnl::memory diff_dst_mem(diff_dst_md, engine, diff_loss_out->data_ptr().get() + diff_loss_out->data_offset());
+            dnnl::memory w_mem(w_md, engine, w->data_ptr().get() + w->data_offset());
+            dnnl::memory diff_src_mem;
+            std::shared_ptr<float> data_storage; 
+            
+            if (x->get_grad()){
+                diff_src_mem = dnnl::memory(diff_src_md, engine); 
+            }else{
+                data_storage = std::shared_ptr<float>(new float[x->numel()], std::default_delete<float[]>());
+                diff_src_mem = dnnl::memory(diff_src_md, engine, data_storage.get()); 
+            }
+
+            auto pooling_bwd = dnnl::deconvolution_backward_data(bwd_pd);
+            pooling_bwd.execute(engine_stream, {
+                {DNNL_ARG_DIFF_DST, diff_dst_mem},
+                {DNNL_ARG_DIFF_SRC, diff_src_mem},
+                {DNNL_ARG_WEIGHTS, w_mem}
+            });
+
+            engine_stream.wait();
+
+            if (x->get_grad()){
+                accumulate(
+                    diff_src_mem,
+                    x->get_grad(),
+                    engine,
+                    engine_stream
+                );
+            }else {
+                x->set_grad(std::make_shared<TensorImpl>(data_storage, 0 , diff_src_md.get_dims(), nullptr , false, true , diff_src_md.get_strides()));
+            }
+        }
+
+
         
+        if (w->requires_grad() || b && b->requires_grad()){
+
+            auto x_md = dnnl::memory::desc(x->shape() , dnnl::memory::data_type::f32, x->stride());
+            auto diff_w_md = dnnl::memory::desc(w->shape() , dnnl::memory::data_type::f32, row_major_stride(w->shape()));
+            auto diff_b_md = b
+                ? dnnl::memory::desc( b->shape(), dnnl::memory::data_type::f32, row_major_stride(b->shape()))
+                : dnnl::memory::desc();
+
+            auto bwd_pd = dnnl::deconvolution_backward_weights::primitive_desc(
+                engine,
+                dnnl::algorithm::deconvolution_direct,
+                x_md,
+                diff_w_md,
+                diff_b_md,
+                diff_dst_md,
+                m_strides,
+                m_padding_l,
+                m_padding_r ,
+                m_fwd_deconv_pd
+            );
+
+            dnnl::memory diff_dst_mem(diff_dst_md, engine, diff_loss_out->data_ptr().get() + diff_loss_out->data_offset());
+            dnnl::memory x_mem(x_md, engine, x->data_ptr().get() + x->data_offset());
+            dnnl::memory diff_w_mem;
+            std::shared_ptr<float> w_data_storage; 
+            dnnl::memory diff_b_mem;
+            std::shared_ptr<float> b_data_storage; 
+            
+            if (w->get_grad()){
+                diff_w_mem = dnnl::memory(diff_w_md, engine); 
+            }else{
+                w_data_storage = std::shared_ptr<float>(new float[w->numel()], std::default_delete<float[]>());
+                diff_w_mem = dnnl::memory(diff_w_md, engine, w_data_storage.get()); 
+            }
+
+            if (b){
+                if (b->get_grad()){
+                    diff_b_mem = dnnl::memory(diff_b_md, engine); 
+                }else{
+                    b_data_storage = std::shared_ptr<float>(new float[x->numel()], std::default_delete<float[]>());
+                    diff_b_mem = dnnl::memory(diff_b_md, engine, b_data_storage.get()); 
+                }
+            }
+
+            auto conv_bwd = dnnl::deconvolution_backward_weights(bwd_pd);
+            conv_bwd.execute(engine_stream, {
+                {DNNL_ARG_DIFF_DST, diff_dst_mem},
+                {DNNL_ARG_SRC, x_mem},
+                {DNNL_ARG_DIFF_WEIGHTS, diff_w_mem},
+                {DNNL_ARG_DIFF_BIAS, diff_b_mem}
+            });
+
+            engine_stream.wait();
+
+            if (w->get_grad()){
+                accumulate(
+                    diff_w_mem,
+                    w->get_grad(),
+                    engine,
+                    engine_stream
+                );
+            }else {
+                w->set_grad(std::make_shared<TensorImpl>(w_data_storage, 0 , diff_w_md.get_dims(), nullptr , false, true , diff_w_md.get_strides()));
+            }
+
+            if (b){
+                if (b->get_grad()){
+                    accumulate(
+                        diff_b_mem,
+                        b->get_grad(),
+                        engine,
+                        engine_stream
+                    );
+                }else {
+                    b->set_grad(std::make_shared<TensorImpl>(b_data_storage, 0 , diff_b_md.get_dims(), nullptr , false, true , diff_b_md.get_strides()));
+                }
+            }
+
+        }
     }
 
 

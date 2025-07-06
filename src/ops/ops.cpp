@@ -405,7 +405,8 @@ std::shared_ptr<float> custom_conv_op_forward(
     const dnnl::memory::dims& padding_l,
     const dnnl::memory::dims& padding_r,
     dnnl::engine& engine,
-    dnnl::stream& stream
+    dnnl::stream& stream,
+    dnnl::convolution_forward::primitive_desc& fwd_conv_pd
 ){
 
     const auto& src_dims = in_tensor->shape();
@@ -444,7 +445,7 @@ std::shared_ptr<float> custom_conv_op_forward(
             : dnnl::memory::desc();
     auto user_bias_mem = bias ? dnnl::memory(user_bias_md, engine, bias->data_ptr().get() + bias->data_offset()) : dnnl::memory(user_bias_md, engine);
 
-    auto conv_pd = dnnl::convolution_forward::primitive_desc(engine,
+    fwd_conv_pd = dnnl::convolution_forward::primitive_desc(engine,
             dnnl::prop_kind::forward_training, dnnl::algorithm::convolution_direct,
             conv_src_md, conv_weights_md, user_bias_md, conv_dst_md,
             strides , padding_l, padding_r);
@@ -453,23 +454,23 @@ std::shared_ptr<float> custom_conv_op_forward(
     auto conv_weights_mem = user_weights_mem;
     auto conv_dst_mem = user_dst_mem;
 
-    if (conv_pd.src_desc() != user_src_mem.get_desc()) {
-        conv_src_mem = dnnl::memory(conv_pd.src_desc(), engine);
+    if (fwd_conv_pd.src_desc() != user_src_mem.get_desc()) {
+        conv_src_mem = dnnl::memory(fwd_conv_pd.src_desc(), engine);
         dnnl::reorder(user_src_mem, conv_src_mem)
                 .execute(stream, user_src_mem, conv_src_mem);
     }
 
-    if (conv_pd.weights_desc() != user_weights_mem.get_desc()) {
-        conv_weights_mem = dnnl::memory(conv_pd.weights_desc(), engine);
+    if (fwd_conv_pd.weights_desc() != user_weights_mem.get_desc()) {
+        conv_weights_mem = dnnl::memory(fwd_conv_pd.weights_desc(), engine);
         dnnl::reorder(user_weights_mem, conv_weights_mem)
                 .execute(stream, user_weights_mem, conv_weights_mem);
     }
 
-    if (conv_pd.dst_desc() != user_dst_mem.get_desc()) {
-        conv_dst_mem = dnnl::memory(conv_pd.dst_desc(), engine);
+    if (fwd_conv_pd.dst_desc() != user_dst_mem.get_desc()) {
+        conv_dst_mem = dnnl::memory(fwd_conv_pd.dst_desc(), engine);
     }
 
-    auto conv_prim = dnnl::convolution_forward(conv_pd);
+    auto conv_prim = dnnl::convolution_forward(fwd_conv_pd);
 
     std::unordered_map<int, dnnl::memory> conv_args;
     conv_args.insert({DNNL_ARG_SRC, conv_src_mem});
@@ -479,7 +480,7 @@ std::shared_ptr<float> custom_conv_op_forward(
 
     conv_prim.execute(stream, conv_args);
 
-    if (conv_pd.dst_desc() != user_dst_mem.get_desc()) {
+    if (fwd_conv_pd.dst_desc() != user_dst_mem.get_desc()) {
         dnnl::reorder(conv_dst_mem, user_dst_mem)
                 .execute(stream, conv_dst_mem, user_dst_mem);
     } else
@@ -501,7 +502,8 @@ std::shared_ptr<float> custom_deconv_op_forward(
     const dnnl::memory::dims& padding_l,
     const dnnl::memory::dims& padding_r,
     dnnl::engine& engine,
-    dnnl::stream& stream
+    dnnl::stream& stream,
+    dnnl::deconvolution_forward::primitive_desc& fwd_deconv_pd
 ){
     const auto& src_dims = in_tensor->shape();
     const auto& src_stride = in_tensor->stride();
@@ -539,7 +541,7 @@ std::shared_ptr<float> custom_deconv_op_forward(
             : dnnl::memory::desc();
     auto user_bias_mem = bias ? dnnl::memory(user_bias_md, engine, bias->data_ptr().get() + bias->data_offset()) : dnnl::memory(user_bias_md, engine);
 
-    auto deconv_pd = dnnl::deconvolution_forward::primitive_desc(engine,
+    fwd_deconv_pd = dnnl::deconvolution_forward::primitive_desc(engine,
             dnnl::prop_kind::forward_training, dnnl::algorithm::deconvolution_direct,
             deconv_src_md, deconv_weights_md, user_bias_md, deconv_dst_md,
             strides , padding_l, padding_r);
@@ -548,23 +550,23 @@ std::shared_ptr<float> custom_deconv_op_forward(
     auto deconv_weights_mem = user_weights_mem;
     auto deconv_dst_mem = user_dst_mem;
 
-    if (deconv_pd.src_desc() != user_src_mem.get_desc()) {
-        deconv_src_mem = dnnl::memory(deconv_pd.src_desc(), engine);
+    if (fwd_deconv_pd.src_desc() != user_src_mem.get_desc()) {
+        deconv_src_mem = dnnl::memory(fwd_deconv_pd.src_desc(), engine);
         dnnl::reorder(user_src_mem, deconv_src_mem)
                 .execute(stream, user_src_mem, deconv_src_mem);
     }
 
-    if (deconv_pd.weights_desc() != user_weights_mem.get_desc()) {
-        deconv_weights_mem = dnnl::memory(deconv_pd.weights_desc(), engine);
+    if (fwd_deconv_pd.weights_desc() != user_weights_mem.get_desc()) {
+        deconv_weights_mem = dnnl::memory(fwd_deconv_pd.weights_desc(), engine);
         dnnl::reorder(user_weights_mem, deconv_weights_mem)
                 .execute(stream, user_weights_mem, deconv_weights_mem);
     }
 
-    if (deconv_pd.dst_desc() != user_dst_mem.get_desc()) {
-        deconv_dst_mem = dnnl::memory(deconv_pd.dst_desc(), engine);
+    if (fwd_deconv_pd.dst_desc() != user_dst_mem.get_desc()) {
+        deconv_dst_mem = dnnl::memory(fwd_deconv_pd.dst_desc(), engine);
     }
 
-    auto conv_prim = dnnl::deconvolution_forward(deconv_pd);
+    auto conv_prim = dnnl::deconvolution_forward(fwd_deconv_pd);
 
     std::unordered_map<int, dnnl::memory> conv_args;
     conv_args.insert({DNNL_ARG_SRC, deconv_src_mem});
@@ -574,7 +576,7 @@ std::shared_ptr<float> custom_deconv_op_forward(
 
     conv_prim.execute(stream, conv_args);
 
-    if (deconv_pd.dst_desc() != user_dst_mem.get_desc()) {
+    if (fwd_deconv_pd.dst_desc() != user_dst_mem.get_desc()) {
         dnnl::reorder(deconv_dst_mem, user_dst_mem)
                 .execute(stream, deconv_dst_mem, user_dst_mem);
     } else

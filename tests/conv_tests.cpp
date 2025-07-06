@@ -21,10 +21,16 @@ TEST(conv , 1d){
     );
 
     std::shared_ptr<mt::TensorImpl> t1 = s.forward({ mt::TensorImpl::randn({5,6,4}, 0.0f,1.0f, 42, true)}); //B,
-    std::shared_ptr<mt::TensorImpl> t2 = mt::TensorImpl::randn({64,4,1024}, 0.0f,1.0f, 42, true);
-    std::shared_ptr<mt::TensorImpl> t3 = mt::TensorImpl::randn({64,4,16}, 0.0f,1.0f, 42, true);
-    std::shared_ptr<mt::TensorImpl> t4 = mt::TensorImpl::ones({64},true);
-    conv1d.forward({t2,t3,t4});
+    std::shared_ptr<mt::TensorImpl> t2 = mt::TensorImpl::randn({1,3,4}, 0.0f,1.0f, 42, true);
+    std::shared_ptr<mt::TensorImpl> t3 = mt::TensorImpl::randn({2,3,2}, 0.0f,1.0f, 42, true);
+    std::shared_ptr<mt::TensorImpl> t4 = mt::TensorImpl::ones({2},true);
+    std::shared_ptr<mt::TensorImpl> t5 = mt::TensorImpl::randn({1,2,3}, 0.0f,1.0f, 43);
+    std::cout << t2 << t3 << t4 << t5;
+    auto out = conv1d.forward({t2,t3});
+    std::cout << out;
+    out->grad_fn()->backward(t5);
+    out->grad_fn()->backward(t5);
+    std::cout << t2->get_grad() << t3->get_grad()  << t4->get_grad() ;
 }
 
 TEST(conv , 2d){
@@ -74,6 +80,6 @@ TEST(conv , 3d){
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
-    ::testing::GTEST_FLAG(filter) = "conv.3d";
+    ::testing::GTEST_FLAG(filter) = "conv.1d";
     return RUN_ALL_TESTS();
 }

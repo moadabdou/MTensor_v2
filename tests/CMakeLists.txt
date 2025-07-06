@@ -146,19 +146,19 @@
 # include(GoogleTest)
 # gtest_discover_tests(softmax_ops)
 
-add_executable(pooling)
+# add_executable(pooling)
 
-target_sources(pooling PRIVATE pooling.cpp)
+# target_sources(pooling PRIVATE pooling.cpp)
 
-set_target_properties(pooling PROPERTIES 
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-)
+# set_target_properties(pooling PROPERTIES 
+#     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+# )
 
-target_link_libraries( pooling PRIVATE  GTest::gtest_main)
-target_link_libraries( pooling PRIVATE MTensor )
+# target_link_libraries( pooling PRIVATE  GTest::gtest_main)
+# target_link_libraries( pooling PRIVATE MTensor )
 
-include(GoogleTest)
-gtest_discover_tests(pooling)
+# include(GoogleTest)
+# gtest_discover_tests(pooling)
 
 # add_executable(conv_tests)
 
@@ -178,23 +178,23 @@ gtest_discover_tests(pooling)
 # include(GoogleTest)
 # gtest_discover_tests(conv_tests)
 
-# add_executable(deconv_tests)
+add_executable(deconv_tests)
 
-# target_sources(deconv_tests PRIVATE deconv_tests.cpp)
+target_sources(deconv_tests PRIVATE deconv_tests.cpp)
 
-# set_target_properties(deconv_tests PROPERTIES 
-#     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-# )
+set_target_properties(deconv_tests PROPERTIES 
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+)
 
-# target_include_directories( deconv_tests  PRIVATE 
-#     ${CMAKE_BINARY_DIR}/_deps/dnnl-src/examples
-# )
+target_include_directories( deconv_tests  PRIVATE 
+    ${CMAKE_BINARY_DIR}/_deps/dnnl-src/examples
+)
 
-# target_link_libraries( deconv_tests PRIVATE  GTest::gtest_main)
-# target_link_libraries( deconv_tests PRIVATE MTensor )
+target_link_libraries( deconv_tests PRIVATE  GTest::gtest_main)
+target_link_libraries( deconv_tests PRIVATE MTensor )
 
-# include(GoogleTest)
-# gtest_discover_tests(deconv_tests)
+include(GoogleTest)
+gtest_discover_tests(deconv_tests)
 
 
 # add_executable(normalization_tests)
