@@ -947,10 +947,11 @@ private:
     static int64_t count;
     bool m_training;
     float m_momentum = 0.1;
-    std::unique_ptr<dnnl::memory> m_mean = nullptr;
-    std::unique_ptr<dnnl::memory> m_variance = nullptr;
+    dnnl::memory m_mean;
+    dnnl::memory m_variance;
     std::shared_ptr<TensorImpl> m_running_mean;
     std::shared_ptr<TensorImpl> m_running_variance;
+    dnnl::batch_normalization_forward::primitive_desc m_fwd_bnorm_pd;
 };
 
 
@@ -962,10 +963,12 @@ public:
     );
     std::shared_ptr<TensorImpl> forward(const std::vector<std::shared_ptr<TensorImpl>>& operands) override;
     void backward(const std::shared_ptr<TensorImpl>& diff_loss_out) override;
+    friend class GroupNormalization;
 private:
     static int64_t count;
-    std::unique_ptr<dnnl::memory> m_mean = nullptr;
-    std::unique_ptr<dnnl::memory> m_variance = nullptr;
+    dnnl::memory m_mean;
+    dnnl::memory m_variance;
+    dnnl::layer_normalization_forward::primitive_desc m_fwd_lnorm_pd;
 };
 
 class MTENSOR_API GroupNormalization: public Operation {
@@ -980,8 +983,9 @@ public:
 private:
     static int64_t count;
     int64_t m_groups;
-    std::unique_ptr<dnnl::memory> m_mean = nullptr;
-    std::unique_ptr<dnnl::memory> m_variance = nullptr;
+    dnnl::memory m_mean ;
+    dnnl::memory m_variance ;
+    dnnl::group_normalization_forward::primitive_desc m_fwd_gnorm_pd;
 };
 
 } //ops

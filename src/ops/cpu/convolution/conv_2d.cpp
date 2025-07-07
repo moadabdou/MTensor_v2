@@ -161,8 +161,8 @@ namespace ops{
             }
 
 
-            auto pooling_bwd = dnnl::convolution_backward_data(bwd_pd);
-            pooling_bwd.execute(engine_stream, {
+            auto conv_bwd = dnnl::convolution_backward_data(bwd_pd);
+            conv_bwd.execute(engine_stream, {
                 {DNNL_ARG_DIFF_DST, diff_dst_mem},
                 {DNNL_ARG_DIFF_SRC, diff_src_mem},
                 {DNNL_ARG_WEIGHTS, w_mem}
@@ -223,7 +223,7 @@ namespace ops{
                 if (b->get_grad()){
                     diff_b_mem = dnnl::memory(diff_b_md, engine); 
                 }else{
-                    b_data_storage = std::shared_ptr<float>(new float[x->numel()], std::default_delete<float[]>());
+                    b_data_storage = std::shared_ptr<float>(new float[b->numel()], std::default_delete<float[]>());
                     diff_b_mem = dnnl::memory(diff_b_md, engine, b_data_storage.get()); 
                 }
             }

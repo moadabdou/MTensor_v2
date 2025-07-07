@@ -178,42 +178,38 @@
 # include(GoogleTest)
 # gtest_discover_tests(conv_tests)
 
-add_executable(deconv_tests)
+# add_executable(deconv_tests)
 
-target_sources(deconv_tests PRIVATE deconv_tests.cpp)
+# target_sources(deconv_tests PRIVATE deconv_tests.cpp)
 
-set_target_properties(deconv_tests PROPERTIES 
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-)
-
-target_include_directories( deconv_tests  PRIVATE 
-    ${CMAKE_BINARY_DIR}/_deps/dnnl-src/examples
-)
-
-target_link_libraries( deconv_tests PRIVATE  GTest::gtest_main)
-target_link_libraries( deconv_tests PRIVATE MTensor )
-
-include(GoogleTest)
-gtest_discover_tests(deconv_tests)
-
-
-# add_executable(normalization_tests)
-
-# target_sources(normalization_tests PRIVATE normalization_tests.cpp)
-
-# set_target_properties(normalization_tests PROPERTIES 
+# set_target_properties(deconv_tests PROPERTIES 
 #     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
 # )
 
-# target_include_directories( normalization_tests  PRIVATE 
+# target_include_directories( deconv_tests  PRIVATE 
 #     ${CMAKE_BINARY_DIR}/_deps/dnnl-src/examples
 # )
 
-# target_link_libraries( normalization_tests PRIVATE  GTest::gtest_main)
-# target_link_libraries( normalization_tests PRIVATE MTensor )
+# target_link_libraries( deconv_tests PRIVATE  GTest::gtest_main)
+# target_link_libraries( deconv_tests PRIVATE MTensor )
 
 # include(GoogleTest)
-# gtest_discover_tests(normalization_tests)
+# gtest_discover_tests(deconv_tests)
+
+
+add_executable(normalization_tests)
+
+target_sources(normalization_tests PRIVATE normalization_tests.cpp)
+
+set_target_properties(normalization_tests PROPERTIES 
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+)
+
+target_link_libraries( normalization_tests PRIVATE  GTest::gtest_main)
+target_link_libraries( normalization_tests PRIVATE MTensor )
+
+include(GoogleTest)
+gtest_discover_tests(normalization_tests)
 
 # add_executable(graph_tests)
 
