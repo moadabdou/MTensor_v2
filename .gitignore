@@ -2,3 +2,7 @@ build
 .vscode
 vcpkg_installed
 tests
+external/vcpkg/buildtrees/
+external/vcpkg/downloads/
+external/vcpkg/packages/
+external/vcpkg/installed/
