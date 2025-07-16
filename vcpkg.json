@@ -1,0 +1,9 @@
+{
+  "name": "mtensor",
+  "version-string": "2.0.0",
+  "dependencies": [
+    "libpng",
+    "zlib",
+    "onednn"
+  ]
+}
