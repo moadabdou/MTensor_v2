@@ -1,54 +1,145 @@
 
 #include <MTensor/data.hpp>
 #include <MTensor/tensor.hpp>
+#include <thread>
+#include <thread>
+#include <mutex>
+#include <queue>
+#include <future> 
 
 namespace mt{
 namespace data{
 
-    ImageFolderDataset::ImageFolderDataset(const std::string& folder,const std::pair<int,int>& resize, bool vectorize_labels){
-        is_label_vectorized =  vectorize_labels;
-        namespace fs = std::filesystem;
+namespace fs = std::filesystem;
+
+struct ImageProcessingTask {
+    fs::path image_path;
+    Tensor label;
+    std::pair<int, int> resize_dims;
+}; 
+
+
+void worker_thread_func(
+    std::queue<ImageProcessingTask>& task_queue,
+    std::mutex& queue_mutex,
+    std::condition_variable& queue_cv,
+    bool& stop_processing,
+    ImageFolderDataset* dataset,
+    std::mutex& samples_mutex
+) {
+    auto& samples = dataset->samples;
+    while (true) {
+        ImageProcessingTask task;
+        {
+            std::unique_lock<std::mutex> lock(queue_mutex);
+            queue_cv.wait(lock, [&task_queue, &stop_processing]{ return !task_queue.empty() || stop_processing; });
+
+            if (stop_processing && task_queue.empty()) {
+                break; // Exit if no more tasks and processing is stopped
+            }
+
+            task = task_queue.front();
+            task_queue.pop();
+        }
+
+        try {
+            auto img = cimg_library::CImg<float>(task.image_path.string().c_str()).normalize(0.0f, 1.0f);
+            if (task.resize_dims.first && task.resize_dims.second) {
+                img = img.resize(task.resize_dims.first, task.resize_dims.second);
+            }
+            
+            // Convert to tensor and add to shared samples vector
+            std::lock_guard<std::mutex> lock(samples_mutex);
+            samples.emplace_back(image_to_tensor(img), task.label);
+
+        } catch (std::exception& e) {
+            std::cerr << "Error processing image " << task.image_path << ": " << e.what() << std::endl;
+        }
+    }
+}
+
+    ImageFolderDataset::ImageFolderDataset(const std::string& folder, const std::pair<int,int>& resize, bool vectorize_labels){
+        is_label_vectorized = vectorize_labels;
+
+        std::queue<ImageProcessingTask> task_queue;
+        std::mutex queue_mutex;
+        std::condition_variable queue_cv;
+        bool stop_processing = false;
+        std::mutex samples_mutex;
+
 
         int label_index = 0;
         int num_classes = 0;
 
-        if (is_label_vectorized){
+
+        if (is_label_vectorized) {
             for (const auto& entry : fs::directory_iterator(folder)) {
                 if (entry.is_directory()) num_classes++;
             }
         }
-        
+
+
+        unsigned int num_threads = std::thread::hardware_concurrency(); // Use available cores
+        if (num_threads == 0) num_threads = 4; // Fallback
+        std::vector<std::thread> workers;
+        for (unsigned int i = 0; i < num_threads; ++i) {
+            workers.emplace_back([
+                &samples_mutex,
+                this,
+                &stop_processing,
+                &queue_cv,
+                &queue_mutex,
+                &task_queue
+            ]() { 
+            worker_thread_func(
+                task_queue,
+                queue_mutex,
+                queue_cv,
+                stop_processing,
+                this,
+                samples_mutex); 
+            });
+        }
 
         for (const auto& entry : fs::directory_iterator(folder)) {
             if (entry.is_directory()) {
                 std::string class_name = entry.path().filename().string();
                 idx_to_class[label_index] = class_name;
+
                 for (const auto& img_file : fs::directory_iterator(entry.path())) {
+                    
+                   
+
                     if (img_file.is_regular_file()) {
                         Tensor label;
-                        if (is_label_vectorized){
-                            label = Tensor::zeros({1,num_classes});
-                            *( label.data_ptr() + label_index) = 1.0f;
-                        }else {
+                        if (is_label_vectorized) {
+                            label = Tensor::zeros({1, (size_t)num_classes});
+                            *(label.data_ptr() + label_index) = 1.0f;
+                        } else {
                             label = Tensor::empty({1,1});
-                            *label.data_ptr() = label_index;
+                            *label.data_ptr() = static_cast<float>(label_index);
                         }
 
-                        try{
-
-                            auto img = cimg_library::CImg<float>(img_file.path().string().c_str()).normalize(0.0f, 1.0f);
-                            if (resize.first && resize.second){
-                                img = img.resize(resize.first, resize.second);
-                            }
-                            samples.emplace_back( image_to_tensor(img), label);
-
-                        }catch(std::exception& e){
-                            throw std::runtime_error(std::string(" ImageFolderDataset(): an error occured while trying to import the folder ") + e.what());
+                        // Add task to queue
+                        {
+                            std::lock_guard<std::mutex> lock(queue_mutex);
+                            task_queue.push({img_file.path(), label, resize});
                         }
+                        queue_cv.notify_one(); // Notify one waiting worker
                     }
                 }
                 label_index++;
             }
+        }
+
+        {
+            std::lock_guard<std::mutex> lock(queue_mutex);
+            stop_processing = true;
+        }
+        queue_cv.notify_all(); 
+
+        for (auto& worker : workers) {
+            worker.join();
         }
     }
 

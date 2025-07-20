@@ -50,6 +50,8 @@ namespace data{
     //                    DATASETS                  //
     /************************************************/
 
+    MTENSOR_API int64_t compare_output_target(const Tensor& output, const Tensor& target);
+
     class MTENSOR_API Dataset {
     public:
         virtual int64_t size() const = 0;
@@ -65,16 +67,16 @@ namespace data{
         MNISTDataset(const std::string& image_path, const std::string& label_path, uint32_t vectorize_labels = 0);
         int64_t size() const override;
         std::pair<Tensor, Tensor> get(const std::vector<int64_t>& indices) const override ;
+        std::string vectoried_label_to_number(const Tensor& label);
     };
 
     #ifdef mt_use_img
 
     class MTENSOR_API ImageFolderDataset : public Dataset {
-    private:
+    public:
         std::vector<std::pair<Tensor,Tensor>> samples;  // image, label
         std::map<int64_t, std::string> idx_to_class;    //label_idx , class_name
         bool is_label_vectorized;
-    public:
         ImageFolderDataset(const std::string& folder, const std::pair<int,int>& resize = {}, bool vectorize_labels = true);
         int64_t size() const override;
         std::pair<Tensor, Tensor> get(const std::vector<int64_t>& indices) const override ;

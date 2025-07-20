@@ -58,6 +58,7 @@ namespace ops{
             in_tensor->data_ptr().get(),
             in_shape,
             in_stride,
+            m_dim,
             m_min_indices
         );
 
@@ -84,9 +85,10 @@ namespace ops{
 
     void Min_reduction::backward(const std::shared_ptr<TensorImpl>& diff_loss_out){
 //if (diff_loss_out->requires_grad()) std::cout << m_name ; 
-        const auto& x = m_operands[0];
+        const auto &x = m_operands[0];
 
-        if (! x->requires_grad()) return;
+        if (!x->requires_grad())
+            return;
 
         
         {
@@ -96,27 +98,35 @@ namespace ops{
         }
         }
 
-
-        const auto& x_grad = x->get_grad();
-        const auto& x_grad_stride =x_grad->stride();
-        const auto& x_grad_data_ptr = x_grad->data_ptr().get() + x_grad->data_offset();
-        const auto& out_grad_stride = diff_loss_out->stride();
-        const auto& out_grad_data_ptr = diff_loss_out->data_ptr().get() + diff_loss_out->data_offset();
+        const auto &x_grad = x->get_grad();
+        const auto &x_grad_stride = x_grad->stride();
+        int64_t    x_shape_size  = x_grad->shape().size();
+        const auto &x_grad_data_ptr = x_grad->data_ptr().get() + x_grad->data_offset();
+        auto out_grad_stride = diff_loss_out->stride();
+        out_grad_stride[m_dim] = 0;
+        const auto &out_grad_data_ptr = diff_loss_out->data_ptr().get() + diff_loss_out->data_offset();
 
         #pragma omp parallel for
-        for (int64_t idx = 0; idx < static_cast<int64_t>(m_min_indices.size()); ++idx) {
-            const auto& el = m_min_indices[idx];
+        for (int64_t idx = 0; idx < static_cast<int64_t>(m_min_indices.size()); ++idx)
+        {
+            const auto &indices = m_min_indices[idx];
+
             int64_t offset_x = 0, offset_out = 0;
-            for ( int64_t i =0 ; i <  el.first.size();  i++){
-                offset_x += el.first[i] * x_grad_stride[ i < m_dim ? i :  i + 1];
-                offset_out += el.first[i] * out_grad_stride[i < m_dim ? i :  i + 1];
+
+            for (int64_t i = 0; i < x_shape_size ; i++)
+            {
+                offset_x += indices[i] * x_grad_stride[i];
+                offset_out += indices[i] * out_grad_stride[i];
             }
-            offset_x += el.second * x_grad_stride[m_dim];
-            
-            {  
+
+            {
                 *(x_grad_data_ptr + offset_x) += *(out_grad_data_ptr + offset_out);
             }
         }
+    }
+
+    std::vector<std::vector<int64_t>> Min_reduction::indices() const{
+        return m_min_indices;
     }
 
 }//ops

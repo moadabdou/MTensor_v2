@@ -185,6 +185,7 @@ target_sources(MTensor PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/data/mnist/mnist.cpp
 
   #dataset
+  ${CMAKE_CURRENT_SOURCE_DIR}/data/dataset/dataset.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/data/dataset/mnist.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/data/dataset/image_folder.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/data/loader/loader.cpp

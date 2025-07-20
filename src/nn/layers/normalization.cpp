@@ -3,23 +3,24 @@
 namespace mt {
 namespace nn {
 
-    BatchNormImpl::BatchNormImpl(int64_t num_features,float momentum, bool training):
-    running_mean(training ? Tensor::zeros({num_features}) : Tensor()),
-    running_var(training ? Tensor::zeros({num_features}) : Tensor())
+    BatchNormImpl::BatchNormImpl(int64_t num_features, bool& training,float momentum):
+    m_training(training),
+    m_momentum(momentum)
     {
-        bn = ops::BatchNormalization(training, running_mean.tensor_impl(), running_var.tensor_impl(), momentum);
+        running_mean = training ? auxiliary(Tensor::zeros({num_features})) : Tensor();
+        running_var  = training ? auxiliary(Tensor::zeros({num_features})) : Tensor();
         gamma = paramter(Tensor::ones({num_features}, training));
         beta  = paramter(Tensor::zeros({num_features}, training));
     }
 
     Tensor BatchNormImpl::forward(Tensor input){
+        auto bn = ops::BatchNormalization(m_training, running_mean.tensor_impl(), running_var.tensor_impl(), m_momentum);
         return bn.forward({input.tensor_impl(), gamma.tensor_impl(), beta.tensor_impl()});
     }
 
-    MTENSOR_API std::shared_ptr<Module> BatchNorm(int64_t num_features,float momentum, bool training){
-        return std::make_shared<BatchNormImpl>(num_features, momentum,  training);
+    MTENSOR_API std::shared_ptr<Module> BatchNorm(int64_t num_features, bool& training,float momentum){
+        return std::make_shared<BatchNormImpl>(num_features, training, momentum);
     }
-
 
 
 

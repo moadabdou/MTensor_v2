@@ -2,6 +2,7 @@ build
 .vscode
 vcpkg_installed
 tests
+examples
 external/vcpkg/buildtrees/
 external/vcpkg/downloads/
 external/vcpkg/packages/

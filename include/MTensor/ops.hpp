@@ -42,7 +42,8 @@ std::shared_ptr<float> reduce_max_last_dim_avx512(
     const float* data_ptr,
     const std::vector<int64_t>& shape,
     const std::vector<int64_t>& strides,
-    std::vector<std::pair<std::vector<int64_t>, int64_t>>& max_indices_vec
+    int64_t m_dim_out,
+    std::vector<std::vector<int64_t>>& max_indices_vec
 );
 
 std::pair<float, int> horizontal_min_with_index_512(__m512 min_vals_vec, __m512i min_indices_vec);
@@ -50,7 +51,8 @@ std::shared_ptr<float> reduce_min_last_dim_avx512(
     const float* data_ptr,
     const std::vector<int64_t>& shape,
     const std::vector<int64_t>& strides,
-    std::vector<std::pair<std::vector<int64_t>, int64_t>>& min_indices_vec
+    int64_t m_dim_out,
+    std::vector<std::vector<int64_t>>& min_indices_vec
 );
 
 
@@ -628,9 +630,10 @@ public:
     Max_reduction(int64_t dim, bool inc_counter = false);
     std::shared_ptr<TensorImpl> forward(const std::vector<std::shared_ptr<TensorImpl>>& operands) override;
     void backward(const std::shared_ptr<TensorImpl>& diff_loss_out) override;
+    std::vector<std::vector<int64_t>> indices() const;
 private:
     int64_t m_dim;
-    std::vector<std::pair<std::vector<int64_t>, int64_t>> m_max_indices;
+    std::vector<std::vector<int64_t>> m_max_indices;
     static int64_t count;
 };
 
@@ -640,9 +643,10 @@ public:
     Min_reduction(int64_t dim, bool inc_counter = false);
     std::shared_ptr<TensorImpl> forward(const std::vector<std::shared_ptr<TensorImpl>>& operands) override;
     void backward(const std::shared_ptr<TensorImpl>& diff_loss_out) override;
+    std::vector<std::vector<int64_t>> indices() const;
 private:
     int64_t m_dim;
-    std::vector<std::pair<std::vector<int64_t>, int64_t>> m_min_indices;
+    std::vector<std::vector<int64_t>> m_min_indices;
     static int64_t count;
 };
 
@@ -983,7 +987,7 @@ private:
 
 class MTENSOR_API BatchNormalization: public Operation {
 public:
-    BatchNormalization(){}
+    BatchNormalization():m_training(true){}
     //inc_counter is true for operations that are inserted in grad graph
     BatchNormalization(
         bool training,

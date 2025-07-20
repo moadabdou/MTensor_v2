@@ -48,11 +48,14 @@ namespace mt
 
             try
             {
+                
                 const auto &in_tensor = operands[0];
                 const auto &src_shape = in_tensor->shape();
                 const auto &weights = operands[1];
                 const auto &weights_shape = weights->shape();
                 const auto &bias = operands.size() > 2 ? operands[2] : nullptr;
+
+               
 
                 if (
                     src_shape.size() != 4 ||
@@ -62,17 +65,20 @@ namespace mt
                     throw std::invalid_argument(" in_tensor and weights must be of shape (B,C,H,W) while bias must be 1d tensor ");
                 }
 
+
                 if (
                     src_shape[1] != weights_shape[1])
                 {
                     throw std::invalid_argument(" in_tensor and weights must have same channels number (if in_tensor is (B,C,H,W) then weights must be (OC,C,KH,KW)) ! ");
                 }
 
+
                 if (
                     bias && bias->shape()[0] != weights_shape[0])
                 {
                     throw std::invalid_argument(" bias and weights must have same out_channels number (if bias is (OC) then weights must be (OC,C,KH,KW)) ! ");
                 }
+
 
                 dnnl::engine eng(dnnl::engine::kind::cpu, 0);
                 dnnl::stream strm(eng);

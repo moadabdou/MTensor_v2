@@ -18,7 +18,8 @@ find_package(ZLIB REQUIRED)
 find_package(PNG REQUIRED)
 
 add_subdirectory(src)
-add_subdirectory(tests)
+#add_subdirectory(tests)
+add_subdirectory(examples)
 
 
 

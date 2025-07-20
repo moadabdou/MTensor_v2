@@ -44,16 +44,19 @@ namespace mt
             Contiguous contiguous;
             Transpose transpose(m_dim, max_dim);
 
+            bool changed = false;
             if (m_dim != max_dim)
             { // if not last dim
                 in_tensor = contiguous.forward({transpose.forward({in_tensor})});
+                changed = true;
             }
             else if (!in_tensor->is_contiguous())
             {
                 in_tensor = contiguous.forward({in_tensor});
+                changed = true;
             }
 
-            if (in_tensor->grad_fn())
+            if (in_tensor->grad_fn() && changed)
             {
                 in_tensor->grad_fn()->set_operands({}); // free the memory
             }
@@ -69,6 +72,7 @@ namespace mt
                 in_tensor->data_ptr().get(),
                 in_shape,
                 in_stride,
+                m_dim,
                 m_max_indices);
 
             std::shared_ptr<Max_reduction> grad_fn = nullptr;
@@ -112,30 +116,35 @@ namespace mt
 
             const auto &x_grad = x->get_grad();
             const auto &x_grad_stride = x_grad->stride();
+            int64_t    x_shape_size  = x_grad->shape().size();
             const auto &x_grad_data_ptr = x_grad->data_ptr().get() + x_grad->data_offset();
-            const auto &out_grad_stride = diff_loss_out->stride();
+            auto out_grad_stride = diff_loss_out->stride();
+            out_grad_stride[m_dim] = 0;
             const auto &out_grad_data_ptr = diff_loss_out->data_ptr().get() + diff_loss_out->data_offset();
 
-#pragma omp parallel for
+            #pragma omp parallel for
             for (int64_t idx = 0; idx < static_cast<int64_t>(m_max_indices.size()); ++idx)
             {
-                const auto &el = m_max_indices[idx];
+                const auto &indices = m_max_indices[idx];
 
                 int64_t offset_x = 0, offset_out = 0;
 
-                for (int64_t i = 0; i < el.first.size(); i++)
+                for (int64_t i = 0; i < x_shape_size ; i++)
                 {
-                    offset_x += el.first[i] * x_grad_stride[i < m_dim ? i : i + 1];
-                    offset_out += el.first[i] * out_grad_stride[i < m_dim ? i : i + 1];
+                    offset_x += indices[i] * x_grad_stride[i];
+                    offset_out += indices[i] * out_grad_stride[i];
                 }
-                offset_x += el.second * x_grad_stride[m_dim];
-
 
                 {
                     *(x_grad_data_ptr + offset_x) += *(out_grad_data_ptr + offset_out);
                 }
             }
         }
+
+
+        std::vector<std::vector<int64_t>> Max_reduction::indices() const{
+            return m_max_indices;
+        } 
 
     } // ops
 } // mt

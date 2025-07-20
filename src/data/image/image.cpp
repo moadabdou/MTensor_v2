@@ -27,7 +27,7 @@ namespace data{
             for (int y = 0; y < IH; ++y) {
                 for (int x = 0; x < IW; ++x) {
                     float pixel = img(x, y, 0, c);
-                    data_ptr[c * IH * IW + y * IW + x] = pixel;
+                    data_ptr[c * IH * IW + y * IW + x] = pixel ;
                 }
             }
         }

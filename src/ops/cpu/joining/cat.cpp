@@ -52,7 +52,8 @@ namespace ops{
             for(int64_t i = 0; i < in_shape_size; i++){
                 if(i != m_dim && el->shape()[i] != op_ref->shape()[i]){
                     throw std::invalid_argument(
-                        "error: Cat() all operands must have shape of equal dims except m_dim"
+                        std::string("error: Cat() all operands must have shape of equal dims except m_dim")+
+                        "expected " + std::to_string(op_ref->shape()[i]) + " at dim " + std::to_string(i) + " but got " +  std::to_string(el->shape()[i]) 
                     );
                 }
 

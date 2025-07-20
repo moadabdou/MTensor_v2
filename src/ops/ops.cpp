@@ -99,9 +99,9 @@ std::shared_ptr<float> reduce_max_last_dim_avx512(
     const float* data_ptr,
     const std::vector<int64_t>& shape,
     const std::vector<int64_t>& strides,
-    std::vector<std::pair<std::vector<int64_t>, int64_t>>& max_indices_vec
+    int64_t m_dim_out,
+    std::vector<std::vector<int64_t>>& max_indices_vec
 ) {
-
     const int64_t last_dim_size = shape.back();
     std::vector<int64_t> outer_shape(shape.begin(), shape.end() - 1);
     std::vector<int64_t> outer_strides(strides.begin(), strides.end() - 1);
@@ -151,7 +151,11 @@ std::shared_ptr<float> reduce_max_last_dim_avx512(
         }
 
         output_ptr.get()[logical_idx] = max_val;
-        max_indices_vec[logical_idx] = {outer_coords , max_idx};
+        std::vector<int64_t> out_indices = outer_coords;
+        out_indices.resize(outer_coords.size() + 1);
+        out_indices.back() = out_indices[m_dim_out];
+        out_indices[m_dim_out] = max_idx;
+        max_indices_vec[logical_idx] = out_indices;
     };
 
     it.parallel_for_each(kernel);
@@ -196,7 +200,8 @@ std::shared_ptr<float> reduce_min_last_dim_avx512(
     const float* data_ptr,
     const std::vector<int64_t>& shape,
     const std::vector<int64_t>& strides,
-    std::vector<std::pair<std::vector<int64_t>, int64_t>>& min_indices_vec
+    int64_t m_dim_out,
+    std::vector<std::vector<int64_t>>& min_indices_vec
 ) {
 
     const int64_t last_dim_size = shape.back();
@@ -248,7 +253,11 @@ std::shared_ptr<float> reduce_min_last_dim_avx512(
         }
 
         output_ptr.get()[logical_idx] = min_val;
-        min_indices_vec[logical_idx] = {outer_coords , min_idx};
+        std::vector<int64_t> out_indices = outer_coords;
+        out_indices.resize(outer_coords.size() + 1);
+        out_indices.back() = out_indices[m_dim_out];
+        out_indices[m_dim_out] = min_idx;
+        min_indices_vec[logical_idx] = out_indices;
     };
 
     it.parallel_for_each(kernel);

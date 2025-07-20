@@ -51,7 +51,6 @@ namespace ops{
     } 
  
     std::shared_ptr<TensorImpl> BatchNormalization::forward(const std::vector<std::shared_ptr<TensorImpl>>& operands) {
-        
         try {
             const auto& in_tensor = operands[0];
             const auto& src_shape = in_tensor->shape();

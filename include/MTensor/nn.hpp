@@ -20,6 +20,9 @@ namespace nn {
         //virtual Tensor backward(const Tensor& grad_output) = 0;
 
         std::vector<Tensor> paramters() const;
+        std::vector<Tensor> auxiliaries() const;
+        Tensor auxiliary(const Tensor& aux);
+        void auxiliary(const std::vector<Tensor>& aux);
 
         virtual ~Module() = default;
 
@@ -27,12 +30,17 @@ namespace nn {
 
         std::shared_ptr<Module> module(const std::shared_ptr<Module>& module);
         Tensor paramter(const Tensor& prm);
+
+        
         std::vector<std::shared_ptr<Module>> m_direct_children; 
         std::vector<Tensor> m_direct_paramters;
+        std::vector<Tensor> m_direct_auxiliaries;
+
 
     private:
 
         void _parameters( std::vector<Tensor>& collector ) const;
+        void _auxiliaries( std::vector<Tensor>& collector ) const;
 
     };
 
@@ -256,7 +264,8 @@ namespace nn {
 
     class MTENSOR_API BatchNormImpl: public Module{
 
-        ops::BatchNormalization bn;
+        const bool& m_training;
+        float m_momentum;
         Tensor running_mean;
         Tensor running_var;
         Tensor gamma; 
@@ -264,12 +273,12 @@ namespace nn {
 
     public: 
 
-        BatchNormImpl(int64_t num_features, float momentum = 0.1f, bool training = true);
+        BatchNormImpl(int64_t num_features, bool& training, float momentum = 0.1f );
         Tensor forward(Tensor input) override;
 
     };
 
-    MTENSOR_API std::shared_ptr<Module> BatchNorm(int64_t num_features, float momentum = 0.1f, bool training = true);
+    MTENSOR_API std::shared_ptr<Module> BatchNorm(int64_t num_features, bool& training ,float momentum = 0.1f);
 
 
     class MTENSOR_API LayerNormImpl: public Module{

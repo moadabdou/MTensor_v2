@@ -6,7 +6,6 @@
 
 namespace mt {
 
-
     Tensor::Tensor(const std::shared_ptr<TensorImpl>& tensor_impl):
     m_tensor_impl(tensor_impl)
     {}
@@ -406,14 +405,17 @@ namespace mt {
     }
 
     //________________ reduction ___________ 
-    Tensor Tensor::max(Dim dim) const {
+    
+    values_indices Tensor::max(Dim dim) const {
         ops::Max_reduction max_r(dim);
-        return max_r.forward({m_tensor_impl});
+        auto res = max_r.forward({m_tensor_impl});
+        return { res ,  max_r.indices()};
     }
     
-    Tensor Tensor::min(Dim dim) const {
+    values_indices Tensor::min(Dim dim) const {
         ops::Min_reduction min_r(dim);
-        return min_r.forward({m_tensor_impl});
+        auto res =  min_r.forward({m_tensor_impl});
+        return { res ,  min_r.indices()};
     }
 
     Tensor Tensor::mean(Dim dim, float eps) const {

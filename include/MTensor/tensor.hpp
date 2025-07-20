@@ -9,6 +9,7 @@ namespace mt {
 
     using Shape = std::vector<int64_t>;
     using Dim   = int64_t;
+    struct values_indices;
 
     class  MTENSOR_API Tensor{
 
@@ -89,7 +90,7 @@ namespace mt {
                 return tensor.linear(-1.f, scalar);
             }
             friend Tensor operator/(const float& scalar, const Tensor& tensor){
-                return tensor.pow(-1.0f) * scalar;
+                return tensor.pow(-1.0f, scalar);
             }
             friend Tensor operator*(const float& scalar, const Tensor& tensor){
                 return tensor * scalar;
@@ -121,7 +122,8 @@ namespace mt {
             Tensor relu(float alpha = 0.0f) const;
             Tensor simgoid() const;
             Tensor sqrt() const;
-            Tensor tanh() const;  
+            Tensor tanh() const;
+
 
             //________________ joining ____________
             static Tensor cat(const std::vector<Tensor>& tensors, Dim dim);
@@ -136,8 +138,8 @@ namespace mt {
             Tensor contiguous() const;
 
             //________________ reduction ___________ 
-            Tensor max(Dim dim) const;
-            Tensor min(Dim dim) const;
+            values_indices max(Dim dim) const;
+            values_indices min(Dim dim) const;
             Tensor mean(Dim dim = EOD, float eps=1e-10f) const;
             Tensor mul(Shape dims) const;
             Tensor norm_lp_power_p_sum(Shape dims, float p, float eps=1e-10f) const;
@@ -167,7 +169,11 @@ namespace mt {
             std::shared_ptr<TensorImpl> m_tensor_impl;
 
     };
-
+ 
+    struct values_indices{
+        Tensor values;
+        std::vector<Shape> indices;
+    };
 
 }//mt
 
